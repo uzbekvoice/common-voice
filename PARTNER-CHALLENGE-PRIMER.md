@@ -4,7 +4,7 @@
 
 ## Contact
 
-Hi, I'm Riley. I'm the lead engineer on Common Voice, and I'm really excited to work together on this. My email is rshaw@mozilla.com. If you need to send me a direct message, I'm [@rileyjshaw](https://keybase.io/rileyjshaw) on [Keybase](https://keybase.io/). Please let me know if you have questions, run into issues during setup, or need help with anything.
+Hi, I'm Riley. I'm the lead engineer on Common Voice's Open Voice Challenge, and I'm really excited to work together on this. My email is rshaw@mozilla.com. If you need to send me a direct message, I'm [@rileyjshaw](https://keybase.io/rileyjshaw) on [Keybase](https://keybase.io/). Please let me know if you have questions, run into issues during setup, or need help with anything.
 
 I understand that Catherine will be working on the front-end, and Can on the back-end. I've split this document into front- and back-end sections where useful, but you may want to read the whole thing anyway.
 
