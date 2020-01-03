@@ -87,7 +87,7 @@ img.icon {
                 text-align: left;
                 width: 54%;
             }
-            &.invite {
+            &.team-challenge-progress {
                 width: 44%;
             }
         }
@@ -150,16 +150,16 @@ img.icon {
 .team-bar {
     color: var(--blue) !important;
 }
-.team-text,
-.team-invite {
+.team-challenge-subtitle,
+.team-challenge-explanation {
     padding: 0 10px;
     line-height: 1.5;
     font-size: 16px;
 }
-.team-text {
+.team-challenge-subtitle {
     color: var(--near-black);
 }
-.team-invite {
+.team-challenge-explanation {
     color: var(--warm-grey);
 }
 .v-divider {
@@ -168,7 +168,7 @@ img.icon {
     background-color: var(--light-grey);
     margin: 15px auto;
 }
-.team-invite-total {
+.team-challenge-label {
     font-weight: 600;
     text-align: center;
     margin-top: 15px;
@@ -260,7 +260,7 @@ img.icon {
                 order: 2;
             }
 
-            .invite {
+            .team-challenge-progress {
                 display: flex;
                 order: 1;
             }
@@ -275,16 +275,16 @@ img.icon {
                 padding-left: 0.25rem;
             }
 
-            .team-invite-total {
+            .team-challenge-label {
                 text-align: left;
             }
         }
 
-        .team-text {
+        .team-challenge-subtitle {
             padding: 0;
         }
 
-        .team-invite {
+        .team-challenge-explanation {
             font-size: 12px;
             padding: 12px 0 0 0;
         }

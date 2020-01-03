@@ -84,8 +84,16 @@ export default class Challenge {
       client_id,
       challenge
     );
+    const week = Math.max(0, Math.min(progress.week, 2));
+    const teamProgress = await this.model.db.getWeeklyTeamProgress(
+      week,
+      progress.start_date,
+      progress.end_date,
+      client_id,
+      challenge
+    );
     const weeklyProgress = {
-      week: Math.max(0, Math.min(progress.week, 2)),
+      week,
       challengeComplete: progress.week > 2,
       user: {
         speak: progress.clip_count,
@@ -93,7 +101,9 @@ export default class Challenge {
         listen: progress.vote_count,
         listen_total: progress.week === 1 ? 100 : 200,
       },
-      team: { invite: progress.teammate_count, invite_total: 50 },
+      team: {
+        progress: teamProgress,
+      },
     };
     response.json(weeklyProgress);
   };

@@ -8,8 +8,7 @@ export interface WeeklyChallenge {
     listen_total: number;
   };
   team: {
-    invite: number;
-    invite_total: number;
+    progress: number;
   };
 }
 

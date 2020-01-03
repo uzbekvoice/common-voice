@@ -92,29 +92,28 @@ export default function WeeklyChallengeBoard({
             </div>
             <div className="column challenge-stats team-stats">
               <div className="container team">
-                {/* TODO: Change .team-text and .team-invite classNames. */}
-                <p className="team-text">
+                <p className="team-challenge-subtitle">
                   {weeklyChallengeCopy[week].subtitle}
                 </p>
                 <div className="v-divider" />
-                <p className="team-invite">
+                <p className="team-challenge-explanation">
                   {weeklyChallengeCopy[week].explanation}
                 </p>
               </div>
-              <div className="container invite">
+              <div className="container team-challenge-progress">
                 <CircleProgress
                   className="team-bar progress-desktop"
-                  value={team.invite / team.invite_total}
+                  value={team.progress}
                   strokeW={4}
                   radius={66}
                 />
                 <Fraction
-                  numerator={(100 * team.invite) / team.invite_total}
+                  numerator={100 * team.progress}
                   className="team-bar progress-mobile"
                   percentage
                 />
-                <p className="team-invite-total">
-                  of {team.invite_total} invites
+                <p className="team-challenge-label">
+                  {weeklyChallengeCopy[week].label}
                 </p>
               </div>
             </div>

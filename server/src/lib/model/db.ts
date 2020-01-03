@@ -694,35 +694,72 @@ export default class DB {
   async getWeeklyProgress(client_id: string, challenge: string) {
     const [[row]] = await this.mysql.query(
       `
-      SELECT speaker.client_id, start_date, end_date, week, teammate_count, clip_count, COUNT(votes.id) AS vote_count
+      SELECT speaker.client_id, start_date, end_date, week, clip_count, COUNT(votes.id) AS vote_count
       FROM (
-          SELECT user.client_id, start_date, end_date, week, teammate_count, COUNT(clips.id) AS clip_count
+          SELECT user.client_id, start_date, end_date, week, COUNT(clips.id) AS clip_count
           FROM (
               SELECT user_clients.client_id,
                   TIMESTAMPDIFF(WEEK, start_date, NOW()) AS week,
                   TIMESTAMPADD(WEEK, TIMESTAMPDIFF(WEEK, start_date, NOW()), start_date) AS start_date,
                   TIMESTAMPADD(WEEK, TIMESTAMPDIFF(WEEK, start_date, NOW()) + 1, start_date) AS end_date,
-                  COUNT(teammate.id) AS teammate_count
               FROM user_clients
               LEFT JOIN enroll ON user_clients.client_id = enroll.client_id
               LEFT JOIN challenges ON enroll.challenge_id = challenges.id
-              LEFT JOIN teams ON enroll.team_id = teams.id AND challenges.id = teams.challenge_id
-              LEFT JOIN enroll teammate ON teams.id = teammate.team_id
-                  AND challenges.id = teammate.challenge_id
-                  AND teammate.enrolled_at BETWEEN start_date AND TIMESTAMPADD(WEEK, 2, start_date)
-                  AND teammate.invited_by IS NOT NULL
               WHERE user_clients.client_id = ? AND challenges.url_token = ?
               GROUP BY user_clients.client_id, start_date, end_date, week
           ) user
           LEFT JOIN clips ON user.client_id = clips.client_id AND clips.created_at BETWEEN start_date AND end_date
-          GROUP BY user.client_id, start_date, end_date, week, teammate_count
+          GROUP BY user.client_id, start_date, end_date, week
       ) speaker
       LEFT JOIN votes ON speaker.client_id = votes.client_id AND votes.created_at BETWEEN start_date AND end_date
-      GROUP BY speaker.client_id, start_date, end_date, teammate_count, clip_count
+      GROUP BY speaker.client_id, start_date, end_date, clip_count
       `,
       [client_id, challenge]
     );
     return row;
+  }
+
+  async getWeeklyTeamProgress(
+    week: number,
+    start_date: string,
+    end_date: string,
+    client_id: string,
+    challenge: string
+  ) {
+    if (week === 2) {
+      const [[row]] = await this.mysql.query(
+        `
+        SELECT COUNT(teammate.id) / 50 as progress
+        FROM user_clients
+        LEFT JOIN enroll ON user_clients.client_id = enroll.client_id
+        LEFT JOIN challenges ON enroll.challenge_id = challenges.id
+        LEFT JOIN teams ON enroll.team_id = teams.id AND challenges.id = teams.challenge_id
+        LEFT JOIN enroll teammate ON teams.id = teammate.team_id
+          AND challenges.id = teammate.challenge_id
+          AND teammate.enrolled_at BETWEEN ? AND ?
+        WHERE user_clients.client_id = ? AND challenges.url_token = ?
+        `,
+        [start_date, end_date, client_id, challenge]
+      );
+      return row;
+    } else {
+      const [[row]] = await this.mysql.query(
+        `
+        SELECT COUNT(teammate.id) / 50 as progress
+        FROM user_clients
+        LEFT JOIN enroll ON user_clients.client_id = enroll.client_id
+        LEFT JOIN challenges ON enroll.challenge_id = challenges.id
+        LEFT JOIN teams ON enroll.team_id = teams.id AND challenges.id = teams.challenge_id
+        LEFT JOIN enroll teammate ON teams.id = teammate.team_id
+          AND challenges.id = teammate.challenge_id
+          AND teammate.enrolled_at BETWEEN ? AND ?
+          ${week === 1 ? 'AND teammate.invited_by IS NOT NULL' : ''}
+        WHERE user_clients.client_id = ? AND challenges.url_token = ?
+        `,
+        [start_date, end_date, client_id, challenge]
+      );
+      return row;
+    }
   }
 
   async hasChallengeEnded(challenge: ChallengeToken) {
