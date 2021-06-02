@@ -337,7 +337,7 @@ function ProfilePage({
 
       <Hr />
 
-      {!user.account?.basket_token && (
+      {(user.account && !user.account.basket_token) && (
         <>
           <div className="signup-section">
             <Tooltip
@@ -345,7 +345,7 @@ function ProfilePage({
               html={getString('change-email-setings')}
               theme="grey-tooltip">
               <Localized id="email-input" attrs={{ label: true }}>
-                <LabeledInput value={user.userClients[0].email} disabled />
+                <LabeledInput value={user.account.email} disabled />
               </Localized>
             </Tooltip>
 
