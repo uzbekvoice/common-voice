@@ -144,21 +144,12 @@ export default class Clip {
     const size = headers['content-length'];
 
     if (!sentenceId || !client_id) {
-      response.statusMessage = 'save_clip_missing_parameter';
-      response
-        .status(400)
-        .send(
-          `Missing parameter: ${sentenceId ? 'client_id' : 'sentence_id'}.`
-        );
-      console.log(`sent headers: ${JSON.stringify(headers)}`);
-      throw new ClientParameterError();
+      throw new ClientParameterError(`save_clip_missing_parameter: ${sentenceId ? 'client_id' : 'sentence_id'}.`);
     }
 
     const sentence = await this.model.db.findSentence(sentenceId);
     if (!sentence) {
-      response.statusMessage = 'save_clip_missing_sentence';
-      response.status(422).send(`Sentence not found: ${sentenceId}.`);
-      throw new ServerError();
+      throw new ServerError(`save_clip_missing_sentence: Sentence not found: ${sentenceId}.`);
     }
 
     // Where is our audio clip going to be located?

@@ -195,7 +195,7 @@ export default class Server {
           response: Response,
           next: NextFunction
         ) => {
-          console.log(error.message, error.stack);
+          console.log(error.stack);
           const isAPIError = error instanceof APIError;
           if (!isAPIError) {
             console.error(request.url, error.message, error.stack);
