@@ -157,90 +157,88 @@ export default class Clip {
     const filePrefix = sentenceId;
     const clipFileName = folder + filePrefix + '.mp3';
 
-    try {
-      // If the folder does not exist, we create it.
-      await this.s3
-        .putObject({ Bucket: getConfig().CLIP_BUCKET_NAME, Key: folder })
-        .promise();
+    // If the folder does not exist, we create it.
+    await this.s3
+      .putObject({ Bucket: getConfig().CLIP_BUCKET_NAME, Key: folder })
+      .promise();
 
-      let audioInput = request;
+    let audioInput = request;
 
-      if (getConfig().FLAG_BUFFER_STREAM_ENABLED && format.includes('aac')) {
-        // aac data comes wrapped in an mpeg container, which is incompatible with
-        // ffmpeg's piped stream functions because the moov bit comes at the end of
-        // the stream, at which point ffmpeg can no longer seek back to the beginning
-        // createBufferedInputStream will create a local file and pipe data in as
-        // a file, which doesn't lose the seek mechanism
+    if (getConfig().FLAG_BUFFER_STREAM_ENABLED) {
+      // aac data comes wrapped in an mpeg container, which is incompatible with
+      // ffmpeg's piped stream functions because the moov bit comes at the end of
+      // the stream, at which point ffmpeg can no longer seek back to the beginning
+      // createBufferedInputStream will create a local file and pipe data in as
+      // a file, which doesn't lose the seek mechanism
 
-        const converter = new Converter();
-        const audioStream = Readable.from(request);
+      const converter = new Converter();
+      const audioStream = Readable.from(request);
 
-        audioInput = converter.createBufferedInputStream();
-        audioStream.pipe(audioInput);
-      }
-
-      const audioOutput = new Transcoder(audioInput)
-        .audioCodec('mp3')
-        .format('mp3')
-        .channels(1)
-        .sampleRate(32000)
-        .stream();
-
-      await this.s3
-        .upload({
-          Bucket: getConfig().CLIP_BUCKET_NAME,
-          Key: clipFileName,
-          Body: audioOutput,
-        })
-        .promise();
-
-      console.log(
-        `clip written to s3 ${clipFileName} (${size} bytes, ${format}) from ${source}`
-      );
-
-      await this.model.saveClip({
-        client_id: client_id,
-        localeId: sentence.locale_id,
-        original_sentence_id: sentenceId,
-        path: clipFileName,
-        sentence: sentence.text,
-      });
-      await Awards.checkProgress(client_id, { id: sentence.locale_id });
-
-      await checkGoalsAfterContribution(client_id, { id: sentence.locale_id });
-
-      Basket.sync(client_id).catch(e => console.error(e));
-
-      const challenge = headers.challenge as ChallengeToken;
-      const ret = challengeTokens.includes(challenge)
-        ? {
-            filePrefix: filePrefix,
-            showFirstContributionToast: await earnBonus('first_contribution', [
-              challenge,
-              client_id,
-            ]),
-            hasEarnedSessionToast: await hasEarnedBonus(
-              'invite_contribute_same_session',
-              client_id,
-              challenge
-            ),
-            // can't simply reduce the number of the calls to DB through streak_days in checkGoalsAfterContribution()
-            // since the the streak_days may start before the time when user set custom_goals, check to win bonus for each contribution
-            showFirstStreakToast: await earnBonus('three_day_streak', [
-              client_id,
-              client_id,
-              challenge,
-            ]),
-            challengeEnded: await this.model.db.hasChallengeEnded(challenge),
-          }
-        : { filePrefix };
-      response.json(ret);
-    } catch (error) {
-      console.error(error);
-      response.statusCode = error.statusCode || 500;
-      response.statusMessage = 'save_clip_error';
-      response.json(error);
+      audioInput = converter.createBufferedInputStream();
+      audioStream.pipe(audioInput);
     }
+
+    const audioOutput = new Transcoder(audioInput)
+      .audioCodec('mp3')
+      .format('mp3')
+      .channels(1)
+      .sampleRate(32000)
+      .on('error', (error: any) => {
+        throw new ServerError(`${error.message} (${clipFileName}: original file ${size} bytes, ${format} from ${source})`)
+      })
+      .on('finish', async () => {
+        await this.s3
+          .upload({
+            Bucket: getConfig().CLIP_BUCKET_NAME,
+            Key: clipFileName,
+            Body: audioOutput,
+          })
+          .promise();
+
+        console.log(
+          `clip written to s3 ${clipFileName} (${size} bytes, ${format}) from ${source}`
+        );
+
+        await this.model.saveClip({
+          client_id: client_id,
+          localeId: sentence.locale_id,
+          original_sentence_id: sentenceId,
+          path: clipFileName,
+          sentence: sentence.text,
+        });
+        await Awards.checkProgress(client_id, { id: sentence.locale_id });
+
+        await checkGoalsAfterContribution(client_id, { id: sentence.locale_id });
+
+        Basket.sync(client_id).catch(e => console.error(e));
+
+        const challenge = headers.challenge as ChallengeToken;
+        const ret = challengeTokens.includes(challenge)
+          ? {
+              filePrefix: filePrefix,
+              showFirstContributionToast: await earnBonus('first_contribution', [
+                challenge,
+                client_id,
+              ]),
+              hasEarnedSessionToast: await hasEarnedBonus(
+                'invite_contribute_same_session',
+                client_id,
+                challenge
+              ),
+              // can't simply reduce the number of the calls to DB through streak_days in checkGoalsAfterContribution()
+              // since the the streak_days may start before the time when user set custom_goals, check to win bonus for each contribution
+              showFirstStreakToast: await earnBonus('three_day_streak', [
+                client_id,
+                client_id,
+                challenge,
+              ]),
+              challengeEnded: await this.model.db.hasChallengeEnded(challenge),
+            }
+          : { filePrefix };
+        response.json(ret);
+      })
+      .stream();
+
   };
 
   serveRandomClips = async (
