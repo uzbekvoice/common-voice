@@ -62,6 +62,7 @@ export function reducers(
     | Uploads.Action
     | User.Action
 ): StateTree {
+  console.log('user', user);
   const newState = {
     clips: Clips.reducer(locale, clips, action as Clips.Action),
     flags: Flags.reducer(flags, action as Flags.Action),

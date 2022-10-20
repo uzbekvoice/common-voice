@@ -43,8 +43,11 @@ const getCreateAccountComponents = (): PageContentType => {
             <Localized id="demo-account-card-body" />
           </p>
           <div id="demo-account-sign-up">
-            <Link to="voice.mozilla.org/login" id="signup-link" target="blank">
-              voice.mozilla.org/login
+            <Link
+              to="common.uzbekvoice.ai/login"
+              id="signup-link"
+              target="blank">
+              common.uzbekvoice.ai/login
             </Link>
           </div>
         </KioskCard.Body>

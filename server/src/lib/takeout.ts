@@ -5,6 +5,7 @@ import * as Bull from 'bull';
 import { Job, Queue, QueueOptions } from 'bull';
 import { getConfig } from '../config-helper';
 import { TakeoutRequest, TakeoutState } from 'common';
+import { getRedisConfig } from './queues/imageQueue';
 
 // How many concurrent takeouts can take place at any time.
 const kTakeoutConcurrency = 10;
@@ -31,11 +32,7 @@ export type TaskQueues = {
 };
 
 export function createTaskQueues(takeout: Takeout): TaskQueues {
-  const redisUrlParts = getConfig().REDIS_URL?.split('//');
-  const redisDomain =
-    redisUrlParts.length > 1 ? redisUrlParts[1] : redisUrlParts[0];
-
-  let redisOpts: any = { host: redisDomain };
+  let redisOpts = getRedisConfig();
   if (getConfig().REDIS_URL.includes('rediss://')) {
     redisOpts = { ...redisOpts, tls: redisOpts };
   }

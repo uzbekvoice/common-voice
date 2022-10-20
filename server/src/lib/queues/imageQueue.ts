@@ -1,19 +1,20 @@
 import * as Queue from 'bull';
 import { getConfig } from '../../config-helper';
 import imageProcessor from './processes/imageProcessor'; // producer
+import { URL } from 'url';
+import { RedisOptions } from 'ioredis';
 
-const getRedisConfig = () => {
-  const redisUrlParts = getConfig().REDIS_URL?.split('//');
-  if (!redisUrlParts) return { host: '' }; //config fails on test
-
-  const redisDomain =
-    redisUrlParts.length > 1 ? redisUrlParts[1] : redisUrlParts[0];
-
-  let redisOpts: any = { host: redisDomain };
-  if (getConfig().REDIS_URL.includes('rediss://')) {
-    redisOpts = { ...redisOpts, tls: redisOpts };
-  }
-  return redisOpts;
+export const getRedisConfig = (): RedisOptions => {
+  const { REDIS_URL } = getConfig();
+  const parsedURL = new URL(REDIS_URL);
+  return {
+    host: parsedURL.hostname || 'localhost',
+    port: Number(parsedURL.port || 6379),
+    db: Number.parseInt((parsedURL.pathname || '/0').substr(1) || '0'),
+    password: parsedURL.password
+      ? decodeURIComponent(parsedURL.password)
+      : null,
+  };
 };
 
 const NotificationQueue = new Queue('Notification', {

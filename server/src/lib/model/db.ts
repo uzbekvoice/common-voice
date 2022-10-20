@@ -325,7 +325,7 @@ export default class DB {
               reported.client_id = ?
           )
           ${exemptFromSSRL ? '' : 'AND (clips_count = 0 OR has_valid_clip = 0)'}
-          ORDER BY clips_count ASC
+          ORDER BY clips_count ASC, word_count ASC
           LIMIT ?
         ) t
         ORDER BY RAND()
@@ -599,6 +599,12 @@ export default class DB {
     return clips as DBClip[];
   }
 
+  async registerUser(user: {
+    client_id: string;
+    locale_id: number;
+    age: number;
+  }) {}
+
   /**
    * Creates user_client if it doesn't exist and checks whether the given
    * auth_token matches it
@@ -649,53 +655,35 @@ export default class DB {
       [id, client_id, is_valid ? 1 : 0]
     );
 
-    await this.mysql.query(
-      `
-        /** Update the following:
-         *
-         *  updated_clips.is_valid:
-         *    TRUE if it's been decided that it's a good clip.
-         *    FALSE if it's been decided that it's a bad clip.
-         *    NULL if it hasn't received enough votes yet.
-         *
-         *  updated_clips.validated_at:
-         *    The last time is_valid changed, or NULL if is_valid is NULL.
-         */
-        UPDATE clips updated_clips
-        /* This join allows us to determine a clip's is_valid status once, then
-           use it to set multiple column values later. */
-        INNER JOIN (
-          SELECT
-            id,
-            CASE
-              WHEN counts.upvotes >= 2 AND counts.upvotes > counts.downvotes
-                THEN TRUE
-              WHEN counts.downvotes >= 2 AND counts.downvotes > counts.upvotes
-                THEN FALSE
-              ELSE NULL
-            END as is_valid
-          FROM (
-            SELECT
-              clips.id AS id,
-              COALESCE(SUM(votes.is_valid), 0)     AS upvotes,
-              COALESCE(SUM(NOT votes.is_valid), 0) AS downvotes
-            FROM clips
-            LEFT JOIN votes ON clips.id = votes.clip_id
-            WHERE clips.id = ${id}
-            GROUP BY clips.id
-          ) counts
-        ) t ON updated_clips.id = t.id
-        /* updated_clips.validated_at will only update when is_valid changes.
-           The comparison is messy since we can't use <> directly on NULL. */
+    await this.mysql.query(`
+      UPDATE clips updated_clips
+        INNER JOIN (SELECT id,
+        CASE
+        WHEN counts.upvotes >= 2 AND (counts.upvotes / total_count) > 0.65
+        THEN TRUE
+        WHEN counts.downvotes >= 2 AND (counts.downvotes / total_count) > 0.65
+        THEN FALSE
+        ELSE NULL
+        END as is_valid
+        FROM (SELECT clips.id AS id,
+        COALESCE (SUM (votes.is_valid), 0) AS upvotes,
+        COALESCE (SUM (NOT votes.is_valid or reported_clips.clip_id is not null), 0) AS downvotes,
+        COALESCE (SUM (reported_clips.client_id is not null or votes.client_id is not null or
+        skipped_clips.client_id is not null), 0) AS total_count
+        FROM clips
+        LEFT JOIN votes ON clips.id = votes.clip_id
+        LEFT JOIN reported_clips on clips.id = reported_clips.clip_id
+        LEFT JOIN skipped_clips on clips.id = skipped_clips.clip_id
+        WHERE clips.id = ${id}
+        GROUP BY clips.id) counts) t
+      ON updated_clips.id = t.id
         SET updated_clips.validated_at = IF(
-              IFNULL(t.is_valid, 2) <> IFNULL(updated_clips.is_valid, 2),  -- Cast NULL to 2 for the comparison.
-              IF(ISNULL(t.is_valid), NULL, NOW()),  -- If is_valid has changed, update validated_at…
-              updated_clips.validated_at            -- …otherwise, leave it the same.
-            ),
-            updated_clips.is_valid = t.is_valid
-        WHERE updated_clips.id = ${id}
-      `
-    );
+          IFNULL(t.is_valid, 2) <> IFNULL(updated_clips.is_valid, 2), -- Cast NULL to 2 for the comparison.
+          IF(ISNULL(t.is_valid), NULL, NOW()),                        -- If is_valid has changed, update validated_at…
+          updated_clips.validated_at                                  -- …otherwise, leave it the same.
+          ), updated_clips.is_valid = t.is_valid
+      WHERE updated_clips.id = ${id}
+    `);
 
     await this.mysql.query(
       `UPDATE sentences

@@ -28,6 +28,29 @@ async function getFilesInFolder(path: string): Promise<string[]> {
 
 const SENTENCES_PER_CHUNK = 200;
 
+function getSentences(localePath: string) {
+  return getFilesInFolder(localePath)
+    .then(p => p.filter((name: string) => name.endsWith('.txt')))
+    .then(async filePaths => {
+      const sentences: { source: string; sentence: string }[] = [];
+      for (const filePath of filePaths) {
+        const source = path.basename(filePath).split('.')[0];
+        for (const item of fs
+          .readFileSync(filePath, 'utf8')
+          .split('\n')
+          .map((sentence: string) => {
+            return {
+              sentence,
+              source,
+            };
+          })) {
+          sentences.push(item);
+        }
+      }
+      return sentences;
+    });
+}
+
 function streamSentences(localePath: string) {
   const stream = new PassThrough({ objectMode: true });
 
@@ -76,6 +99,13 @@ function streamSentences(localePath: string) {
   return stream;
 }
 
+const partition = <T>(arr: T[], size: number): T[][] => {
+  return arr.reduce(
+    (acc, val, i) => (i % size ? acc : [...acc, arr.slice(i, i + size)]),
+    []
+  );
+};
+
 async function importLocaleSentences(
   pool: any,
   locale: string,
@@ -87,62 +117,37 @@ async function importLocaleSentences(
     [locale]
   );
 
-  await new Promise(async resolve => {
-    print('importing', locale);
-    const stream = streamSentences(path.join(SENTENCES_FOLDER, locale));
-    stream
-      .on(
-        'data',
-        async ({
-          sentences,
-          source,
-        }: {
-          sentences: string[];
-          source: string;
-        }) => {
-          stream.pause();
-          try {
-            await pool.query(
-              `
-              INSERT INTO sentences
-              (id, text, is_used, locale_id, source, version)
-              VALUES ${sentences
-                .map(sentence => {
-                  return `(${[
-                    LOCALE_HASH_SOURCES.includes(source)
-                      ? hashSentence(localeId + sentence)
-                      : hashSentence(sentence),
-                    sentence,
-                    true,
-                    localeId,
-                    source,
-                    version,
-                  ]
-                    .map(v => pool.escape(v))
-                    .join(', ')})`;
-                })
-                .join(', ')}
-              ON DUPLICATE KEY UPDATE
-                source = VALUES(source),
-                version = VALUES(version),
-                is_used = VALUES(is_used);
-            `
-            );
-          } catch (e) {
-            console.error(
-              'error when inserting sentence batch from "',
-              sentences[0],
-              '" to "',
-              sentences[sentences.length - 1],
-              '":',
-              e
-            );
-          }
-          stream.resume();
-        }
-      )
-      .on('end', resolve);
-  });
+  print('importing', locale);
+  const sentences = await getSentences(path.join(SENTENCES_FOLDER, locale));
+  const partitions = partition(sentences, 50000);
+  for (let i = 0; i < partitions.length; i++) {
+    const sentencesChunk = partitions[i];
+    await pool.query(
+      `INSERT INTO sentences
+       (id, text, is_used, locale_id, source, version)
+       VALUES ${sentencesChunk
+         .map(({ source, sentence }) => {
+           return `(${[
+             LOCALE_HASH_SOURCES.includes(source)
+               ? hashSentence(localeId + sentence)
+               : hashSentence(sentence),
+             sentence,
+             true,
+             localeId,
+             source,
+             version,
+           ]
+             .map(v => pool.escape(v))
+             .join(', ')})`;
+         })
+         .join(', ')}
+         ON DUPLICATE KEY UPDATE
+            source = VALUES(source),
+            version = VALUES(version),
+            is_used = VALUES(is_used);`
+    );
+    console.log('imported', i * 50000, 'sentences');
+  }
 }
 
 export async function importSentences(pool: any) {

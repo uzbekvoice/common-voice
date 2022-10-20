@@ -11,21 +11,21 @@ export const up = async function (db: any): Promise<any> {
       ADD CONSTRAINT client_accent UNIQUE (client_id, locale_id, accent_id);`
   );
 
-  await db.runSql(`
-    UPDATE user_client_accents ua
-      SET accent_token = "unspecified"
-      WHERE ua.accent_token = "";
-  `);
+  // await db.runSql(`
+  //   UPDATE user_client_accents ua
+  //     SET accent_token = "unspecified"
+  //     WHERE ua.accent_token = "";
+  // `);
 
-  await db.runSql(`
-    UPDATE user_client_accents ua 
-      SET accent_id = 
-        (SELECT id FROM accents 
-          WHERE ua.locale_id = accents.locale_id 
-          AND ua.accent_token = accents.accent_token
-        )
-      WHERE ua.accent_token IS NOT NULL;
-  `);
+  // await db.runSql(`
+  //   UPDATE user_client_accents ua
+  //     SET accent_id =
+  //       (SELECT id FROM accents
+  //         WHERE ua.locale_id = accents.locale_id
+  //         AND ua.accent_token = accents.accent_token
+  //       )
+  //     WHERE ua.accent_token IS NOT NULL;
+  // `);
 };
 
 export const down = async function (db: any): Promise<any> {

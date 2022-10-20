@@ -12,15 +12,21 @@ const SOURCES = {
     'https://*.amazonaws.com',
     'https://*.amazon.com',
     'https://gravatar.com',
-    'https://*.mozilla.org',
     'https://*.allizom.org',
     'data:',
+    'https://*.uzbekvoice.ai',
+    'https://*.common.uzbekvoice.ai',
+    'https://*.cdn.common.uzbekvoice.ai',
   ],
   'media-src': [
+    "'self'",
     'data:',
     'blob:',
     'https://*.amazonaws.com',
     'https://*.amazon.com',
+    'https://*.uzbekvoice.ai',
+    'https://*.common.uzbekvoice.ai',
+    'https://*.cdn.common.uzbekvoice.ai',
   ],
   'script-src': [
     "'self'",
@@ -44,6 +50,9 @@ const SOURCES = {
     'https://basket-dev.allizom.org',
     'https://rs.fullstory.com',
     'https://edge.fullstory.com',
+    'https://*.uzbekvoice.ai',
+    'https://*.common.uzbekvoice.ai',
+    'https://*.cdn.common.uzbekvoice.ai',
   ],
 };
 
@@ -55,7 +64,9 @@ function getCSPHeaderValue() {
     don't risk setting development values
     if this function is used incorrectly
   */
-  if (!PROD) {
+
+  console.log('PROD', PROD);
+  if (true) {
     // we allow unsafe-eval, unsafe-inline locally for certain webpack functionality
     SOURCES['style-src'].push("'unsafe-inline'");
     SOURCES['script-src'].push("'unsafe-eval'");
