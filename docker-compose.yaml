@@ -46,6 +46,14 @@ services:
     ports:
       - 9000:9000
     command: bash -c "/code/docker/wait-for-it.sh s3proxy:80 -- /code/docker/prepare_s3.sh && yarn && yarn start"
-
+  redis-web:
+    image: rediscommander/redis-commander
+    environment:
+      REDIS_HOST: REDIS_HOST
+      REDIS_PASSWORD: REDIS_PASSWORD
+      REDIS_USERNAME: ""
+      REDIS_DB: REDIS_DB
+    ports:
+      - 8999:8081
 networks:
   voice-web:

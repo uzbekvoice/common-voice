@@ -12,7 +12,7 @@ const HowAddSentences = React.memo(() => {
           strong,
           scAccountLink: (
             <a
-              href="https://commonvoice.mozilla.org/sentence-collector/login"
+              href="https://commoncommon.uzbekvoice.ai/sentence-collector/login"
               target="_blank"
               rel="noopener noreferer"
             />
@@ -25,7 +25,7 @@ const HowAddSentences = React.memo(() => {
         elems={{
           languageGuidelinesLink: (
             <a
-              href="https://commonvoice.mozilla.org/sentence-collector/#/en/how-to"
+              href="https://commoncommon.uzbekvoice.ai/sentence-collector/#/en/how-to"
               target="_blank"
               rel="noopener noreferer"
             />

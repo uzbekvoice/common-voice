@@ -303,6 +303,8 @@ export default class Server {
     const hasMigrated = result == this.version;
     if (hasMigrated) {
       this.print('maintenance already performed');
+    } else {
+      this.print('maintenance needs to be performed');
     }
     return hasMigrated;
   }

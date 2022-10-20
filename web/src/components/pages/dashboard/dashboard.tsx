@@ -276,7 +276,7 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    if (!account) {
+    if (!account && !window.location.href.includes(URLS.STATS)) {
       try {
         sessionStorage.setItem('redirectURL', location.pathname);
       } catch (e) {

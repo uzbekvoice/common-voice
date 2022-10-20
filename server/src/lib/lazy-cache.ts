@@ -89,7 +89,9 @@ export default function lazyCache<T, S>(
   f: Fn<T, S>,
   timeMs: number
 ): Fn<T, S> {
-  const memCache = memoryCache(f, timeMs);
-  return async (...args: S[]) =>
-    ((await useRedis) ? redisCache(cacheKey, f, timeMs) : memCache)(...args);
+  return async (...args) => {
+    return f(...args);
+  };
+  // return async (...args: S[]) =>
+  //   ((await useRedis) ? redisCache(cacheKey, f, timeMs) : memCache)(...args);
 }

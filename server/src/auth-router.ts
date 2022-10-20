@@ -78,10 +78,10 @@ if (DOMAIN) {
       callbackURL:
         ((
           {
-            stage: 'https://commonvoice.allizom.org',
-            prod: 'https://commonvoice.mozilla.org',
-            dev: 'https://dev.voice.mozit.cloud',
-            sandbox: 'https://sandbox.voice.mozit.cloud',
+            stage: 'https://common.uzbekvoice.ai',
+            prod: 'https://common.uzbekvoice.ai',
+            dev: 'https://common.uzbekvoice.ai',
+            sandbox: 'https://common.uzbekvoice.ai',
           } as any
         )[ENVIRONMENT] || '') + CALLBACK_URL,
       scope: 'openid email',
@@ -221,6 +221,25 @@ router.get('/logout', (request: Request, response: Response) => {
   response.clearCookie('connect.sid');
   response.redirect('/');
 });
+
+router.get('/register', (request: Request, response: Response) => {});
+// client_id
+// email
+// deprecated_accent
+// deprecated_age
+// deprecated_gender
+// created_at
+// deprecated_bucket
+// deprecated_sso_id
+// username
+// basket_token
+// visible
+// skip_submission_feedback
+// avatar_url
+// has_login
+// avatar_clip_url
+// has_computed_goals
+// auth_token
 
 export default router;
 

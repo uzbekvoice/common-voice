@@ -48,11 +48,10 @@ export default Object.freeze({
   TARGET_SEGMENT_INFO_ES:
     'https://discourse.mozilla.org/t/ayuda-a-crear-el-primer-objetivo-segmentado-de-common-voice/60472/',
 
-  HTTP_ROOT: 'https://commonvoice.mozilla.org',
+  HTTP_ROOT: 'https://common.uzbekvoice.ai',
   STAGING_ROOT: 'https://commonvoice.allizom.org',
   GITHUB_ROOT: 'https://github.com/mozilla/common-voice',
 
-  S3_BUCKET:
-    'https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com',
-  S3_CDN: 'https://cdn.commonvoice.mozilla.org',
+  S3_BUCKET: 'https://cdn.common.uzbekvoice.ai',
+  S3_CDN: 'https://cdn.common.uzbekvoice.ai',
 });
