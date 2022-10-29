@@ -659,31 +659,39 @@ export default class DB {
       UPDATE clips updated_clips
         INNER JOIN (SELECT id,
         CASE
-        WHEN counts.upvotes >= 2 AND (counts.upvotes / total_count) > 0.65
+        WHEN upvotes + downvotes + reported_count + skipped_count >= 5 AND
+        (stats.upvotes / (upvotes + downvotes + reported_count + skipped_count)) > 0.76
         THEN TRUE
-        WHEN counts.downvotes >= 2 AND (counts.downvotes / total_count) > 0.65
+        WHEN upvotes + downvotes + reported_count + skipped_count >= 5 AND
+        ((stats.downvotes + reported_count +
+        downvotes) / (upvotes + downvotes + reported_count + skipped_count)) > 0.76
         THEN FALSE
         ELSE NULL
         END as is_valid
-        FROM (SELECT clips.id AS id,
-        COALESCE (SUM (votes.is_valid), 0) AS upvotes,
-        COALESCE (SUM (NOT votes.is_valid or reported_clips.clip_id is not null), 0) AS downvotes,
-        COALESCE (SUM (reported_clips.client_id is not null or votes.client_id is not null or
-        skipped_clips.client_id is not null), 0) AS total_count
-        FROM clips
-        LEFT JOIN votes ON clips.id = votes.clip_id
-        LEFT JOIN reported_clips on clips.id = reported_clips.clip_id
-        LEFT JOIN skipped_clips on clips.id = skipped_clips.clip_id
-        WHERE clips.id = ${id}
-        GROUP BY clips.id) counts) t
-      ON updated_clips.id = t.id
+        FROM (SELECT id,
+        (SELECT count(*)
+        FROM votes
+        where clips.id = votes.clip_id
+        and votes.is_valid = true)             as upvotes,
+        (SELECT count(*)
+        FROM votes
+        where clips.id = votes.clip_id
+        and votes.is_valid = false)            as downvotes,
+        (SELECT count(*)
+        FROM reported_clips
+        where clips.id = reported_clips.clip_id) as reported_count,
+        (SELECT count(*)
+        FROM skipped_clips
+        where clips.id = skipped_clips.clip_id)  as skipped_count
+        FROM clips) stats) final_stats
+      ON updated_clips.id = final_stats.id
         SET updated_clips.validated_at = IF(
-          IFNULL(t.is_valid, 2) <> IFNULL(updated_clips.is_valid, 2), -- Cast NULL to 2 for the comparison.
-          IF(ISNULL(t.is_valid), NULL, NOW()),                        -- If is_valid has changed, update validated_at…
-          updated_clips.validated_at                                  -- …otherwise, leave it the same.
-          ), updated_clips.is_valid = t.is_valid
-      WHERE updated_clips.id = ${id}
-    `);
+          final_stats.is_valid is not null,
+          NOW(),
+          updated_clips.validated_at
+          ),
+          updated_clips.is_valid     = final_stats.is_valid
+      WHERE updated_clips.id = ${id};`);
 
     await this.mysql.query(
       `UPDATE sentences
