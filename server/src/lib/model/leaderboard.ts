@@ -22,8 +22,8 @@ async function getClipLeaderboard(locale?: string): Promise<any[]> {
             avatar_url,
             avatar_clip_url,
             COALESCE(user_account.full_name, username)            AS username,
-            COUNT(clips.id)                                       AS clips_count,
-            TRUNCATE(COUNT(clips.id) * COALESCE(SUM(votes.is_valid), 0) /
+            COUNT(DISTINCT clips.id)                                       AS clips_count,
+            TRUNCATE(COUNT(DISTINCT clips.id) * COALESCE(SUM(votes.is_valid), 0) /
                      COALESCE(SUM(reported_clips.client_id is not null or votes.client_id is not null or
                                   skipped_clips.client_id is not null), 0), 2) AS total,
             COALESCE(SUM(votes.is_valid), 0) /
@@ -53,7 +53,7 @@ async function getVoteLeaderboard(locale?: string): Promise<any[]> {
              avatar_url,
              avatar_clip_url,
              COALESCE(user_account.full_name, username) as username,
-             count(votes.id) as total
+             count(DISTINCT votes.id) as total
       FROM user_clients
              LEFT JOIN votes ON user_clients.client_id = votes.client_id
              LEFT JOIN clips ON votes.clip_id = clips.id
