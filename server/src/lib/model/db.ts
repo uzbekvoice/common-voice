@@ -308,7 +308,7 @@ export default class DB {
         FROM (
           SELECT id, text
           FROM sentences
-          WHERE is_used AND locale_id = ? AND NOT EXISTS (
+          WHERE is_used = true AND locale_id = ? AND NOT EXISTS (
             SELECT original_sentence_id
             FROM clips
             WHERE clips.original_sentence_id = sentences.id AND
@@ -655,43 +655,41 @@ export default class DB {
       [id, client_id, is_valid ? 1 : 0]
     );
 
-    await this.mysql.query(`
-      UPDATE clips updated_clips
-        INNER JOIN (SELECT id,
-        CASE
-        WHEN upvotes + downvotes + reported_count + skipped_count >= 5 AND
-        (stats.upvotes / (upvotes + downvotes + reported_count + skipped_count)) > 0.76
-        THEN TRUE
-        WHEN upvotes + downvotes + reported_count + skipped_count >= 5 AND
-        ((stats.downvotes + reported_count +
-        downvotes) / (upvotes + downvotes + reported_count + skipped_count)) > 0.76
-        THEN FALSE
-        ELSE NULL
-        END as is_valid
-        FROM (SELECT id,
-        (SELECT count(*)
-        FROM votes
-        where clips.id = votes.clip_id
-        and votes.is_valid = true)             as upvotes,
-        (SELECT count(*)
-        FROM votes
-        where clips.id = votes.clip_id
-        and votes.is_valid = false)            as downvotes,
-        (SELECT count(*)
-        FROM reported_clips
-        where clips.id = reported_clips.clip_id) as reported_count,
-        (SELECT count(*)
-        FROM skipped_clips
-        where clips.id = skipped_clips.clip_id)  as skipped_count
-        FROM clips) stats) final_stats
-      ON updated_clips.id = final_stats.id
-        SET updated_clips.validated_at = IF(
-          final_stats.is_valid is not null,
-          NOW(),
-          updated_clips.validated_at
-          ),
-          updated_clips.is_valid     = final_stats.is_valid
-      WHERE updated_clips.id = ${id};`);
+    await this.mysql.query(`UPDATE clips updated_clips
+                              INNER JOIN (SELECT id,
+                              CASE
+                              WHEN upvotes + downvotes + reported_count + skipped_count >= 5 AND
+                              (upvotes / (upvotes + downvotes + reported_count + skipped_count)) > 0.76
+                              THEN TRUE
+                              WHEN upvotes + downvotes + reported_count + skipped_count >= 5 AND
+                              ((downvotes + reported_count + skipped_count / 4) / (upvotes + downvotes + reported_count + skipped_count)) > 0.76
+                              THEN FALSE
+                              ELSE NULL
+                              END as is_valid
+                              FROM (SELECT id,
+                              (SELECT count(*)
+                              FROM votes
+                              where clips.id = votes.clip_id
+                              and votes.is_valid = true)             as upvotes,
+                              (SELECT count(*)
+                              FROM votes
+                              where clips.id = votes.clip_id
+                              and votes.is_valid = false)            as downvotes,
+                              (SELECT count(*)
+                              FROM reported_clips
+                              where clips.id = reported_clips.clip_id) as reported_count,
+                              (SELECT count(*)
+                              FROM skipped_clips
+                              where clips.id = skipped_clips.clip_id)  as skipped_count
+                              FROM clips) stats) final_stats
+                            ON updated_clips.id = final_stats.id
+                              SET updated_clips.validated_at = IF(
+                                final_stats.is_valid is not null,
+                                NOW(),
+                                updated_clips.validated_at
+                                ),
+                                updated_clips.is_valid     = final_stats.is_valid
+                            WHERE updated_clips.id = ${id};`);
 
     await this.mysql.query(
       `UPDATE sentences
