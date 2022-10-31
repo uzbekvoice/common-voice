@@ -35,7 +35,7 @@ async function getClipLeaderboard(locale?: string): Promise<any[]> {
             LEFT JOIN reported_clips on clips.id = reported_clips.clip_id
             LEFT JOIN skipped_clips on clips.id = skipped_clips.clip_id
             LEFT JOIN user_account ON user_account.uuid = user_clients.client_id
-     WHERE TRUE
+     WHERE user_account.is_banned is null or user_account.is_banned = false 
        ${locale ? 'AND clips.locale_id = :locale_id' : ''}
      GROUP BY client_id
      HAVING total > 0
@@ -58,7 +58,7 @@ async function getVoteLeaderboard(locale?: string): Promise<any[]> {
              LEFT JOIN votes ON user_clients.client_id = votes.client_id
              LEFT JOIN clips ON votes.clip_id = clips.id
              LEFT JOIN user_account ON user_account.uuid = user_clients.client_id
-      WHERE TRUE
+      WHERE user_account.is_banned is null or user_account.is_banned = false
         ${locale ? 'AND clips.locale_id = :locale_id' : ''}
       GROUP BY client_id
       HAVING total > 0
