@@ -12,6 +12,7 @@ import {
 } from 'common';
 import lazyCache from '../lazy-cache';
 const MINUTE = 1000 * 60;
+const HOUR = MINUTE * 60;
 const DAY = MINUTE * 60 * 24;
 
 // When getting new sentences/clips we need to fetch a larger pool and shuffle it to make it less
@@ -108,6 +109,13 @@ export async function getTermIds(term_names: string[]): Promise<number[]> {
 
   return term_names.map(name => termIds[name]);
 }
+
+const shuffle = <T>(array: T[]): T[] => {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+};
 
 export default class DB {
   clip: ClipTable;
@@ -435,9 +443,9 @@ export default class DB {
     const cachedClips: DBClip[] = await lazyCache(
       `new-clips-per-language-${locale_id}`,
       async () => {
-        return await this.getClipsToBeValidated(locale_id, 10000);
+        return await this.getClipsToBeValidated(locale_id, 30000);
       },
-      MINUTE
+      HOUR
     )();
 
     //filter out users own clips
@@ -478,7 +486,7 @@ export default class DB {
       })
     );
 
-    if (validClips.size > count) return Array.from(validClips);
+    if (validClips.size > count) return shuffle(Array.from(validClips));
 
     const [clips] = await this.mysql.query(
       `
