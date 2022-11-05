@@ -18,30 +18,15 @@ const db = getMySQLInstance();
 
 async function getClipLeaderboard(locale?: string): Promise<any[]> {
   const [rows] = await db.query(
-    `SELECT user_clients.client_id,
+    `SELECT client_id,
             avatar_url,
             avatar_clip_url,
-            COALESCE(user_account.full_name, username)            AS username,
-            COUNT(DISTINCT clips.id)                                       AS clips_count,
-            TRUNCATE(COUNT(DISTINCT clips.id) * COALESCE(SUM(votes.is_valid), 0) /
-                     COALESCE(SUM(reported_clips.client_id is not null or votes.client_id is not null or
-                                  skipped_clips.client_id is not null), 0), 2) AS total,
-            COALESCE(SUM(votes.is_valid), 0) /
-            COALESCE(SUM(reported_clips.client_id is not null or votes.client_id is not null or
-                         skipped_clips.client_id is not null), 0) AS accuracy
-     FROM user_clients
-            LEFT JOIN clips ON user_clients.client_id = clips.client_id
-            LEFT JOIN votes ON clips.id = votes.clip_id
-            LEFT JOIN reported_clips on clips.id = reported_clips.clip_id
-            LEFT JOIN skipped_clips on clips.id = skipped_clips.clip_id
-            LEFT JOIN user_account ON user_account.uuid = user_clients.client_id
-     WHERE user_account.is_banned is null or user_account.is_banned = false 
-       ${locale ? 'AND clips.locale_id = :locale_id' : ''}
-     GROUP BY client_id
-     HAVING total > 0
-     ORDER BY total DESC
-    `,
-    { locale_id: locale ? await getLocaleId(locale) : null }
+            username,
+            clips_count,
+            total
+     FROM new_scores
+     ORDER BY total DESC`,
+    {}
   );
   return rows;
 }
@@ -53,12 +38,13 @@ async function getVoteLeaderboard(locale?: string): Promise<any[]> {
              avatar_url,
              avatar_clip_url,
              COALESCE(user_account.full_name, username) as username,
-             count(DISTINCT votes.id) as total
+             count(DISTINCT votes.id)                   as total
       FROM user_clients
              LEFT JOIN votes ON user_clients.client_id = votes.client_id
              LEFT JOIN clips ON votes.clip_id = clips.id
              LEFT JOIN user_account ON user_account.uuid = user_clients.client_id
-      WHERE user_account.is_banned is null or user_account.is_banned = false
+      WHERE user_account.is_banned is null
+         or user_account.is_banned = false
         ${locale ? 'AND clips.locale_id = :locale_id' : ''}
       GROUP BY client_id
       HAVING total > 0
