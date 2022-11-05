@@ -1,7 +1,10 @@
 import { Localized } from '@fluent/react';
 import * as React from 'react';
 import { useState } from 'react';
+
 import { CheckWithBoxIcon, AlertIcon, ChevronDown } from '../../ui/icons';
+import Page from '../../ui/page';
+import PageHeading from '../../ui/page-heading';
 
 import './criteria.css';
 
@@ -20,14 +23,14 @@ type Criteria = {
     type: 'error' | 'correct';
     skipExplanation?: boolean;
     elems?: any;
-    titleLabel?: string,
-    explanationLabel?: string,
+    titleLabel?: string;
+    explanationLabel?: string;
   }[];
 };
 
-const elemStrong = { strong: <strong /> }
-const elemEmphasis = { strong: <span className="emphasis" /> }
-const elemBr = { br: <br /> }
+const elemStrong = { strong: <strong /> };
+const elemEmphasis = { strong: <span className="emphasis" /> };
+const elemBr = { br: <br /> };
 
 const criteriaList: Criteria[] = [
   {
@@ -45,7 +48,7 @@ const criteriaList: Criteria[] = [
       { type: 'correct', skipExplanation: true },
       { type: 'error' },
       { type: 'error' },
-      { type: 'error' }
+      { type: 'error' },
     ],
   },
   {
@@ -53,10 +56,7 @@ const criteriaList: Criteria[] = [
     descriptionExtended: {
       type: 'text',
     },
-    examples: [
-      { type: 'correct' },
-      { type: 'error' }
-    ]
+    examples: [{ type: 'correct' }, { type: 'error' }],
   },
   {
     title: 'background-noise',
@@ -64,16 +64,30 @@ const criteriaList: Criteria[] = [
       type: 'text',
     },
     examples: [
-      { type: 'error', titleLabel: '1-fixed', explanationLabel: '1-fixed', skipExplanation: true, elems: elemEmphasis },
-      { type: 'error', titleLabel: '2-fixed', explanationLabel: '2', elems: elemEmphasis },
-      { type: 'error', titleLabel: '3-fixed', explanationLabel: '2', elems: elemEmphasis }
+      {
+        type: 'error',
+        titleLabel: '1-fixed',
+        explanationLabel: '1-fixed',
+        skipExplanation: true,
+        elems: elemEmphasis,
+      },
+      {
+        type: 'error',
+        titleLabel: '2-fixed',
+        explanationLabel: '2',
+        elems: elemEmphasis,
+      },
+      {
+        type: 'error',
+        titleLabel: '3-fixed',
+        explanationLabel: '2',
+        elems: elemEmphasis,
+      },
     ],
   },
   {
     title: 'background-voices',
-    examples: [
-      { type: 'error', elems: elemEmphasis },
-    ],
+    examples: [{ type: 'error', elems: elemEmphasis }],
   },
   { title: 'volume' },
   { title: 'reader-effects' },
@@ -107,11 +121,12 @@ export default function Criteria() {
   };
 
   return (
-    <div className="contribution-criteria">
+    <Page className="contribution-criteria">
       <div className="contribution-criteria-content">
-        <Localized id="contribution-criteria-page-title">
-          <h1 className="contribution-criteria-page-title" />
-        </Localized>
+        <PageHeading>
+          <Localized id="contribution-criteria-page-title" />
+        </PageHeading>
+
         <Localized id="contribution-criteria-page-description">
           <div className="contribution-criteria-page-description" />
         </Localized>
@@ -126,7 +141,7 @@ export default function Criteria() {
               <div className="criterion-explanation">
                 <Localized
                   id={`contribution-${criterion.title}-description`}
-                  elems={ elemBr }>
+                  elems={elemBr}>
                   <p />
                 </Localized>
                 {criterion.descriptionExtended &&
@@ -152,28 +167,34 @@ export default function Criteria() {
                     <span />
                   </Localized>
                   {criterion.examples.map((example, i) => {
-                    const title = example.titleLabel ? example.titleLabel : i + 1;
-                    const explanation = example.explanationLabel ? example.explanationLabel : title;
+                    const title = example.titleLabel
+                      ? example.titleLabel
+                      : i + 1;
+                    const explanation = example.explanationLabel
+                      ? example.explanationLabel
+                      : title;
 
-                    return (<div key={i + 1} className="criterion-example">
-                      {example.type == 'error' ? (
-                        <AlertIcon />
-                      ) : (
-                        <CheckWithBoxIcon />
-                      )}
-                      <Localized
-                        id={`contribution-${criterion.title}-example-${title}-title`}
-                        elems={example.elems}>
-                        <p className="example-headline" />
-                      </Localized>
-                      {!example.skipExplanation && (
+                    return (
+                      <div key={i + 1} className="criterion-example">
+                        {example.type == 'error' ? (
+                          <AlertIcon />
+                        ) : (
+                          <CheckWithBoxIcon />
+                        )}
                         <Localized
-                          id={`contribution-${criterion.title}-example-${explanation}-explanation`}>
-                          <p />
+                          id={`contribution-${criterion.title}-example-${title}-title`}
+                          elems={example.elems}>
+                          <p className="example-headline" />
                         </Localized>
-                      )}
-                    </div>)}
-                  )}
+                        {!example.skipExplanation && (
+                          <Localized
+                            id={`contribution-${criterion.title}-example-${explanation}-explanation`}>
+                            <p />
+                          </Localized>
+                        )}
+                      </div>
+                    );
+                  })}
                   {criterion.examples.length > EXAMPLE_LIMIT ? (
                     <div
                       className="show-more-button"
@@ -197,6 +218,6 @@ export default function Criteria() {
           );
         })}
       </div>
-    </div>
+    </Page>
   );
 }

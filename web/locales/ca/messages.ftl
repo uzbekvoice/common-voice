@@ -14,6 +14,10 @@ email-opt-in-info-sub-with-challenge = Rebreu correus com ara recordatoris d'obj
 email-opt-in-privacy-v2 = En optar per rebre correus electrònics, accepteu que Mozilla gestioni aquesta informació en els termes descrits en la seva <privacyLink>política de privadesa</privacyLink>.
 indicates-required = * Indica un camp necessari
 not-available-abbreviation = N/D
+banner-error-slow-1 = Ens sap greu, el Common Voice està tardant a carregar-se, gràcies per l'interès.
+banner-error-slow-2 = La plataforma va molt carregada últimament, estem investigant els problemes i esperem solucionar-los aviat.
+banner-error-slow-link = Estat del projecte
+error-something-went-wrong = Hi ha hagut un problema
 
 # Don't rename the following section, its contents are auto-inserted based on the name (see scripts/pontoon-languages-to-ftl.js)
 # [Languages]
@@ -36,9 +40,9 @@ ba = baixkir
 bas = basaa
 be = bielorús
 bg = búlgar
-bm = bambara
 bn = bengalí
 br = bretó
+bs = bosnià
 bxr = buriat
 ca = català
 cak = kaqtxikel
@@ -52,6 +56,7 @@ da = danès
 de = alemany
 dsb = baix sòrab
 dv = divehi
+dyu = julà
 el = grec
 en = anglès
 eo = esperanto
@@ -67,9 +72,11 @@ fy-NL = frisó
 ga-IE = irlandès
 gl = gallec
 gn = guaraní
+gom = konkani
 ha = haussa
 he = hebreu
 hi = hindi
+hil = híligaynon
 hr = croat
 hsb = alt sòrab
 ht = haitià
@@ -84,19 +91,26 @@ is = islandès
 it = italià
 izh = ingrià
 ja = japonès
+jbo = lojban
 ka = georgià
 kaa = karakalpak
 kab = cabilenc
 kbd = kabardí
 ki = kikuiu
 kk = kazakh
+km = khmer
 kmr = kurd del nord
+kn = kannada
+knn = konkani (devanagari)
 ko = coreà
 kpv = komi
 kw = còrnic
 ky = kirguís
+lb = luxemburguès
 lg = ganda
 lij = lígur
+ln = lingala
+lo = laosià
 lt = lituà
 lv = letó
 mai = maithili
@@ -106,27 +120,34 @@ mhr = mari oriental
 mk = macedònic
 ml = malaiàlam
 mn = mongol
+mni = meitei
 mos = mossi
 mr = marathi
 mrj = mari occidental
 ms = malai
 mt = maltès
 my = birmà
-myv = mordovià erza
+myv = erzya
 nan-tw = taiwanès (min nan)
 nb-NO = Bokmål noruec
+nd = IsiNdebele septentrional
 ne-NP = nepalès
 nia = nias
 nl = neerlandès
 nn-NO = noruec nynorsk
+nr = IsiNdebele meridional
+nso = sotho del nord
 nyn = nyankole
 oc = occità
+om = oromo
 or = oriya
 pa-IN = panjabi
 pap-AW = papiament (Aruba)
 pl = polonès
 ps = paixtú
 pt = portuguès
+quc = quitxé
+quy = quítxua chanka
 rm-sursilv = romanx (sobreselvà)
 rm-vallader = romanx engiadinès
 ro = romanès
@@ -136,13 +157,18 @@ sah = iacut
 sat = santali (ol chiki)
 sc = sard
 scn = sicilià
+sdh = kurd del sud
 shi = chelha
 si = singalès
 sk = eslovac
+skr = seraiki
 sl = eslovè
+snk = soninké
 so = somali
 sq = albanès
 sr = serbi
+ss = siswati
+st = sesotho
 sv-SE = suec
 sw = suahili
 syr = siríac
@@ -150,8 +176,14 @@ ta = tamil
 te = telugu
 tg = tadjik
 th = tailandès
+ti = tigrinya
+tig = tigre
+tk = turcman
 tl = tagal
+tn = setswana
+tok = toki pona
 tr = turc
+ts = xitsonga
 tt = tàtar
 tw = twi
 ty = tahitià
@@ -161,15 +193,19 @@ ug = uigur
 uk = ucraïnès
 ur = urdú
 uz = uzbek
+ve = tshivenda
 vec = vènet
 vi = vietnamita
 vot = vòtic
+xh = xhosa
 yi = ídix
 yo = ioruba
 yue = cantonès
+zgh = amazic
 zh-CN = xinès (Xina)
 zh-HK = xinès (Hong Kong)
 zh-TW = xinès (Taiwan)
+zu = zulu
 
 # [/]
 
@@ -263,7 +299,7 @@ whats-public = Què és públic?
 email-not-public = No farem pública la vostra adreça electrònica.
 recordings-and-locale-public = El nombre d'enregistraments i les llengües en què heu col·laborat seran públics.
 username-optin-public = Podeu triar si voleu que el vostre nom d'usuari sigui públic o anònim.
-demographic-deidentified-clarity-2 = Les dades demogràfiques enviades opcionalment (per exemple, edat, gènere, llengua i variant) no es faran mai públiques en el vostre perfil i no s’enllaçaran amb el vostre compte en el conjunt de dades. De forma individual, els talls de veu s’associaran a les dades demogràfiques amb la finalitat d’anàlisis més precises.  Per exemple, un investigador pot voler orientar un model d’entrenament a un segment demogràfic específic.
+demographic-deidentified-clarity-2 = Les dades demogràfiques enviades opcionalment (per exemple, edat, gènere, llengua i accent) no es faran mai públiques en el vostre perfil i no s’enllaçaran amb el vostre compte en el conjunt de dades. De forma individual, els talls de veu s’associaran a les dades demogràfiques amb la finalitat d’anàlisis més precises.  Per exemple, un investigador pot voler orientar un model d’entrenament a un segment demogràfic específic.
 username-email-not-demographic = El vostre nom d'usuari i adreça electrònica no estaran associats amb les dades publicades.
 
 ## Speak & Listen Shortcuts
@@ -297,7 +333,6 @@ shortcut-discard-ongoing-recording-label = Descarta l'enregistrament en curs
 shortcut-submit = Retorn
 shortcut-submit-label = Envia els talls
 request-language-text = No trobeu la vostra llengua al Common Voice?
-request-language-text-learn = Apreneu com sol·licitar-ho aquí!
 request-language-button = Sol·licita una llengua
 
 ## ProjectStatus
@@ -322,8 +357,16 @@ profile-form-native-language =
     .label = Llengua materna
 profile-form-additional-language =
     .label = Llengua addicional
+profile-form-language =
+    .label = Llengua
+profile-form-variant =
+    .label = Quina variant de { $language } parleu?
+profile-form-variant-default-value = No hi ha cap variant seleccionada
 profile-form-accent =
     .label = Accent
+profile-form-custom-accent-help-text =
+    .label = Com descriuríeu el vostre accent?
+profile-form-custom-accent-placeholder-2 = Comenceu a escriure per a descriure el vostre accent
 profile-form-age =
     .label = Edat
 profile-form-gender-2 =
@@ -334,6 +377,7 @@ hidden = Amagat
 visible = Visible
 native-language =
     .label = Llengua materna
+profile-form-add-accent = Afegeix un nou accent personalitzat «{ $inputValue }»
 profile-form-submit-save = Desa
 profile-form-submit-saved = S'ha desat
 male = Home
@@ -364,9 +408,13 @@ download-profile = Baixa les meves dades
 contribution-experience = Experiència de la col·laboració
 skip-submission-feedback = Omet l'enviament de comentaris
 skip-submission-description = L'enviament de comentaris es desactivarà en fer clic a «Envia». La col·laboració passarà directament al següent grup de 5 enregistraments o validacions.
-skip-submission-note = Nota: Igualment haureu de seleccionar entre Parla o Escola per canviar el tipus de col·laboració.
+skip-submission-note = Nota: Igualment, haureu de seleccionar entre Parla o Escolta per a canviar el tipus de col·laboració.
 off = Desactivat
 on = Activat
+help-accent = Us cal ajuda sobre els accents?
+help-accent-explanation = L'accent és la forma com pronuncieu les paraules. Es pot crear a partir dels llocs on heu viscut, quines altres llengües parleu i molts altres factors. Podeu compartir aquí qualsevol informació que considereu rellevant.
+help-variants = Us cal ajuda amb les variants?
+help-variants-explanation = Les variants són formes específiques d'una llengua. Per exemple, compartides per persones que viuen en una zona geogràfica o comunitat. De vegades s'anomenen dialectes.
 
 ## Profile - Email
 
@@ -377,6 +425,7 @@ gravatar_not_found = No s'ha trobat cap Gravatar per a la vostra adreça electr�
 file_too_large = El fitxer seleccionat és massa gran
 avatar-uploaded = S'ha pujat l'avatar
 max-file-size = Màxim { $kb } kB
+remove-avatar = Elimina l'avatar
 
 ## Profile - Email
 
@@ -405,7 +454,7 @@ faq-why-important-a =
     Per fer que el reconeixement de veu sigui encara més universal, estem recollint mostres de veu en llengües amb molts parlants, així com en aquelles que tenen una població més petita de parlants i que sovint no tenen accés als serveis de reconeixement de veu comercials. La publicació d'un conjunt de dades de veu divers permetrà resoldre aquest buit als desenvolupadors, als empresaris i a totes les comunitats de tecnologies de veu.
 faq-how-get-q = Com puc obtenir les dades del Common Voice?
 faq-how-get-a = El conjunt de dades del Common Voice es pot baixar sota la llicència <licenseLink>CC0</licenseLink> des de <datasetLink>la nostra pàgina de conjunts de dades</datasetLink>. També podeu baixar diversos conjunts de dades disponibles públicament des de la mateixa pàgina.
-faq-when-release2-q = Quan publicareu les dades de Common Voice en altres llengües?
+faq-when-release2-q = Quan publicareu les dades del Common Voice en altres llengües?
 faq-when-release2-a = La versió multilingüe del conjunt de dades del Common Voice actualment està en fase d'empaquetatge i neteja amb el suport de la comunitat. Si voleu ajudar-nos a afegir noves llengües al Common Voice, vegeu l'<sentenceCollectorLink>eina de recollida de frases</sentenceCollectorLink> per afegir frases noves al conjunt de dades i el <pontoonLink>Pontoon</pontoonLink> de Mozilla per traduir el lloc web del projecte. Les llengües noves s'afegiran al Common Voice i podran començar a rebre aportacions de veu quan s'hagin recollit i aprovat 5000 frases.
 faq-why-mission-q = Per què el Common Voice forma part de la missió de Mozilla?
 faq-why-mission-a = La missió de Mozilla és mantenir el Web obert i accessible a tothom. Per fer-ho, necessitem oferir eines als creadors de contingut web mitjançant projectes com el Common Voice. Les tecnologies de veu estan proliferant més enllà d'aplicacions molt especialitzades, i creiem que han de servir a tots els usuaris en igualtat de condicions. Això significa incloure més llengües, més diversitat d'accents i de dades demogràfiques a l'hora de crear i provar les tecnologies de veu. El Common Voice és un recurs públic, disponible per a tothom, i els equips de Mozilla i els desenvolupadors d'arreu del món ja l'utilitzen en els seus propis projectes.
@@ -420,7 +469,9 @@ faq-why-different-speakers-a =
     La majoria de bases de dades de veu s'entrenen amb una sobrerepresentació  d'alguna característica demogràfica, això genera resultats amb biaix de <articleLink>gènere masculí i classe mitjana</articleLink>. Els accents i dialectes que habitualment són infrarepresentats en els conjunts de dades d'entrenament s'associen típicament amb persones que ja són marginades. Moltes màquines també tenen dificultat per entendre veus femenines.
     És per això que en la nostra base de dades de veu hi volem varietat!
 faq-why-my-lang-q = Per què encara no hi ha la meva llengua?
-faq-why-my-lang-new-a = Mozilla no tria ni afavoreix cap llengua sobre una altra. Al contrari: el Common Voice és una iniciativa impulsada exclusivament per la comunitat, però calen <multilangLink>diversos passos per afegir una llengua</multilangLink> i començar a recollir donacions de veu. En primer lloc, cal traduir el lloc web del Common Voice perquè els membres de la comunitat puguin accedir a l'experiència de col·laborador en la seva llengua. A continuació, necessitem una gran col·lecció de frases lliures de drets d'autor perquè la gent pugui llegir-les en veu alta. Una vegada que es compleixin tots dos requisits, s'afegeix la llengua al Common Voice perquè la gent pugui començar a enregistrar la veu i validar les donacions d'altri. Si voleu ajudar a afegir una llengua, dirigiu-vos a l'<sentenceCollectorLink>eina de recollida de frases</sentenceCollectorLink> per començar.
+faq-why-my-lang-a =
+    El Common Voice és una plataforma col·laborativa, i totes les llengües van ser afegides per voluntaris.
+    Ens encantaria que afegíssiu la vostra llengua! <languageRequestLink>Demaneu-nos per a afegir la vostra llengua.</languageRequestLink>
 faq-what-quality-q = Quin nivell de qualitat d'àudio ha de tenir un tall de veu per poder-lo usar en el conjunt de dades?
 faq-what-quality-a = Volem que el conjunt de dades del Common Voice reflecteixi la qualitat de l’àudio que un motor de veu a text sentirà en un entorn real, de manera que cerquem varietat. A més d'una comunitat plural de locutors, un conjunt de dades amb qualitat d'àudio variable permetrà entrenar el motor de veu a text a gestionar situacions diferents del món real, des de veus de fons fins al soroll del cotxe. Mentre que el  tall de veu sigui intel·ligible, hauria de ser prou bo per al conjunt de dades.
 faq-why-10k-hours-q = Per què hi ha l'objectiu de 10.000 hores validades d'enregistrament d'àudio per a cada llengua?
@@ -437,7 +488,7 @@ faq-why-not-ask-read-a = Perquè el conjunt de dades del Common Voice sigui el m
 faq-why-account-q = Per què hauria de crear un compte?
 faq-is-account-public-q = La informació del meu compte és pública?
 faq-how-privacy-q = Com assegureu l'anonimat i la privadesa de les persones que han donat la veu?
-faq-how-privacy-a = La informació d'identificació personal se suprimeix de tots els talls de veu del conjunt de dades. Si un col·laborador proporciona dades demogràfiques en el seu perfil, aquesta informació s'anonimitza en el talls de veu abans d'incloure'ls en el conjunt de dades disponible per baixar, i aquesta informació no és mai pública en la seva pàgina de perfil.
+faq-how-privacy-a = La informació d'identificació personal se suprimeix de tots els talls de veu del conjunt de dades. Si un col·laborador proporciona dades demogràfiques en el seu perfil, aquesta informació s'anonimitza en els talls de veu abans d'incloure'ls en el conjunt de dades disponible per baixar, i aquesta informació no és mai pública en la seva pàgina de perfil.
 faq-what-determine-identity-q = Què vol dir que no puc «determinar la identitat» dels parlants en el conjunt de dades del Common Voice?
 faq-what-determine-identity-a =
     El conjunt de dades del Common Voice és un recurs obert i disponible públicament que es pot utilitzar per entrenar una àmplia varietat d’aplicacions que utilitzin la veu. Per protegir la seguretat dels nostres col·laboradors, demanem a tothom qui baixi el conjunt de dades del Common Voice que respecti la privadesa dels col·laboradors.
@@ -452,15 +503,28 @@ faq-search-for-answers =
 ## ABOUT US
 
 about-title = Per què Common Voice?
-about-subtitle = El projecte Common Voice forma part de la iniciativa de Mozilla per ajudar les màquines a aprendre com parlem les persones de debò. A més del conjunt de dades del Common Voice, també estem construint un motor de reconeixement de veu de codi obert anomenat Deep Speech.
-about-header-description =
-    Ambdós projectes formen part dels nostres esforços per reduir les desigualtats en el món de la veu digital. Les tecnologies de reconeixement de veu aporten una dimensió humana als nostres dispositius, però els desenvolupadors necessiten una gran quantitat de dades de veu per crear-les. Actualment, la majoria d'aquestes dades són cares i propietàries.
-    Volem que les dades de veu siguin lliures i públiques, i garantir que les dades representin la diversitat de la gent real. Junts podem fer que el reconeixement de veu sigui millor per a tothom.
-about-header-description-2 =
-    Aquest projecte és un esforç per a reduir les desigualtats en el món de la veu digital. Les tecnologies de reconeixement de veu aporten una dimensió humana als nostres dispositius, però els desenvolupadors necessiten una gran quantitat de dades de veu per crear-les. Actualment, la majoria d'aquestes dades són cares i propietàries.
-    Volem que les dades de veu siguin lliures i públiques, i garantir que les dades representin la diversitat de la gent real. Junts podem fer que el reconeixement de veu sigui millor per a tothom.
-how-does-it-work-title = Com funciona?
+about-header-description-v2 =
+    <p>Common Voice és un conjunt de dades de veu disponible públicament, impulsat per les veus de col·laboradors voluntaris d'arreu del món. Les persones que vulguin crear aplicacions de veu poden utilitzar el conjunt de dades per entrenar models d'aprenentatge automàtic.</p>
+    <p>En l'actualitat, la majoria dels conjunts de dades de veu són propietat d'empreses, cosa que frena la innovació. Els conjunts de dades de veu també representen en excés els homes blancs de parla anglesa. Això vol dir que la tecnologia habilitada per veu no funciona gens per a moltes llengües i, on funciona, pot ser que no funcioni igual per a tothom. Volem canviar això mobilitzant gent d'arreu per a compartir la seva veu.</p>
+how-does-it-work-title-v2 = Com funciona Common Voice?
 how-does-it-work-text = Estem creant de forma col·laborativa un conjunt de dades de veu obert. Doneu la vostra veu, valideu la precisió dels talls d'altres persones i feu que el conjunt de dades sigui millor per a tothom.
+
+## How does it work section
+
+about-language-req-subtitle = Algú demana que s'afegeixi una llengua.
+about-localization-title = Localització del lloc web
+about-localization-subtitle = El text del lloc web es tradueix a aquesta llengua.
+about-sentence-collection-title = Recollida de frases
+about-sentence-collection-subtitle = Es recullen frases perquè la gent les llegeixi en veu alta.
+about-new-lang-title = Llançament d'una nova llengua
+about-new-lang-subtitle = Es publica el lloc web de Common Voice en aquesta llengua.
+about-voice-contrib-title = Col·laboracions amb la veu
+about-voice-contrib-subtitle = La gent ve i col·labora enregistrant la seva veu.
+about-voice-validation-title = Validacions de les veus
+about-voice-validation-subtitle = Altres persones validen els talls de veu enregistrats.
+about-dataset-release-title = Publicació del conjunt de dades
+about-dataset-release-subtitle = Publiquem el conjunt de dades cada 3 mesos.
+about-subscribe-text = Voleu estar en contacte amb Common Voice?
 about-speak = Parla
 about-speak-text = Els col·laboradors enregistren talls de veu llegint textos que provenen d'un banc de frases donades.
 about-listen-queue = Cua d'escolta
@@ -477,26 +541,109 @@ about-dataset-new = Conjunt de dades del Common Voice
 about-dataset-new-text = El conjunt de dades del Common Voice conté centenars de milers de mostres de veu que ajuden els desenvolupadors a crear eines de reconeixement de veu.
 about-clip-graveyard = Cementiri de talls
 about-clip-graveyard-text = El cementiri de talls inclou els talls de veu que no han entrat al conjunt de dades del Common Voice. Igual que el conjunt de dades, el cementiri de talls també es pot descarregar.
-about-partners = Socis
-about-become-a-partner = Feu-vos soci
-about-partnership =
-    El Common Voice és un projecte col·laboratiu i depenem de la comunitat de socis i col·laboradors per crear el conjunt de dades de veu lliure més gran que s'hagi fet mai.
-    
-    Volem agrair les persones i organitzacions següents per la seva ajuda en el projecte:
 about-get-involved = Col·laboreu-hi
 about-get-involved-text-2 =
     Voleu ajudar a millorar el Common Voice?
-    Genial! Poseu-vos en contacte per correu electrònic o pels fòrums del <discourseLink>Discourse</discourseLink>, notifiqueu problemes en el <githubLink>GitHub</githubLink> o uniu-vos al nostre xat de la comunitat en el <matrixLink>Matrix</matrixLink>
+    Genial! Poseu-vos en contacte per correu electrònic o pels fòrums del <discourseLink>Discourse</discourseLink>, notifiqueu problemes en el <githubLink>GitHub</githubLink> o uniu-vos al nostre xat de la comunitat a <matrixLink>Matrix</matrixLink>.
+about-stay-in-touch = Com em puc mantenir en contacte?
+about-stay-in-touch-button = Registre
+about-stay-in-touch-text-1 = <emailFragment>Registreu-vos</emailFragment> a la nostra llista de correu per a saber com podeu participar en campanyes, esdeveniments i funcions de disseny conjunt a Common Voice.
+about-stay-in-touch-text-2 = Podeu conèixer altres persones en les comunitats lingüístiques de Mozilla unint-vos a <discourseLink>Discourse</discourseLink> per a converses d'actualitat, o a <matrixLink>Matrix</matrixLink> per obtenir un consell ràpid.
 about-nav-why-common-voice = Per què?
 about-nav-how-it-works = Com?
 about-nav-partners = Socis
 about-nav-get-involved = Col·laboreu-hi
-mycroft-title = Mycroft Ai
-mycroft-subtitle = Intel·ligència artificial
-mycroft-description =
-    El Mycroft és el primer assistent de codi obert mai creat.
-    Funciona a tot arreu: en l’ordinador, en el cotxe i en la Raspberry Pi.
-mycroft-secondary-description = Això és programari lliure que es pot remesclar, ampliar i millorar. El Mycroft es pot usar en qualsevol lloc, des d'un projecte científic fins a una aplicació d'una empresa.
+about-nav-how-it-works-2 = Com funciona Common Voice?
+about-nav-playbook = Apreneu a participar-hi
+
+## Community Playbook Content
+## What is a language
+
+about-playbook-what-is-language = Què és una llengua a Common Voice?
+about-playbook-what-is-language-content-1 = Hi ha moltes maneres de considerar què és una llengua. A efectes dels models de reconeixement de veu, Common Voice suggereix centrar-se en la «intel·ligibilitat mútua» o «els parlants d'aquesta llengua poden entendre's, entre ells, si ho intenten?»
+about-playbook-what-is-language-content-2 = Volem que els models de parla siguin millors per a entendre una àmplia gamma de parlants. Perquè això passi, un conjunt de dades de veu ha de representar moltes persones diferents.
+about-playbook-what-is-language-content-3 = Algunes llengües tenen una gran variació en gramàtica, vocabulari i pronunciació. Per aquest motiu, estem <ctaLink>introduint les «Variants»</ctaLink> el 2022. Això ofereix a les comunitats una manera de distingir les llengües en el conjunt de dades més general.
+
+## How do I add a language
+
+about-playbook-how-add-language = Com puc afegir una llengua?
+about-playbook-how-add-language-content-1 = Primer, comproveu si la vostra llengua <languageLink>ja existeix</languageLink>. Si no és així, heu de <strong>traduir el lloc i recollir-ne frases</strong>.
+about-playbook-how-add-language-translating-heading = Traduint el lloc
+about-playbook-how-add-language-translating-content-1 = <translateVideoLink>Vegeu la guia sobre com usar Pontoon.</translateVideoLink>
+about-playbook-how-add-language-translating-content-2 =
+    Utilitzem una eina de Mozilla anomenada <pontoonLink>Pontoon</pontoonLink> per a les traduccions. Pontoon té moltes llengües, però si no té la vostra, podeu <pontoonRequestLink>sol·licitar que s'hi afegeixi</pontoonRequestLink>.
+    A continuació, per a fer que la llengua estigui disponible en el projecte Common Voice,
+    <githubRepoLink>demaneu la llengua a GitHub</githubRepoLink>. <localizationFragment>Vegeu més informació sobre la traducció del lloc</localizationFragment>.
+about-playbook-how-add-language-collecting-sentences-heading = Recollint frases
+about-playbook-how-add-language-collecting-sentences-content-1 = .<sentenceCollectorVideo>Vegeu la guia d'ús del Sentence Collector</sentenceCollectorVideo>
+about-playbook-how-add-language-collecting-sentences-content-2 =
+    Podeu <sentenceCollectorLinkAdd>afegir un petit nombre de frases</sentenceCollectorLinkAdd>,
+    o podeu fer <bulkImportDocsLink>importacions massives mitjançant Github</bulkImportDocsLink>.
+    Recordeu que les frases han de ser <licenseLink>CC0 (o domini públic)</licenseLink>, o també podeu escriure'n.
+about-playbook-how-add-language-collecting-sentences-content-3 = <sentenceCollectorFragment>Vegeu més sobre el recull de frases</sentenceCollectorFragment>.
+
+## How does localization work
+
+about-playbook-how-localize = Com funciona la localització del lloc web?
+about-playbook-how-localize-content-1 = La traducció del lloc web de Common Voice es fa a <strong>Pontoon</strong>.
+about-playbook-how-localize-content-2 = <pontoonAccountLink>Creeu un compte</pontoonAccountLink> si no en teniu cap. A continuació, trieu la vostra llengua <strong>(«Equip»)</strong> i, a continuació, trieu el projecte, <pontoonCvLink>Common Voice</pontoonCvLink>. Hi haurà fitxers per traduir. Feu clic a sobre d'un, després es mostren les paraules en anglès i un quadre per a traduir-les.
+about-playbook-how-localize-content-3 = La traducció és des de l'anglès, però podeu veure <strong>Suggeriments</strong> en altres llengües. Feu clic a la icona <strong>Perfil</strong>, després a l'enllaç <strong>Configuració</strong> i afegiu les llengües que parleu. A l'extrem inferior dret hi haurà una llista de traduccions anomenada <strong>Locales</strong>. Les traduccions es mostren al lloc web l'endemà.
+about-playbook-how-localize-content-4 = El lloc està a punt per ser publicat quan arriba al 75% de la finalització.
+about-playbook-how-localize-content-5 = Mireu el vídeo explicatiu per a ajudar-vos
+
+## How to add sentences
+
+about-playbook-how-add-sentences = Com hi afegeixo frases?
+about-playbook-how-add-sentences-content-1 = <strong>Sentence Collector</strong> és una eina per a recopilar i validar frases de domini públic. Haureu de <scAccountLink>crear un compte</scAccountLink>. A continuació, afegiu la vostra llengua al <strong>perfil</strong>. Hi podeu <strong>afegir</strong> frases o <strong>revisar</strong> les frases afegides anteriorment.
+about-playbook-how-add-sentences-content-2 = Les frases han de ser revisades i acceptades per dues persones per a ser incloses a Common Voice. Creeu directrius per a la vostra llengua <languageGuidelinesLink>aquí</languageGuidelinesLink>. Les frases han de ser de <licenseLink>domini públic</licenseLink> i han de tenir menys de 15 paraules. Podeu demanar al propietari d'un text que el faci <waiverLink>CC0 mitjançant el nostre procés d'exempció</waiverLink> i ens l'enviï a commonvoice@mozilla.com
+about-playbook-how-add-sentences-content-3 = Podeu utilitzar l'<scraperLink>Extractor de frases</scraperLink> per a aprofitar frases curtes de la Viquipèdia.
+about-playbook-how-add-sentences-content-4 = Les frases que s'han validat s'exporten el dimecres i estan disponibles després del següent llançament.
+
+## How to record quality
+
+about-playbook-how-record-quality = Com enregistro un tall de veu d'alta qualitat?
+about-playbook-how-record-content-1 = Parleu amb la veu normal! Aquí, la vostra manera de parlar és benvinguda: volem el vostre accent tal com és, i volem el vostre volum, estil i entonació habituals.
+about-playbook-how-record-content-2 = Eviteu massa soroll de fons: hauria de ser fàcil d'escoltar-vos.
+about-playbook-how-record-content-3 = Llegiu atentament la frase: no ometeu, canvieu ni hi afegiu cap paraula.
+about-playbook-how-record-content-4 = Assegureu-vos que la plataforma estigui enregistrant abans de començar a parlar i que només s'atura quan hàgiu acabat.
+about-playbook-how-record-content-5 = <accuracyLink>Vegeu més informació sobre els criteris de precisió.</accuracyLink>
+
+## How to grow language
+
+about-playbook-how-grow-language = Com podem fer créixer una llengua de manera efectiva a Common Voice?
+about-playbook-how-grow-language-content-1 = La creació d'oportunitats perquè una diversitat de persones contribueixi a Common Voice garanteix que el conjunt de dades serveixi a tantes persones com sigui possible. Hem creat recursos i plantilles que podeu utilitzar!
+about-playbook-how-grow-language-content-2 = Esdeveniments
+about-playbook-how-grow-language-content-3 = Podeu organitzar esdeveniments per ajudar la gent a col·laborar. És més fàcil del que penseu. Podeu fer-ho en línia amb una eina de videoconferència, o en persona si és segur. <eventTemplate>Consulteu les plantilles i recursos per a organitzar esdeveniments</eventTemplate>.
+about-playbook-how-grow-language-content-4 = Mitjans de comunicació socials
+about-playbook-how-grow-language-content-5 = Podeu utilitzar les plataformes de xarxes socials per a fer arribar el missatge. Compartiu publicacions que expliquin per què és important i poseu-vos en contacte amb altres persones que parlen de qüestions com ara els drets lingüístics, la intel·ligència artificial de veu o els biaixos tecnològics. Vegeu més consells sobre com <campaignLink>executar una campanya social, inclòs el contingut que podeu reutilitzar</campaignLink>.
+about-playbook-how-grow-language-content-6 = Col·laboracions i xarxes
+about-playbook-how-grow-language-content-7 = Trobeu altres persones a qui els importa. Podrien ser universitats, escoles d'idiomes, grups de defensa o comunitats de ciències de dades. Poseu-vos en contacte i expliqueu clarament com us poden ajudar i per què. <outreachTemplates>Consulteu la plantilla de correus electrònics de divulgació</outreachTemplates>.
+about-playbook-how-grow-language-content-8 = <strong>Sigueu creatiu!</strong> La vostra comunitat lingüística serà única i aquestes són només algunes maneres de començar.
+
+## How to validate
+
+about-playbook-how-validate = Com sé si aprovar un tall de veu?
+about-playbook-how-validate-content-1 = Si podeu <strong>escoltar-los</strong> i <strong>entendre'ls</strong>, normalment és <strong>millor aprovar-los</strong>.
+about-playbook-how-validate-content-2 = <strong>No rebutgeu talls on el locutor «té un accent» diferent del vostre</strong>: això és important perquè el reconeixement de veu funcioni bé per a tothom.
+about-playbook-how-validate-content-3 = Si creieu que la pronúncia fa que sigui <strong>impossible d'entendre</strong>, o hi ha <strong>molt soroll de fons</strong> o hi ha <strong>altres persones que també parlen</strong>, aleshores hauríeu de rebutjar el tall. <accuracyLink>Vegeu més informació als criteris de precisió</accuracyLink>.
+about-playbook-how-validate-content-4 = Si 2 persones rebutgen un tall, es publicarà en un subconjunt diferent del conjunt de dades.
+
+## How to access dataset
+
+about-playbook-how-access-dataset = Com puc accedir i utilitzar el conjunt de dades?
+about-playbook-how-access-dataset-content-1 = Podeu anar a la <datasetsPage>pàgina de conjunts de dades</datasetsPage>, seleccionar la versió i les llengües que voleu i baixar-los! Els fitxers tenen <metadataLink>metadades associades</metadataLink>, com ara informació demogràfica i dades de validació. Haureu de proporcionar una adreça electrònica per a baixar el conjunt de dades.
+about-playbook-how-access-dataset-content-2 = Si esteu buscant eines per a crear models RAP, podeu connectar-vos amb altres persones de la comunitat <discourseLink>a Discourse</discourseLink>.
+
+## How are decisions made
+
+about-playbook-how-project-governance = Com es prenen les decisions del projecte?
+about-playbook-how-project-governance-content-1 = Mozilla Common Voice és possible gràcies a una comunitat diversa d'activistes, lingüistes, científics de dades, acadèmics i enginyers de programari d'arreu del món. El projecte és gestionat per la Fundació Mozilla.
+about-playbook-how-project-governance-content-2 = La nostra governança es basa en els pilars de:
+about-playbook-how-project-governance-content-3 = Privadesa, seguretat i transparència.
+about-playbook-how-project-governance-content-4 = Participació comunitària i presa de decisions.
+about-playbook-how-project-governance-content-5 = Valor i reconeixement.
+about-playbook-how-project-governance-content-6 = Responsabilitat mútua.
+about-playbook-how-project-governance-content-7 = <governanceLink>Llegiu més sobre com ens governem</governanceLink>
 
 ## Glossary
 
@@ -515,9 +662,9 @@ de-identified-explanation = Procés pel qual la informació del perfil d'un col�
 ## Error pages
 
 error-title-404 = No s’ha trobat aquesta pàgina
-error-content-404 = Potser us pot ajudar la nostra <homepageLink>pàgina d'inici</homepageLink>? Si teniu alguna pregunta, uniu-vos al <matrixLink>xat de la comunitat en el Matrix</matrixLink>, superviseu els problemes del lloc mitjançant el <githubLink>GitHub</githubLink> o visiteu els nostres <discourseLink>fòrums del Discourse</discourseLink>.
+error-content-404 = Potser us pot ajudar la nostra <homepageLink>pàgina d'inici</homepageLink>? Si teniu alguna pregunta, uniu-vos al <matrixLink>xat de la comunitat a Matrix</matrixLink>, superviseu els problemes del lloc mitjançant el <githubLink>GitHub</githubLink> o visiteu els nostres <discourseLink>fòrums del Discourse</discourseLink>.
 error-title-503 = El lloc web no està disponible temporalment
-error-content-503 = El lloc tornarà a estar disponible al més aviat possible. Per veure la informació més actual, uniu-vos al <matrixLink>xat de la comunitat en el Matrix</matrixLink>, o visiteu el <githubLink>GitHub</githubLink> o els nostres <discourseLink>fòrums del Discourse</discourseLink> per enviar i supervisar els problemes que experimenteu en el lloc.
+error-content-503 = El lloc tornarà a estar disponible al més aviat possible. Per veure la informació més actual, uniu-vos al <matrixLink>xat de la comunitat a Matrix</matrixLink>, o visiteu el <githubLink>GitHub</githubLink> o els nostres <discourseLink>fòrums del Discourse</discourseLink> per enviar i supervisar els problemes que experimenteu en el lloc.
 error-code = Error { $code }
 
 ## Data
@@ -555,6 +702,7 @@ review-delete-recordings = Suprimeix els meus enregistraments
 
 ## Datasets Page
 
+datasets-heading = Conjunts de dades
 datasets-headline = Estem creant un conjunt de dades de veus obert i multilingüe que tothom pot utilitzar per entrenar aplicacions que utilitzin la veu.
 datasets-positioning =
     Creiem que uns conjunts de dades grans i disponibles públicament promouran la innovació i la competència comercial sana en la tecnologia de la veu basada en l'aprenentatge automàtic.
@@ -572,11 +720,11 @@ audio-format = Format d'àudio
 number-of-voices = Nombre de veus
 splits = Divisions
 email-to-download = Introduïu l'adreça electrònica per baixar
-why-email = <b>Per què una adreça electrònica?</ b> És una forma de contacte en cas que ens haguéssim de posar en contacte en un futur per canvis en el conjunt de dades.
-confirm-size = Estic preparat per iniciar una baixada de <b>{ $size }</ b>
+why-email = <b>Per què una adreça electrònica?</b> És una forma de contacte en cas que ens haguéssim de posar en contacte en un futur per canvis en el conjunt de dades.
+confirm-size = Estic preparat per a iniciar una baixada de <b>{ $size }</b>
 size-gigabyte = GB
 size-megabyte = MB
-confirm-no-identify = <b>Accepto</ b> no intentar determinar la identitat dels parlants del conjunt de dades del Common Voice
+confirm-no-identify = <b>Accepto</b> no intentar determinar la identitat dels parlants del conjunt de dades del Common Voice
 download-language = Baixa ({ $language })
 validated-hours = Hores validades
 recorded-hours = Hores enregistrades
@@ -604,7 +752,7 @@ your-feedback = Teniu idees sobre com millorar el conjunt de dades del Common Vo
 go-discourse = Vés al Discourse
 missing-language = No veieu la vostra llengua al conjunt de dades? Per sol·licitar una llengua, aneu a la pàgina de llengües.
 go-languages-page = Vés a la pàgina de llengües
-ready-to-validate = Esteu preparat per validar frases?
+ready-to-validate = Esteu a punt per a validar frases?
 more = Més
 close = Tanca
 download = Baixa
@@ -637,7 +785,48 @@ request-language-form-language =
 request-language-success-title = La sol·licitud de llengua s'ha enviat correctament, gràcies.
 request-language-success-content = Aviat ens posarem en contacte amb més informació sobre com afegir la vostra llengua al Common Voice.
 select-language = Seleccioneu una llengua...
-other-language = Un altra llengua
+other-language = Una altra llengua
+
+## Request Language Pages
+
+request-language-heading = Demana d'afegir una llengua
+request-language-explanation-1 =
+    Comproveu si la vostra llengua apareix llistada en la
+    <languagesPageLink>pàgina de llengües del Common Voice</languagesPageLink>.
+    Si no, ompliu aquest formulari i us enviarem un correu electrònic
+    explicant com afegir la vostra llengua</strong>.
+request-language-explanation-2 =
+    També <strong>informarem el nostre gestor de comunitats
+    que hi teniu interès</strong>, perquè us pugui donar qualsevol
+    suport addicional o informació que necessiteu.
+request-language-form-email =
+    .label = La vostra adreça electrònica
+request-language-form-info =
+    .label = Informació sobre la llengua
+request-language-form-info-explanation =
+    Afegiu tanta informació com pugueu sobre la llengua. Això
+    podria incloure:
+request-language-form-info-explanation-list-1 = Noms de la vostra llengua
+request-language-form-info-explanation-list-2 = <isoCodeLink>Codis ISO</isoCodeLink> si els coneixeu
+request-language-form-info-explanation-list-3 = Enllaços a llocs web que ens poden ajudar a entendre la llengua
+request-language-google-recaptcha-required = reCAPTCHA és necessari si voleu continuar
+request-language-google-recaptcha-error = S'ha produït un error amb reCAPTCHA. Torneu-ho a provar més tard.
+# Success page
+request-language-success-heading = Gràcies! Heu enviat una nova consulta de llengua
+request-language-success-list-1 =
+    Ben aviat hauríeu de rebre un correu electrònic explicant
+    els passos per a afegir la vostra llengua al Common Voice
+request-language-success-list-2 =
+    El nostre gestor de comunitats es posarà en contacte amb vós
+    per a oferir-vos suport addicional i per a fer-vos saber si
+    ja hi ha una comunitat que treballi en la vostra llengua
+request-language-success-list-3 =
+    Si no sabeu res de nosaltres en un parell de dies,
+    contacteu via <emailLink>{ $email }</emailLink>
+    i ens posarem en contacte amb vós!
+request-language-error =
+    Potser no hem rebut aquesta sol·licitud. Envieu-nos un correu electrònic
+    directament a <emailLink>{ $email }</emailLink> i us respondrem!
 
 ## Languages Overview
 
@@ -654,7 +843,8 @@ language-search-input =
 language-speakers = Locutors
 localized = Traducció
 sentences = Frases
-total-hours = Hores
+language-validation-hours = Hores
+language-validation-progress = Progrés de validació
 
 ## Contribution
 
@@ -673,8 +863,8 @@ goal-help-recording = Heu ajudat el Common Voice a assolir el <goalPercentage></
 goal-help-validation = Heu ajudat el Common Voice a assolir el <goalPercentage></goalPercentage> de l'objectiu diari de { $goalValue } validacions!
 contribute-more =
     { $count ->
-        [one] Preparat per fer-ne { $count } més?
-       *[other] Preparat per fer-ne { $count } més?
+        [one] A punt per a fer-ne { $count } més?
+       *[other] A punt per a fer-ne { $count } més?
     }
 record-cta = Enregistreu
 record-platform-not-supported = Malauradament, la vostra plataforma no és compatible actualment.
@@ -686,7 +876,7 @@ record-error-too-short = L'enregistrament és massa curt.
 record-error-too-long = L'enregistrament és massa llarg.
 record-error-too-quiet = El volum de l'enregistrament és massa baix.
 record-cancel = Cancel·la el reenregistrament
-record-instruction = { $actionType } <recordIcon></recordIcon>i llegiu la frase en veu alta
+record-instruction = { $actionType } <recordIcon></recordIcon> i llegiu la frase en veu alta
 record-stop-instruction = { $actionType } <stopIcon></stopIcon> quan hàgiu acabat
 record-three-more-instruction = Només en falten tres!
 record-again-instruction = Molt bé! <recordIcon></recordIcon> Enregistreu un altre tall
@@ -708,8 +898,14 @@ listen-again-instruction = Bona feina! <playIcon></playIcon> Escolteu una altra 
 listen-3rd-time-instruction = 2 menys! Mantingueu el ritme! <playIcon></playIcon>
 listen-last-time-instruction = <playIcon></playIcon> L'últim!
 listen-empty-state = No hi ha cap més tall per validar en aquesta llengua...
+listen-loading-error =
+    No hem pogut cap tall de veu perquè el reviseu.
+    Torneu a intentar-ho més tard.
 speak-empty-state = No hi ha cap més frase per enregistrar en aquesta llengua...
 speak-empty-state-cta = Aporteu frases
+speak-loading-error =
+    No hem pogut carregar les oracions.
+    Si us plau, torneu a intentar-ho més tard.
 record-button-label = Enregistreu la vostra veu
 share-title-new = <bold>Ajudeu-nos</bold> a trobar més veus
 keep-track-profile = Feu seguiment del vostre progrés amb un perfil
@@ -803,37 +999,37 @@ finish-editing = Voleu acabar d'editar?
 lose-changes-warning = Si ho deixeu ara, es perdran tots els canvis
 build-custom-goal = Crea un objectiu personalitzat
 help-reach-hours-pluralized =
-    Ajudeu a arribar a { NUMBER($hours) ->
-        [one] { $hours } hora
-       *[other] { $hours } hores
-    }en { $language } amb un objectiu personal
+    { NUMBER($hours) ->
+        [one] Ajudeu a arribar a { $hours } hora en { $language } amb un objectiu personal
+       *[other] Ajudeu a arribar a { $hours } hores en { $language } amb un objectiu personal
+    }
 help-reach-hours-general-pluralized =
-    Ajudeu al Common Voice a arribar a{ NUMBER($hours) ->
-        [one] { $hours } hora
-       *[other] { $hours } hores
-    }en una llengua amb un objectiu personal
+    { NUMBER($hours) ->
+        [one] Ajudeu al Common Voice a arribar a{ $hours } hora en una llengua amb un objectiu personal
+       *[other] Ajudeu al Common Voice a arribar a{ $hours } hores en una llengua amb un objectiu personal
+    }
 set-a-goal = Defineix un objectiu
 cant-decide = No sabeu què fer?
 activity-needed-calculation-plural =
-    Si { NUMBER($people) ->
-        [one] { $people } persona enregistra
-       *[other] { $people } persones enregistren
+    { NUMBER($people) ->
+        [one] Si { $people } persona enregistra
+       *[other] Si { $people } persones enregistren
     } { NUMBER($clipsPerDay) ->
-        [one] { $clipsPerDay } tall
-       *[other] { $clipsPerDay } talls
-    } per dia, es pot arribar a { NUMBER($totalHours) ->
-        [one] { $totalHours } hora
-       *[other] { $totalHours } hores
-    } en poc més { NUMBER($periodMonths) ->
-        [one] d'{ $periodMonths } mes
-        [11] d'{ $periodMonths } mesos
-       *[other] de { $periodMonths } mesos
+        [one] { $clipsPerDay } tall per dia, es pot arribar a
+       *[other] { $clipsPerDay } talls per dia, es pot arribar a
+    } { NUMBER($totalHours) ->
+        [one] { $totalHours } hora en poc més
+       *[other] { $totalHours } hores en poc més
+    } { NUMBER($periodMonths) ->
+        [one] d'{ $periodMonths } mes.
+        [11] d'{ $periodMonths } mesos.
+       *[other] de { $periodMonths } mesos.
     }
 how-many-per-day = Genial! Quants talls per dia?
 how-many-a-week = Genial! Quants talls per setmana?
 which-goal-type = Genial! Voleu parlar, escoltar o totes dues coses?
-receiving-emails-info = Actualment teniu configurat rebre correus electrònics, com ara recordatoris d’objectius, actualitzacions del vostre progrés i butlletins de notícies sobre el Common Voice.
-not-receiving-emails-info = Actualment <bold>NO</bold> rebeu correus electrònics com ara recordatoris dels objectius, actualitzacions del progrés personal o notícies sobre el Common Voice
+receiving-emails-info = Actualment, teniu configurat rebre correus electrònics, com ara recordatoris d’objectius, actualitzacions del vostre progrés i butlletins de notícies sobre el Common Voice
+not-receiving-emails-info = Actualment, <bold>NO</bold> rebeu correus electrònics com ara recordatoris dels objectius, actualitzacions del progrés personal o notícies sobre el Common Voice
 n-clips-pluralized =
     { NUMBER($count) ->
         [one] { $count } tall
@@ -890,7 +1086,7 @@ download-requests = Anteriors sol·licituds de baixada d'enregistraments
 download-requests-info = En sol·licitar els enregistraments, els compilem en un o diversos arxius ZIP. Aquí teniu les sol·licituds anteriors:
 download-request-button = Baixa
 download-request-title = { $created }
-download-request-description = { $clipCount } talls de veu, mida total de l'arxiu: { $size }. Caduca: { $expires }
+download-request-description = { $clipCount } talls de veu, mida total de l'arxiu: { $size }. Caduca: { $expires }.
 download-request-archive-single = Un únic arxiu ZIP que conté
 download-request-archive-multiple = Dividit en { $archiveCount } arxius ZIP que contenen
 download-request-assembling-description = S'estan recopilant els vostres fitxers. Torneu a comprovar-ho més endavant.
@@ -936,9 +1132,9 @@ demo-account-sign-up = Envia l'enllaç de registre
 
 ## Demo Contribute
 
-demo-contribute-card-header = Esteu preparat per a afegir la veu o parar l'orella?
+demo-contribute-card-header = Esteu a punt per a afegir la veu o parar l'orella?
 demo-contribute-card-body-v2 = Ara que ja sabeu una mica més sobre el Common Voice, per què no ho proveu? Feu clic en la icona del micròfon per a començar a llegir frases en veu alta. <br/><br/>Si preferiu revisar les contribucions de veu d'altres persones, feu clic en la icona de reproducció. D'aquesta manera ajudareu a confirmar si els enregistraments coincideixen amb les frases escrites en la pantalla.
-demo-listen-subtitle = Preparat per a col·laborar?
+demo-listen-subtitle = A punt per a col·laborar?
 
 ## Demo Dashboard
 
@@ -958,7 +1154,7 @@ contribution-misreadings-description-extended-list-1 = Canviar una paraula per u
 contribution-misreadings-description-extended-list-2 = Canviar alguna forma verbal. Per exemple, fer «cantéssim» en comptes de «cantessin».
 contribution-misreadings-description-extended-list-3 = Fer contraccions o elisions que no es troben en el text, o viceversa. Per exemple, fer «el oncle» en comptes de «l'oncle», o fer «'nant» en comptes d'«anant».
 contribution-misreadings-description-extended-list-4 = Ometre el final de l'última paraula, en tallar l'enregistrament massa ràpid.
-contribution-misreadings-description-extended-list-5 = Fer múltiples intents per a llegir una paraula
+contribution-misreadings-description-extended-list-5 = Fer múltiples intents per a llegir una paraula.
 contribution-misreadings-example-1-title = Els grans dinosaures del Triàsic.
 contribution-misreadings-example-2-title = Els grans dinosaure del Triàsic.
 contribution-misreadings-example-2-explanation = [Hauria de ser «dinosaures»]
@@ -983,7 +1179,7 @@ contribution-varying-pronunciations-example-2-explanation = [En català, «fixat
 contribution-background-noise-title = Soroll de fons
 contribution-background-noise-description = Volem que els algoritmes d’aprenentatge automàtic siguin capaços de manejar diversos sorolls de fons. Es poden acceptar sorolls relativament forts, sempre que no impedeixin escoltar la totalitat del text. La música de fons tranquil·la està bé; la música prou forta, que eviti que sentiu totes les paraules, no ho és.
 contribution-background-noise-description-extended = Si l'enregistrament es talla, o fa espetecs, rebutgeu-lo. Llevat que es pugui sentir la totalitat del text.
-contribution-background-noise-example-1-fixed-title = <strong>[estornut]</strong> Els grans dinosaures del <strong>< tos ></strong> Triàsic.
+contribution-background-noise-example-1-fixed-title = <strong>[esternut]</strong> Els grans dinosaures del <strong>< tos ></strong> Triàsic.
 contribution-background-noise-example-2-fixed-title = Els grans dino <strong>[tos]</strong> del Triàsic.
 contribution-background-noise-example-2-explanation = [No se sent part del text]
 contribution-background-noise-example-3-fixed-title = <strong>[espetec]</strong> grans dinosaures de <strong>[espetec]</strong> -riàsic.
@@ -995,8 +1191,334 @@ contribution-background-voices-example-1-explanation = Que vens? <strong>[cridat
 contribution-volume-title = Volum
 contribution-volume-description = Habitualment hi ha variacions en el volum entre lectors. Rebutgeu un tall només si el volum és tan alt que l'enregistrament s'entretalla, o (més habitual) si és tan baix que no podeu sentir que s'hi diu sense la referència del text escrit.
 contribution-reader-effects-title = Efectes de lectura
-contribution-reader-effects-description = La majoria dels enregistraments són de gent que parla amb naturalitat. Podeu acceptar la gravació ocasional no estàndard on es cridi, xiuxiuegi o, òbviament, es faci amb veu dramatitzada. Rebutgeu els enregistraments cantats i els que utilitzin una veu sintetitzada per ordinador.
+contribution-reader-effects-description = La majoria dels enregistraments són de gent que parla amb naturalitat. Podeu acceptar la gravació ocasional no estàndard on es cridi, xiuxiuegi o, òbviament, es faci amb veu dramatitzada. Rebutgeu els enregistraments cantats, on s'usi una veu sintetitzada per ordinador o els que no tinguin una entonació correcta de la frase, especialment les interrogatives.
 contribution-just-unsure-title = Teniu dubtes?
 contribution-just-unsure-description = Si us trobeu amb alguna cosa que aquestes directrius no cobreixen, voteu segons el vostre criteri. Si realment no ho podeu decidir, feu servir el botó Omet i passeu a l'enregistrament següent.
 see-more = <chevron></chevron>Més
 see-less = <chevron></chevron>Menys
+
+# Don't rename the following section, its contents are auto-inserted based on the name. These strings are
+# automatically exported from Sentence Collector.
+# [SentenceCollector]
+
+
+## HEADER/FOOTER
+
+sc-header-home = Inici
+sc-header-how-to = Com es fa
+sc-header-add = Afegeix
+sc-header-review = Revisa
+sc-header-rejected = Frases rebutjades
+sc-header-my = Les meves frases
+sc-header-statistics = Estadístiques
+sc-header-profile = Perfil
+sc-footer-discourse = Discourse
+sc-footer-report-bugs = Informa de problemes
+sc-footer-translate = Tradueix aquesta pàgina
+sc-footer-report-copyright = Informa de problemes de drets d'autor
+sc-footer-privacy = Privadesa
+sc-footer-terms = Condicions d'ús
+sc-footer-cookies = Galetes
+sc-login-signup-button = Inici de sessió / Registre
+sc-logout-button = Tanca la sessió
+
+## HOME
+
+sc-home-title = Us donem la benvinguda al Common Voice Sentece Collector
+sc-home-intro = El Sentence Collector és part del <commonVoiceLink>Common Voice</commonVoiceLink>. Permet als col·laboradors de recollir i validar frases creades per la comunitat. També podeu usar aquesta eina per a importar i netejar corpus de domini públic de mida petita i mitjana que hàgiu trobat o recollit. Totes les frases han de ser de domini públic. Les frases aprovades s'exporten cada setmana al repositori del Common Voice i són disponibles al lloc web del Common Voice en cada nou desplegament.
+sc-home-collect-title = Recull frases
+sc-home-collect-text = Ajudeu-nos escrivint o recopilant frases de domini públic.
+sc-home-review-title = Revisa les frases
+sc-home-review-text = Ajudeu-nos revisant la correcció de les frases segons unes directrius.
+
+## GENERAL
+
+sc-languages-fetch-error = No hem pogut obtenir les llengües disponibles. Actualment no es poden fer aportacions. Proveu-ho més tard.
+
+## HOW-TO
+
+sc-howto-title = Com es fa per a
+sc-howto-addlang-title = Afegir llengües per a treballar-hi
+sc-howto-addlang-text = Una vegada heu iniciat sessió, podeu triar les llengües a la secció del perfil.
+sc-howto-addsen-title = Afegir frases noves
+sc-howto-addsen-item-1 = Totes les frases que envieu han de tenir <wikipediaLink>llicència de domini públic (CC-0)</wikipediaLink>. Per a permetre la inclusió de feina que no té llicència de domini públic, hem creat una <cc0WaiverLink>plantilla d'acord de col·laboració</cc0WaiverLink> per als treballs en què el propietari dels drets d'autor vulgui aportar el material al Common Voice.
+sc-howto-addsen-item-2 = Xifres. No hi hauria d'haver cap dígit en el text, perquè poden causar problemes quan es llegeixen en veu alta. La manera com es llegeix un nombre depèn del context i pot introduir confusió en el conjunt de dades. Per exemple, el nombre «2409» es podria llegir correctament com «vint-i-quatre zero nou» i com «dos mil quatre-cents nou», segons el context.
+sc-howto-addsen-item-3 = Abreviatures i acrònims. S'han d'evitar les abreviatures i els acrònims com ara «EUA» o «IEC» en el text, perquè es poden llegir d'una manera que no coincideix amb la seva grafia. A més, pot haver-hi diverses lectures correctes per a una sola abreviatura. Per exemple, l'acrònim «UAB» es pot pronunciar "u-a-be", "uab" o com «Universitat Autònoma de Barcelona».
+sc-howto-addsen-item-4 = Puntuació. Els símbols especials i els signes de puntuació només s'han d'incloure quan sigui absolutament necessari. Per exemple, en català s'usen el punt volat en la ela geminada i l'apòstrof davant de paraules començades en vocal, i s'haurien d'incloure en el text, però és poc probable que mai necessiteu un símbol especial com ara @ o #.
+sc-howto-addsen-item-5 = Lletres estrangeres. Les lletres han de ser vàlides en la llengua que es parla. Per exemple, «ж» és una lletra de l'alfabet ciríl·lic, però no s'utilitza en català i, per tant, no hauria d'aparèixer mai en cap text en català.
+sc-howto-addsen-item-6 = Cada llengua pot tenir les seves <validationRulesLink>regles de validació</validationRulesLink> amb requeriments addicionals. Si no hi ha cap fitxer de validació específic per a una llengua, s'usen les regles específiques de l'anglès.
+sc-howto-addsen-post-1 = Preferim frases naturals/conversacionals. Tot i que la diversitat fonètica i les diferents paraules a les frases són importants, estem intentant que l'enregistrament de les frases sigui el més divertit possible. Per tant, estaria genial si intenteu que les frases siguin tan naturals i atractives com sigui possible.
+sc-howto-cite-title = Com citar
+sc-howto-cite-pre-1 = És important que feu referència a on heu trobat la llicència pública per a evitar el plagi i per a permetre el seguiment de <copyrightIssuesLink>problemes de drets d'autor</copyrightIssuesLink>. Aquí teniu algunes maneres de citar l'obra.
+sc-howto-cite-item-1 = Podeu incloure el lloc web, per exemple, «Common Voice - https://commonvoice.mozilla.org/»
+sc-howto-cite-item-2 = Podeu utilitzar un estil de referència acadèmic. P. ex., l'estil de Harvard «Mozilla (2021) Common Voice. Disponible a https://commonvoice.mozilla.org/ (Consulta: 15 de setembre de 2021)»
+sc-howto-cite-item-3 = Per al text de domini públic que no està disponible en línia, podeu utilitzar un estil de referència acadèmic. P. ex., l'estil de Harvard «Jess (2021) Els meus poemes en domini públic»
+sc-howto-review-title = Revisar frases
+sc-howto-review-subtitle = Assegureu-vos que la frase compleix els criteris següents:
+sc-howto-review-criteria-1 = La frase és escrita correctament, sense faltes d'ortografia.
+sc-howto-review-criteria-2 = La frase ha de ser gramaticalment correcta.
+sc-howto-review-criteria-3 = La frase ha de ser pronunciable.
+sc-howto-review-criteria-4 = Si la frase compleix els criteris, feu clic en el botó «Aprova».
+sc-howto-review-criteria-5 = Si la frase no compleix els criteris anteriors, feu clic en el botó «Rebutja». Si no n'esteu segur, també podeu saltar-la i passar a la següent.
+sc-howto-review-criteria-6 = Si us quedeu sense frases per revisar, ajudeu-nos a recollir-ne més!
+sc-howto-findpd-title = Trobar frases de domini públic
+sc-howto-findpd-subtitle = Cerqueu-ne a Internet
+sc-howto-findpd-text-2 = Recordeu que necessitem permís per a publicar aquestes frases, així que assegureu-vos sempre que el text pertany al <wikipediaLink>domini públic</wikipediaLink>. Si no hi ha cap indicació explícita, poseu-vos en contacte amb la persona a qui pertany el text i pregunteu si vol aportar el text al domini públic. Si ho volen, ajudeu-los a passar pel procés de l'<cc0WaiverLink>Acord de col·laboracions</cc0WaiverLink>. Si no volen aportar el text, no podeu utilitzar-lo.
+sc-howto-findpd-tips = Aquí teniu alguns consells per a trobar frases:
+sc-howto-findpd-tips-1 = Les millors fonts que podeu cercar són podcasts, transcripcions, guions de pel·lícules i qualsevol cosa que pugui contenir converses quotidianes.
+sc-howto-findpd-tips-2 = Les actes de govern, els llibres i els articles també són excel·lents, però com que el text acostuma a ser una mica més formal, són menys prioritaris.
+sc-howto-findpd-tips-3 = Malauradament, encara no podem tenir articles de la Viquipèdia. Així que no copieu i enganxeu text des d'allà.
+sc-howto-findpd-subtitle-2 = Col·laborar amb persones o organitzacions locals
+sc-howto-findpd-partner-1 = Hi ha moltes organitzacions públiques que potser volen col·laborar i ja tenen molts textos que poden donar com a domini públic. Poseu-vos en contacte amb universitats, governs i organitzacions de codi obert locals per a parlar del projecte i demanar-los ajuda.
+sc-howto-findpd-partner-2 = Els lingüistes experts també us poden ajudar, intenteu posar-vos en contacte amb les universitats lingüístiques locals (amb docents i estudiants) i comproveu si poden ajudar a reunir un conjunt divers d'oracions amb diferents sons en la vostra llengua.
+
+## MY SENTENCES
+
+sc-my-title = Les meves frases
+sc-my-description = Aquesta pàgina us dona una visió general de totes les frases que heu enviat. També podeu eliminar frases ja trameses, si s'escau, marcant la casella de selecció del costat i fent clic a &quot;Suprimeix les frases seleccionades&quot; a baix de tot. Només esborreu frases si és absolutament necessari, com per exemple si us heu adonat que una frase està protegida per drets d'autor.
+sc-my-loading = S'estan carregant les frases…
+sc-my-err-fetching = S'ha produït un error en obtenir les frases. Torneu-ho a provar.
+sc-my-no-sentences = No s'ha trobat cap frase!
+# Variables:
+#   $batchId (String) - A unique ID identifying the submission of sentences - sentences uploaded together all have the same batch ID
+sc-my-submission = Tramesa: { $batchId }
+# Variables:
+#   $source (String) - Associated source the user filled out when uploading the sentence
+sc-my-source = Font:  { $source }
+sc-my-delete = Suprimeix les frases seleccionades
+sc-my-deleting = S'estan suprimint les frases seleccionades…
+sc-my-err-failed-delete = No s'han pogut suprimir les frases seleccionades… Torneu-ho a provar!
+
+## REJECTED
+
+sc-rejected-title = Frases rebutjades
+sc-rejected-loading = S'estan carregant les frases rebutjades…
+sc-rejected-err-fetching = S'ha produït un error en obtenir les frases rebutjades. Torneu-ho a provar.
+sc-rejected-none-found = No s'ha trobat cap frase rebutjada!
+
+## STATS
+
+sc-stats-title = Estadístiques
+sc-stats-updating = S'està actualitzant…
+sc-stats-error = No s'han pogut obtenir les estadístiques. Torneu a provar-ho més tard.
+# Variables:
+#   $sentenceCount (Number) - Total number of sentences uploaded through Sentence Collector
+#   $languageCount (Number) - Total number of languages these sentences represent
+sc-stats-summary = El Common Voice Sentence Collector ha recollit { $sentenceCount } frases en { $languageCount } llengües!
+
+## ADD
+
+sc-submit-err-select-lang = Seleccioneu una llengua.
+sc-submit-err-add-sentences = Afegiu frases.
+sc-submit-err-add-source = Afegiu una font.
+sc-submit-err-confirm-pd = Confirmeu que aquestes frases són de domini públic.
+sc-submit-prompt =
+    .message = Les frases no s'han enviat, esteu segur que voleu sortir?
+sc-submit-title = Afegeix frases
+sc-submit-select-language =
+    .labelText = Trieu una llengua
+sc-submit-add-sentences = Afegiu frases de <wikipediaLink>domini públic</wikipediaLink>
+sc-submit-ph-one-per-line =
+    .placeholder = Una frase per línia
+sc-submit-from-where = D'on són aquestes frases de <wikipediaLink>domini públic</wikipediaLink>?
+sc-submit-ph-read-how-to =
+    .placeholder = Llegiu les instruccions si no esteu segurs de com atribuir
+sc-submit-confirm = Confirmo que aquestes frases són de <wikipediaLink>domini públic</wikipediaLink> i tinc permís per pujar-les.
+sc-submit-button =
+    .submitText = Envia
+sc-submit-filtered = Frases filtrades a causa d'algun error en els requeriments (envieu les frases corregides com a frases noves):
+sc-submit-guidelines = Reviseu les <howToLink>directrius</howToLink>.
+
+## ADD LANGUAGE
+
+sc-add-lang-could-not-add = No s'ha pogut afegir la llengua
+sc-add-lang-sec-label = Afegiu la llengua en la qual voleu contribuir
+sc-add-lang-sec-button = Afegeix una llengua
+sc-add-err-unexpected = El servidor ha retornat una resposta inesperada
+# Variables:
+#   $duplicates (Number) - Number of sentences which got rejected because they are duplicates
+sc-add-result =
+    { $duplicates ->
+        [0] Frases enviades. No s'ha rebutjat cap frase com a duplicada.
+        [one] Frases enviades. S'ha rebutjat una frase com a duplicada.
+       *[other] Frases enviades. S'han rebutjat { $duplicates } frases com a duplicades.
+    }
+# Variables:
+#   $sentences (Number) - Number of sentences which failed to be saved to the database - could be several different reasons
+sc-add-err-failed =
+    { $sentences ->
+        [0] No ha fallat cap frase
+        [one] Ha fallat una frase
+       *[other] Han fallat { $sentences } frases
+    }
+sc-add-err-submission = Error d'enviament
+sc-add-lang-process-notice = Si la vostra llengua no apareix aquí, la podeu sol·licitar mitjançant <languageProcessLink>aquest procés</languageProcessLink>.
+
+## ADD SENTENCES CONFIRMATION
+
+sc-confirm-are-you-sure =
+    .message = Les frases no s'han enviat, esteu segur que voleu sortir?
+sc-confirm-sentences-title = Confirma les frases noves
+# Variables:
+#   $countOfSentences (Number) - Number of sentences the user has filled in the submission form
+sc-confirm-sentences-found =
+    { $countOfSentences ->
+        [0] No s'ha trobat cap frase.
+        [one] S'ha trobat 1 frase.
+       *[other] S'han trobat { $countOfSentences } frases.
+    }
+# Variables:
+#   $countOfInvalidated (Number) - Number of sentences the user rejected in the review form before submission
+sc-confirm-rejected-by-you = N'heu rebutjat { $countOfInvalidated }
+sc-confirm-already-reviewed =
+    { $countOfReviewed ->
+        [0] No hi ha cap frase ja revisada.
+        [one] Ja s'ha revisat una frase. Bona feina!
+       *[other] Ja s'han revisat { $countOfReviewed } frases. Bona feina!
+    }
+# Variables:
+#   $readyCount (Number) - Number of sentences ready to be uploaded
+sc-confirm-ready =
+    { $readyCount ->
+        [0] No hi ha cap frase per a l'enviar!
+        [one] Hi ha una frase preparada per a l'enviament!
+       *[other] Hi ha { $readyCount } frases preparades per a l'enviament!
+    }
+# Variables:
+#   $countOfUnreviewed (Number) - Number of sentences unreviewed before the upload
+sc-confirm-unreviewed = { $countOfUnreviewed } frases estan pendents de revisar. Si voleu, també podeu revisar les vostres frases ara abans d'enviar-les.
+sc-confirm-button-text = Confirma
+sc-confirm-uploading = Les frases s'estan pujant. Això pot trigar alguns minuts depenent del nombre de frases afegides. No tanqueu aquesta pàgina.
+
+## LANGUAGE INFO
+
+sc-lang-info-title-total = Total
+sc-lang-info-title-personal = Personal
+# Variables:
+#   $totalSentences (Number) - Number of sentences uploaded in total for this language
+sc-lang-info-total =
+    { $totalSentences ->
+        [0] Cap frase en total.
+        [one] Una frase en total.
+       *[other] { $totalSentences } frases en total.
+    }
+# Variables:
+#   $totalInReview (Number) - Number of sentences currently in the review state for this language
+sc-lang-info-in-review =
+    { $totalInReview ->
+        [0] No hi ha cap frase en revisió.
+        [one] Hi ha una frase en revisió.
+       *[other] Hi ha { $totalInReview } frases en revisió.
+    }
+# Variables:
+#   $unreviewedSentencesByYou (Number) - Number of sentences the user can still review
+sc-lang-info-left-for-you =
+    { $unreviewedSentencesByYou ->
+        [0] No teniu cap frase per revisar.
+        [one] Teniu una frase per revisar.
+       *[other] Teniu { $unreviewedSentencesByYou } frases per revisar.
+    }
+sc-lang-info-review-now = <reviewLink>Reviseu ara!</reviewLink>
+sc-lang-info-add-more = <addLink>Afegiu més frases ara!</addLink>
+# Variables:
+#   $validatedSentences (Number) - Number of sentences which have been approved for this language
+sc-lang-info-validated =
+    { $validatedSentences ->
+        [0] Cap frase validada.
+        [one] Una frase validada.
+       *[other] { $validatedSentences } frases validades.
+    }
+# Variables:
+#   $rejectedSentences (Number) - Number of sentences which have been rejected for this language
+sc-lang-info-rejected =
+    { $rejectedSentences ->
+        [0] Cap frase rebutjada.
+        [one] Una frase rebutjada.
+       *[other] { $rejectedSentences } frases rebutjades.
+    }
+
+## LOGIN
+
+sc-login-err-failed = L'inici de sessió ha fallat
+sc-login-err-try-again = Torneu-ho a provar.
+
+## PROFILE
+
+# Variables:
+#   $username (String) - eMail address of the logged in user
+sc-profile-title = Perfil: { $username }
+sc-personal-err-lang-not-found = No s'ha pogut suprimir la llengua: la llengua no s'ha trobat
+sc-personal-err-remove = No s'ha pogut suprimir la llengua
+sc-personal-your-languages = Les vostres llengües:
+sc-personal-remove-button = elimina
+# Variables:
+#   $sentences (Number) - Number of sentences that were added by the currently logged in user for this language
+sc-personal-added-by-you = N'heu afegit { $sentences }
+sc-personal-not-added = Encara no heu afegit cap llengua.
+
+## REVIEW CRITERIA
+
+sc-criteria-modal = ⓘ Criteris de revisió
+sc-criteria-title = Criteris de revisió
+sc-criteria-make-sure = Assegureu-vos que la frase compleix els criteris següents:
+sc-criteria-item-1 = La frase és escrita correctament, sense faltes d'ortografia.
+sc-criteria-item-2 = La frase és gramaticalment correcta.
+sc-criteria-item-3 = La frase és pronunciable.
+sc-criteria-item-4 = Si la frase compleix els criteris, feu clic en el botó «Aprova».
+sc-criteria-item-5-2 = Si la frase no compleix els criteris anteriors, feu clic en el botó «Rebutja». Si no n'esteu segur, també podeu saltar-la i passar a la següent.
+sc-criteria-item-6 = Si us quedeu sense frases per revisar, ajudeu-nos a recollir-ne més!
+
+## REVIEW
+
+sc-review-lang-not-selected = No heu seleccionat cap llengua. Aneu al vostre <profileLink>Perfil</profileLink> per a triar alguna llengua.
+sc-review-title = Revisa les frases
+sc-review-loading = S'estan carregant les frases…
+sc-review-select-language = Trieu una llengua per a revisar-ne les frases.
+sc-review-no-sentences = No hi ha cap frase per revisar. <addLink>Afegiu més frases ara!</addLink>
+sc-review-form-prompt =
+    .message = No s'han enviat les frases revisades, n'esteu segur?
+sc-review-form-usage = Llisqueu cap a la dreta per a aprovar la frase. Llisqueu cap a l'esquerra per a rebutjar-la. Llisqueu cap amunt per a ometre-la. <strong>No oblideu de trametre la revisió!</strong>
+# Variables:
+#   $sentenceSource (Number) - Associated source the user filled out when uploading the sentence
+sc-review-form-source = Font:  { $sentenceSource }
+sc-review-form-button-reject = Rebutja
+sc-review-form-button-skip = Omet
+sc-review-form-button-approve = Aprova
+# Keyboard shortcut to use to approve a sentence (sc-review-form-button-approve)
+sc-review-form-button-approve-shortcut = S
+# Keyboard shortcut to use to reject a sentence (sc-review-form-button-reject)
+sc-review-form-button-reject-shortcut = N
+# Keyboard shortcut to use to skip a sentence (sc-review-form-button-skip)
+sc-review-form-button-skip-shortcut = O
+sc-review-form-keyboard-usage-custom = També podeu utilitzar les dreceres de teclat: { sc-review-form-button-approve-shortcut } per a aprovar, { sc-review-form-button-reject-shortcut } per a rebutjar, { sc-review-form-button-skip-shortcut } per a ometre
+sc-review-form-button-submit =
+    .submitText = Acaba la revisió
+# Variables:
+#   $sentences (Number) - Number of sentences the user has reviewed in this session
+sc-review-form-reviewed-message =
+    { $sentences ->
+        [0] No heu revisat cap frase.
+        [one] Heu revisat una frase. Gràcies!
+       *[other] Heu revisat { $sentences } frases. Gràcies!
+    }
+sc-review-form-review-failure = No s'ha pogut desar la revisió. Torneu-ho a provar més tard.
+sc-review-link = Revisa
+
+## SETTINGS
+
+sc-settings-title = Paràmetres
+sc-settings-ui-language = Llengua de la interfície
+sc-settings-reset-skipped = Restableix les frases omeses
+sc-settings-skipped-decription = Abans heu omès frases mentre les revisàveu. Si restabliu les frases omeses, se us tornaran a mostrar. Això és independent de la llengua.
+sc-settings-show-all-button = Mostra de nou totes les frases omeses
+sc-settings-failed = No s'ha pogut canviar la configuració. Torneu-ho a provar.
+# VALIDATION
+sc-validation-number-of-words = La frase ha de contenir entre 1 i 14 paraules
+sc-validation-no-numbers = La frase no pot contenir xifres
+sc-validation-no-symbols = La frase no pot contenir símbols
+sc-validation-no-abbreviations = La frase no pot contenir abreviatures
+
+# [/SentenceCollector]
+
+localization-select =
+    .label = Trieu una llengua/localització

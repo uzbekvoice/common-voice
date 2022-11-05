@@ -14,6 +14,10 @@ email-opt-in-info-sub-with-challenge = 訂閱諸如挑戰、目標提醒、進�
 email-opt-in-privacy-v2 = 若同意接收郵件，就代表您同意 Mozilla 依照<privacyLink>隱私權保護政策</privacyLink>當中描述的方式處理這些資訊。
 indicates-required = * 表示必填欄位
 not-available-abbreviation = 不適用
+banner-error-slow-1 = 感謝您使用 Common Voice，很抱歉目前運作有點慢。
+banner-error-slow-2 = 我們收到大量連線流量，目前正在調查處理相關問題。
+banner-error-slow-link = 狀態頁面
+error-something-went-wrong = 抱歉，有些東西不對勁
 
 # Don't rename the following section, its contents are auto-inserted based on the name (see scripts/pontoon-languages-to-ftl.js)
 # [Languages]
@@ -39,7 +43,9 @@ bg = 保加利亞語
 bm = 班巴拉語
 bn = 孟加拉語
 br = 布里多尼語
+bs = 波士尼亞語
 bxr = 布里亞特語
+byv = 梅敦巴語
 ca = 加泰隆語
 cak = 喀克奇可語
 ckb = 中庫德語
@@ -49,9 +55,11 @@ cs = 捷克語
 cv = 楚瓦什語
 cy = 威爾斯語
 da = 丹麥語
+dag = 達巴尼語
 de = 德語
 dsb = 下索布語
 dv = 馬爾地夫語
+dyu = 迪烏拉語
 el = 希臘語
 en = 英語
 eo = 世界語（Esperanto）
@@ -67,9 +75,11 @@ fy-NL = 弗利西亞語
 ga-IE = 愛爾蘭語
 gl = 加里西亞語
 gn = 瓜拉尼語
+gom = 果亞康卡尼語
 ha = 豪薩語
 he = 希伯來語
 hi = 印地語
+hil = 希利蓋農語
 hr = 克羅埃西亞語
 hsb = 上索布語
 ht = 海地語
@@ -84,19 +94,26 @@ is = 冰島語
 it = 義大利語
 izh = 伊喬里亞語
 ja = 日語
+jbo = 邏輯語
 ka = 喬治亞語
 kaa = 卡拉卡爾帕克語
 kab = 卡拜爾語
 kbd = 卡巴達語
 ki = 吉庫尤語
 kk = 哈薩克語
+km = 高棉語
 kmr = 庫曼吉庫德語
+kn = 康納達語
+knn = 康卡尼語（天城文）
 ko = 韓語
 kpv = 科米-齊良語
 kw = 康瓦爾語
 ky = 吉爾吉斯語
+lb = 盧森堡語
 lg = 盧干達語
 lij = 利古里亞語
+ln = 林格拉語
+lo = 寮語
 lt = 立陶宛語
 lv = 拉脫維亞語
 mai = 邁蒂利語
@@ -106,6 +123,7 @@ mhr = 草原馬里語
 mk = 馬其頓語
 ml = 馬拉亞拉姆語
 mn = 蒙古語
+mni = 梅泰語
 mos = 莫西語
 mr = 馬拉提語
 mrj = 山地馬里語
@@ -115,12 +133,16 @@ my = 緬甸語
 myv = 厄茲亞語
 nan-tw = 台語
 nb-NO = 挪威語（Bokmål）
+nd = 北恩德貝勒語（辛巴威）
 ne-NP = 尼泊爾語
 nia = 尼亞斯語
 nl = 荷蘭語
 nn-NO = 挪威語（Nynorsk）
+nr = 南恩德貝勒語（南非）
+nso = 北索托語
 nyn = 尼安科萊語
 oc = 奧西坦語
+om = 阿方奧羅莫語
 or = 奧里亞語
 pa-IN = 旁遮普語
 pap-AW = 帕皮亞門托語（阿魯巴）
@@ -128,6 +150,7 @@ pl = 波蘭語
 ps = 普什圖語
 pt = 葡萄牙語
 quc = 基切語
+quy = 克丘亞占卡語
 rm-sursilv = 羅曼蘇塞瓦語
 rm-vallader = 羅曼什瓦拉德語
 ro = 羅馬尼亞語
@@ -137,13 +160,18 @@ sah = 薩哈語
 sat = Santali（Ol Chiki 字）
 sc = 薩丁尼亞語
 scn = 西西里語
+sdh = 南庫德語
 shi = 施盧赫語
 si = 僧加羅語
 sk = 斯洛伐克語
+skr = 沙賴基語
 sl = 斯洛維尼亞語
+snk = 索寧克語
 so = 索馬利語
 sq = 阿爾巴尼亞語
 sr = 塞爾維亞語
+ss = 史瓦濟蘭語
+st = 塞索托語
 sv-SE = 瑞典語
 sw = 斯瓦希里語
 syr = 敘利亞語
@@ -152,8 +180,13 @@ te = 泰盧固語
 tg = 塔吉克語
 th = 泰語
 ti = 提格利尼亞語
+tig = 提格雷語
+tk = 土庫曼語
 tl = 塔加祿語（菲律賓）
+tn = 札那語
+tok = 道本語
 tr = 土耳其語
+ts = 希宋加語
 tt = 韃靼語
 tw = 特威語 (西非)
 ty = 大溪地語
@@ -163,15 +196,20 @@ ug = 維吾爾語
 uk = 烏克蘭語
 ur = 烏爾都語
 uz = 烏茲別克語
+ve = 齊溫達語
 vec = 威尼斯語
 vi = 越南語
 vot = 沃特語
+xh = 科薩語（南非）
 yi = 意第緒語
 yo = 約魯巴語 (奈及利亞)
 yue = 粵語
+zgh = 塔馬塞特語
 zh-CN = 華語（中國）
 zh-HK = 廣東話（香港）
 zh-TW = 華語（台灣）
+zu = 祖魯語（南非）
+zza = 扎扎語
 
 # [/]
 
@@ -183,6 +221,7 @@ speak-now = 現在說話
 datasets = 資料集
 languages = 語言
 about = 關於我們
+partner = 成為夥伴
 profile = 帳號資料
 help = 說明
 contact = 聯絡我們
@@ -298,7 +337,6 @@ shortcut-discard-ongoing-recording-label = 捨棄目前錄音
 shortcut-submit = 返回
 shortcut-submit-label = 送出片段
 request-language-text = 沒在 Common Voice 看到您的語言嗎？
-request-language-text-learn = 了解如何在此要求！
 request-language-button = 要求新語言
 
 ## ProjectStatus
@@ -322,8 +360,16 @@ profile-form-native-language =
     .label = 母語
 profile-form-additional-language =
     .label = 其他語言
+profile-form-language =
+    .label = 語言
+profile-form-variant =
+    .label = 您會說 { $language } 的哪種變體？
+profile-form-variant-default-value = 未選擇變體
 profile-form-accent =
     .label = 腔調
+profile-form-custom-accent-help-text =
+    .label = 您會如何描述您講話的腔調？
+profile-form-custom-accent-placeholder-2 = 打字輸入，描述您的腔調
 profile-form-age =
     .label = 年齡
 profile-form-gender-2 =
@@ -334,6 +380,7 @@ hidden = 隱藏
 visible = 可見
 native-language =
     .label = 母語
+profile-form-add-accent = 新增自訂腔調「{ $inputValue }」
 profile-form-submit-save = 儲存
 profile-form-submit-saved = 已儲存
 male = 男性
@@ -367,6 +414,10 @@ skip-submission-description = 貢獻過程中，在點擊「送出」後將忽�
 skip-submission-note = 註: 您仍須要選擇「聽」或「說」來切換貢獻類型。
 off = 關
 on = 開
+help-accent = 需要關於腔調的說明嗎？
+help-accent-explanation = 腔調就是您發音的方式，可能會受您生活的地方、您會說的其他語言以及其他許多因素影響。您可以在此分享任何您覺得有關的資訊。
+help-variants = 需要關於變體的相關說明嗎？
+help-variants-explanation = 變體是一種語言的特定格式，像是由居住在共同地區或社群的人才有的特定說話腔調。有時這也稱為「方言」。
 
 ## Profile - Email
 
@@ -377,6 +428,7 @@ gravatar_not_found = 找不到您電子郵件信箱的 Gravatar
 file_too_large = 選擇的檔案太大
 avatar-uploaded = 已上傳大頭照
 max-file-size = 最大 { $kb }kb
+remove-avatar = 移除大頭照
 
 ## Profile - Email
 
@@ -406,7 +458,7 @@ faq-why-important-a =
 faq-how-get-q = 我要如何取得 Common Voice 資料？
 faq-how-get-a = 可到 <datasetLink>Common Voice 資料集頁面</datasetLink>下載，本資料集使用 <licenseLink>CC0</licenseLink> 授權。您也可以在該頁面中下載幾套其他的資料集。
 faq-when-release2-q = 你們什麼時候會發布其他語言的 Common Voice 資料？
-faq-when-release2-a = 多語言版本的 Common Voice 資料集，目前正交由社群進行清理與打包。若您想要幫助我們加入新語言到 Common Voice，請使用 <sentenceCollectorLink>語句收集工具</sentenceCollectorLink>來加入語句到資料集，並到 <pontoonLink>Mozilla Pontoon</pontoonLink> 來將網站翻譯成該語言。每種語言有超過 5000 句語句審核完成後，就會加入 Common Voice。
+faq-when-release2-a = 多語言版本的 Common Voice 資料集，目前正交由社群進行清理與打包。若您想要幫助我們加入新語言到 Common Voice，請使用 <sentenceCollectorLink>Sentence Collector</sentenceCollectorLink> 來加入語句到資料集，並到 <pontoonLink>Mozilla Pontoon</pontoonLink> 來將網站翻譯成該語言。每種語言有超過 5000 句語句審核完成後，就會加入 Common Voice。
 faq-why-mission-q = 為什麼 Common Voice 也是 Mozilla 使命的一部分？
 faq-why-mission-a = Mozilla 致力於保持網路開放，讓任何人都可使用。為達到這個目標，我們要透過像 Common Voice 這樣的專案來協助網路上的創作者來得到威力。隨著採用語音技術的程式激增，我們相信這些程式應該平等地服務所有使用者。這代表打造與測試語音科技時，需要滿足更多語言、腔調、人口的需求。Common Voice 將會成為一套能夠幫助 Mozilla 與全球開發者們的公眾資源，並已用於專案開發當中。
 faq-what-cv-and-deepspeech-q = Common Voice 跟 Deep Speech 有何不同？
@@ -420,7 +472,7 @@ faq-why-different-speakers-a =
     大多數的語音資料庫的語音來源偏重於某群特定人口，造成結果偏向於<articleLink>男性與中產階級</articleLink>。而在訓練資料集中，各種不同的口音與方言會與被邊緣化的人群相關連起來。許多機器也很難理解女性的聲音。
     這就是為什麼我們的語音資料庫應該海納百川，收集各種語音！
 faq-why-my-lang-q = 為什麼還沒有我的語言？
-faq-why-my-lang-new-a = Mozilla 不特別偏好哪種語言，然而 Common Voice 是一個純社群發起的專案，需要<multilangLink>幾個步驟才能新增語言</multilangLink>並開始收集語音片段。首先需要完成翻譯 Common Voice 網站，這樣社群成員才能用自己的語言進行貢獻。次之，我們需要大量的無版權語句，讓人們可以大聲說出來。當兩個條件都滿足後 Common Voice 即可「上線」，讓人們開始錄音，並驗證其他人所錄下的片段。若您想要協助準備讓新語言上限，歡迎到<sentenceCollectorLink>語句收集工具</sentenceCollectorLink>開始幫忙。
+faq-why-my-lang-a = Common Voice 是一個群眾外包的平台，當中的各種語言完全是由志工所維護。我們很希望您加入！<languageRequestLink>在此詢問如何新增語言。</languageRequestLink>
 faq-what-quality-q = 錄音品質要到什麼等級，才能用於資料集中？
 faq-what-quality-a = 我們希望 Common Voice 資料集能夠反映出語音轉文字引擎就算在野外也會聽到的聲音，所以我們希望能夠收集各種環境與錄音品質下的片段。除了各種說話者以外，若資料集中包含各種語音品質的片段，可讓語音轉文字引擎處理各種現實環境下的狀況，例如背景中有人在講話，或是有車輛的噪音。只要您的片段能讓人足夠聽得懂，即可收錄至資料集中。
 faq-why-10k-hours-q = 為什麼每個語言有一萬小時的音檔驗證目標？
@@ -433,7 +485,7 @@ faq-where-src-from-2-a =
     
     您可到此 <githubLink>GitHub 資料夾</githubLink>檢視我們的來源文本。
 faq-why-not-ask-read-q = 為什麼你們不讓人來念出各種語言的書本內容，或是維基百科條目？
-faq-why-not-ask-read-a = 為了讓 Common Voice 資料集能發會最大效益，我們決定只允許收錄以 Creative Commons (CC0) 授權條款提供使用的來源文本。會比較難找到使用 CC0 條款的來源文本，但可讓任何人都使用產出的語音資料，而不需受 Mozilla 的限制或授權。最終我們讓多語言資料集，為所有人（包含研究者、大學、創業公司、政府、社團組織、有興趣的人）發揮最大效益。
+faq-why-not-ask-read-a = 為了讓 Common Voice 資料集能發揮最大效益，我們決定只允許收錄以 Creative Commons (CC0) 授權條款提供使用的來源文本。會比較難找到使用 CC0 條款的來源文本，但可讓任何人都使用產出的語音資料，而不受 Mozilla 的限制或授權。我們的最終目標是希望讓多語言資料集，為所有人（包含研究者、大學、創業公司、政府、社團組織、有興趣的人）發揮最大效益。
 faq-why-account-q = 為什麼我要註冊帳號？
 faq-is-account-public-q = 我的帳號資料是公開的嗎？
 faq-how-privacy-q = 你們如何確保匿名性，以及貢獻語音的人的隱私？
@@ -452,15 +504,28 @@ faq-search-for-answers =
 ## ABOUT US
 
 about-title = 為什麼會有 Common Voice？
-about-subtitle = Common Voice 是 Mozilla 想讓機器學會真人說話方式的專案。除了 Common Voice 資料集外，我們也正在打造一套稱為 Deep Speech 的開放原始碼語音識別引擎。
-about-header-description =
-    這兩個專案都是我們努力弭平數位語音落差的一部份。語音識別技術可讓我們的裝置帶來人性，但開發者需要極為龐大數量的語音資料，才能打造出這樣的系統。目前大部分語音資料都相當昂貴，也是專有的資料。
-    我們希望讓語音資料能夠公開自由使用，並確保資料反映出人們實際的多樣性。讓我們一起為所有人把語音識別技術變得更好吧！
-about-header-description-2 =
-    此專案是我們為了努力弭平數位語音落差所做的努力。語音識別技術可讓我們的裝置帶來人性，但開發者需要極為龐大數量的語音資料，才能打造出這樣的系統。目前大部分語音資料都相當昂貴，也是專有的資料。
-    我們希望讓語音資料能夠公開自由使用，並確保資料反映出人們實際的多樣性。讓我們一起為所有人把語音識別技術變得更好吧！
-how-does-it-work-title = 原理是什麼？
+about-header-description-v2 =
+    <p>Common Voice 是一套由來自世界各地的社群貢獻志工所提供，可公開使用的語音資料集，想要打造語音應用程式的人可以使用此資料集來訓練機器學習模型。</p>
+    <p>目前大部分的語音資料集都由扼殺創新的大企業所擁有。各種語音資料集也過度加強了說英語的白人男性的語音比例。這代表語音技術根本無法用於某些語言，就算可以使用，也不見得對每個人都能有一樣好的效果。我們想要透過動員世界各角落人們主動分享語音的方式，來扭轉這個現象。</p>
+how-does-it-work-title-v2 = Common Voice 的原理是什麼？
 how-does-it-work-text = 我們集合眾人之力，打造開放原始碼的語音資料集。歡迎捐出您的聲音、協助驗證錄音片段是否正確，讓資料集能夠變得更好。
+
+## How does it work section
+
+about-language-req-subtitle = 某人要求加入一種語言。
+about-localization-title = 網站在地化
+about-localization-subtitle = 到 Pontoon 完整翻譯該語言版本。
+about-sentence-collection-title = 收集語句
+about-sentence-collection-subtitle = 收集好能夠讓人錄音的語句。
+about-new-lang-title = 發布新語言
+about-new-lang-subtitle = 我們讓此語言版本的 Common Voice 網站上線。
+about-voice-contrib-title = 貢獻語音
+about-voice-contrib-subtitle = 有一群人會參與貢獻錄音。
+about-voice-validation-title = 驗證錄音
+about-voice-validation-subtitle = 有另一群人會參與驗證這些錄音片段。
+about-dataset-release-title = 發布資料集
+about-dataset-release-subtitle = 我們每 3 個月發布一次資料集。
+about-subscribe-text = 想要與 Common Voice 保持聯繫嗎？
 about-speak = 說話
 about-speak-text = 貢獻者透過讀出一系列由他人捐贈的語料庫句子，將語音片段錄音下來。
 about-listen-queue = 聆聽佇列
@@ -477,26 +542,105 @@ about-dataset-new = Common Voice 資料集
 about-dataset-new-text = Common Voice 資料集包含數十萬筆語音樣本，可幫助開發者打造語音識別工具。
 about-clip-graveyard = 片段回收桶
 about-clip-graveyard-text = 回收桶中包含無法進入 Common Voice 資料集的語音片段。與資料集一樣，回收桶內容也有提供下載。
-about-partners = 夥伴
-about-become-a-partner = 成為夥伴
-about-partnership =
-    Common Voice 是一套由眾人鼎力相助的專案。我們依賴由夥伴與貢獻者所組成的社群，來打有史以來最大的開放原始碼語音資料集。
-    
-    特別感謝下列人員與組織單位，協助本專案:
 about-get-involved = 參與我們
 about-get-involved-text-2 =
     想要幫忙讓 Common Voice 變得更棒嗎？
     沒問題！請寄 E-Mail 給我們，也可以到 <discourseLink>Discourse</discourseLink>
     討論區留言、透過 <githubLink>GitHub</githubLink> 回報網站問題、
     或是加入我們的 <matrixLink>Matrix</matrixLink> 社群聊天室。
+about-stay-in-touch = 我要如何與你們保持聯繫？
+about-stay-in-touch-button = 註冊
+about-stay-in-touch-text-1 = <emailFragment>訂閱</emailFragment>我們的郵件群組，瞭解可以參加哪些活動、並一同參與 Common Voice 的功能設計。
+about-stay-in-touch-text-2 = 您可以加入 <discourseLink>Discourse</discourseLink> 來認識 Mozilla 各語言社群的成員並進行對話，或是加入 <matrixLink>Matrix</matrixLink> 來獲得快速建議。
 about-nav-why-common-voice = 為什麼？
 about-nav-how-it-works = 怎麼做？
 about-nav-partners = 夥伴
 about-nav-get-involved = 參與我們
-mycroft-title = Mycroft Ai
-mycroft-subtitle = 人工智慧
-mycroft-description = Mycroft 是全球第一套的開放原始碼語音助理，不論是在電腦、車子、Raspberry Pi 或是任何地方都能運作。
-mycroft-secondary-description = 這是一套可以自由混搭、延伸、改進的開放原始碼軟體。Mycroft 可以用於科學專案，或企業軟體應用等各種情境中。
+about-nav-how-it-works-2 = Common Voice 的原理是什麼？
+about-nav-playbook = 了解如何參與
+
+## Community Playbook Content
+## What is a language
+
+about-playbook-what-is-language = Common Voice 如何列出語言？
+about-playbook-what-is-language-content-1 = 不同領域對語言有不同的定義。對語音識別模型來說，Common Voice 建議您著重於「相互理解性」，或是「使用這種語言的人嘗試理解對方的話，他們是否真能相互理解？」
+about-playbook-what-is-language-content-2 = 我們想讓語音模型能夠更加包容不同的說話者，所以我們希望語音資料集能夠反映出各種多樣化的聲音。
+about-playbook-what-is-language-content-3 = 某些語言有許多不同的文法、詞彙、發音差異。因此，我們自 2022 年起<ctaLink>引入了「變體」的概念</ctaLink>。讓各社群能夠在完整的資料集中更精準地分辨出各種語言。
+
+## How do I add a language
+
+about-playbook-how-add-language = 要如何加入語言？
+about-playbook-how-add-language-content-1 = 首先請先確認您的語言是否<languageLink>已經存在</languageLink>。若還不存在的話，請<strong>將網站翻譯成您的語言，並且收集語句</strong>。
+about-playbook-how-add-language-translating-heading = 翻譯網站
+about-playbook-how-add-language-translating-content-1 = <translateVideoLink>觀看 Pontoon 的使用教學。</translateVideoLink>
+about-playbook-how-add-language-translating-content-2 = 我們使用 Mozilla 一套叫作 <pontoonLink>Pontoon</pontoonLink> 的工具進行介面翻譯。Pontoon 已經支援許多語言，但若沒有您使用的語言，可以<pontoonRequestLink>請求新增</pontoonRequestLink>。新增語言後，請<githubRepoLink>到 GitHub 請求加入新語言</githubRepoLink>，Common Voice 方可支援。<localizationFragment>若需更多有關網站介面翻譯的資訊，請點此處</localizationFragment>。
+about-playbook-how-add-language-collecting-sentences-heading = 收集句子
+about-playbook-how-add-language-collecting-sentences-content-1 = <sentenceCollectorVideo>觀看我們的 Sentence Collector 使用指南</sentenceCollectorVideo>。
+about-playbook-how-add-language-collecting-sentences-content-2 = 您可以<sentenceCollectorLinkAdd>加入少量的句子</sentenceCollectorLinkAdd>，或是直接<bulkImportDocsLink>透過 Github 大批匯入</bulkImportDocsLink>。請記住所有的句子都必須是 <licenseLink>CC0 或公開領域</licenseLink>作品，或是您自己撰寫的作品。
+about-playbook-how-add-language-collecting-sentences-content-3 = <sentenceCollectorFragment>了解收集語句的更多資訊</sentenceCollectorFragment>。
+
+## How does localization work
+
+about-playbook-how-localize = 如何進行網站在地化？
+about-playbook-how-localize-content-1 = Common Voice 網站的翻譯在 <strong>Pontoon</strong> 進行。
+about-playbook-how-localize-content-2 = 若您還沒有的話，請先<pontoonAccountLink>註冊帳號</pontoonAccountLink>。然後選擇要加入的語言<strong>（「團隊」）</strong>，再選擇 <pontoonCvLink>Common Voice</pontoonCvLink> 專案。專案中就會有要翻譯的檔案。任選一個檔案，然後就會顯示每個字串的英文原文，以及輸入譯文的翻譯框。
+about-playbook-how-localize-content-3 = 原則上都是根據英文翻譯，但您可以參考其他語言的<strong>翻譯建議</strong>。可以點擊<strong>個人帳號大頭照</strong>圖示當中的<strong>Settings</strong>連結，加入您會使用的任何語言。點擊右下角的<strong>Locales</strong> 標籤會出現其他語系目前的翻譯內容供您參考。翻譯完成後的隔天我們就會將完成的譯文更新到網站上。
+about-playbook-how-localize-content-4 = 網站翻譯完成度達 75% 時，即可準備上線。
+about-playbook-how-localize-content-5 = 請看我們的說明影片
+
+## How to add sentences
+
+about-playbook-how-add-sentences = 要如何加入句子？
+about-playbook-how-add-sentences-content-1 = <strong>Sentence Collector</strong> 是一套用來收集與驗證公眾領域語句的工具。您要先<scAccountLink>註冊帳號</scAccountLink>，然後將您使用的語言加到<strong>個人資料</strong>中，然後就可以<strong>新增</strong>句子或者<strong>審核</strong>先前新增的句子。
+about-playbook-how-add-sentences-content-2 = 每個句子都必須經過兩個人審核接受才會被加入 Common Voice。您可以<languageGuidelinesLink>在此</languageGuidelinesLink>建立您的語言的審核標準。句子的內容必須使用<licenseLink>公眾領域</licenseLink>授權條款，並且不超過 15 個字。您可以請文字內容的作者或著作權擁有者<waiverLink>以 CC0 條款拋棄著作權</waiverLink>，並且寄到 commonvoice@mozilla.com 給我們即可使用。
+about-playbook-how-add-sentences-content-3 = 您可以使用 <scraperLink>Sentence extractor</scraperLink> 來從維基百科收集短句。
+about-playbook-how-add-sentences-content-4 = 每週三會匯出驗證完成的句子，並且在下次發行時一併發布。
+
+## How to record quality
+
+about-playbook-how-record-quality = 要如何錄下高品質的語音片段？
+about-playbook-how-record-content-1 = 用最您最習慣的方式說話！不論您操哪種腔調，我們都希望您用最習慣的說話音量、方式、抑揚頓挫來錄音。
+about-playbook-how-record-content-2 = 避免太吵雜的背景噪音，應該要很容易就能聽到您的聲音。
+about-playbook-how-record-content-3 = 小心閱讀句子，別讀錯、改字或加減字。
+about-playbook-how-record-content-4 = 確定錄音開始了再說話，說完了再停止錄音。
+about-playbook-how-record-content-5 = <accuracyLink>看更多有關準確度的判斷標準。</accuracyLink>
+
+## How to grow language
+
+about-playbook-how-grow-language = 我們如何有效地在 Common Voice 發展一套語言？
+about-playbook-how-grow-language-content-1 = 讓廣泛的人們都有 Common Voice 的貢獻機會，能確保產出的資料集可被更多數人所用。我們已經預先建立了一些資源與範本供您使用！
+about-playbook-how-grow-language-content-2 = 活動
+about-playbook-how-grow-language-content-3 = 您可以辦活動，幫助人們參與貢獻。不論是透過線上的視訊會議舉辦，或是現場舉辦（安全的話），這件事絕對比您想得還容易。<eventTemplate>可點擊此處參考我們的活動範例與輔助資源</eventTemplate>。
+about-playbook-how-grow-language-content-4 = 社群網路
+about-playbook-how-grow-language-content-5 = 您可以使用社群媒體平台來散播訊息，分享貼文說明這件事為什麼重要，並且與其他討論語言權、語音 AI、科技偏見等議題的人聯繫。可參考這裡有關<campaignLink>舉辦社群活動的更多建議，以及許多您可以重複使用的內容</campaignLink>。
+about-playbook-how-grow-language-content-6 = 成為夥伴與合作網路的一員
+about-playbook-how-grow-language-content-7 = 尋找其他關注此議題的人，可能是大學、語言學校、倡議團體、資料科學社群的成員。可以聯繫他們，並且向他們解釋為什麼、要如何參與。<outreachTemplates>請點擊此處參考我們的聯絡郵件範本</outreachTemplates>。
+about-playbook-how-grow-language-content-8 = <strong>發揮創意！</strong>您的語言社群可以走出自己的風格，這幾點都只是一開始的小建議而已。
+
+## How to validate
+
+about-playbook-how-validate = 是否接受錄音的標準是什麼？
+about-playbook-how-validate-content-1 = 只要您<strong>聽得到句子</strong>，也能<strong>聽懂句子</strong>，通常<strong>就可以通過</strong>。
+about-playbook-how-validate-content-2 = <strong>不要因為說話的人「講話有腔調」、「腔調跟您不同」就退回句子</strong>若要讓每個人都能容易使用語音識別，接受各種腔調相當重要。
+about-playbook-how-validate-content-3 = 若您覺得錄音片段中的<strong>發音無法理解</strong>、有<strong>太大的背景噪音</strong> 或是<strong>同時錄到其他人的聲音</strong>，那麼就該退回錄音片段。<accuracyLink>若需有關準確度判斷準則的相關資訊，請閱讀此文章</accuracyLink>。
+about-playbook-how-validate-content-4 = 若有兩個人退回了錄音片段，此片段就會放到獨立的子資料集中發布。
+
+## How to access dataset
+
+about-playbook-how-access-dataset = 要如何存取使用資料集？
+about-playbook-how-access-dataset-content-1 = 您可以到<datasetsPage>資料集頁面</datasetsPage>選擇需要的版本與語言內容，然後直接下載！檔案中也包含了人口統計資訊、驗證資料等<metadataLink>相關後設資料</metadataLink>。需要提供電子郵件地址給我們才可以下載資料集。
+about-playbook-how-access-dataset-content-2 = 若您在尋找能用來建立 ASR 模型的工具，歡迎到 <discourseLink>Discourse</discourseLink> 尋找社群成員。
+
+## How are decisions made
+
+about-playbook-how-project-governance = 專案運作中如何進行決策？
+about-playbook-how-project-governance-content-1 = Mozilla Common Voice 是由來自世界各地的社會運動家、語言學家、資料科學家、學者、軟體工程師所組成的多元化社群所共同打造的。本專案由 Mozilla Foundation 管理運作。
+about-playbook-how-project-governance-content-2 = 此專案的治理方式建築於下列項目上：
+about-playbook-how-project-governance-content-3 = 隱私權、安全性、透明度。
+about-playbook-how-project-governance-content-4 = 社群參與決策。
+about-playbook-how-project-governance-content-5 = 價值與重視。
+about-playbook-how-project-governance-content-6 = 相互問責。
+about-playbook-how-project-governance-content-7 = <governanceLink>更加了解我們如何治理本專案</governanceLink>
 
 ## Glossary
 
@@ -555,6 +699,7 @@ review-delete-recordings = 刪除我的錄音
 
 ## Datasets Page
 
+datasets-heading = 資料集
 datasets-headline = 我們想建立一套開放原始碼、多重語言的語音資料集，讓任何人都可以用來開發語音相關應用。
 datasets-positioning =
     我們相信若有一組大型、可公開使用的語音資料集，可奠定以機器學習為基礎的語音技術的創新，與健康的商業競爭。
@@ -563,6 +708,10 @@ datasets-positioning =
     
     您可於此頁面找到其他的開放原始碼語音資料集。隨 Common Voice 持續成長，我們也會於此處張貼更新資訊。
 language = 語言
+download-dataset-header = 下載資料集
+download-delta-explainer = 我們有些改變。差異片段僅包含從上次發佈以來最新版的片段。<deltaLink>了解此項目的更多資訊</deltaLink>。
+download-dataset-tag = 請選擇您想要下載的語言與資料集版本。
+download-dataset-access = 尋找舊版資料集嗎？請來信到 <emailLink>{ $email }</emailLink>
 # File size in gigabytes
 size = 大小
 validated-hr-total = 總驗證時數
@@ -639,6 +788,28 @@ request-language-success-content = 我們將很快在您的語言於 Common Voic
 select-language = 選擇一種語言…
 other-language = 其他語言
 
+## Request Language Pages
+
+request-language-heading = 請求加入新語言
+request-language-explanation-1 = 請先確認您的語言是否已列於<languagesPageLink>Common Voice 語言頁面</languagesPageLink>。若沒有再列出的語言清單中，請填寫此表單，我們將<strong>寄送一份如何開始設定語言</strong>的簡短郵件帶您入門。
+request-language-explanation-2 = 我們也想<strong>讓我們的社群經理知道您對新語言有興趣</strong>，這樣才可以提供您任何需要的支援或幫助。
+request-language-form-email =
+    .label = 您的電子郵件地址
+request-language-form-info =
+    .label = 語言相關資訊
+request-language-form-info-explanation = 請盡量提供與這種語言有關的資訊，包含：
+request-language-form-info-explanation-list-1 = 語言名稱
+request-language-form-info-explanation-list-2 = <isoCodeLink>ISO 代碼</isoCodeLink>（如果知道的話）
+request-language-form-info-explanation-list-3 = 能幫助我們理解這種語言相關資訊的網站
+request-language-google-recaptcha-required = 若要繼續，須完成 reCAPTCHA 驗證
+request-language-google-recaptcha-error = reCAPTCHA 怪怪的，請再試一次。
+# Success page
+request-language-success-heading = 您已成功送出新語言請求，非常感謝！
+request-language-success-list-1 = 您應該很快就會收到要如何將語言加入 Common Voice 的相關資訊
+request-language-success-list-2 = 我們的社群經理將主動聯絡您，提供各種協助，並且讓您知道是否已有其他社群在貢獻您提出的語言。
+request-language-success-list-3 = 若接下來幾天，您沒有收到來自我們的消息，也歡迎您主動寄信到 <emailLink>{ $email }</emailLink> 聯絡我們，我們會盡快回覆！
+request-language-error = 我們可能還沒有收到該請求，請直接寄信到 <emailLink>{ $email }</emailLink> 聯絡我們，我們會盡快回覆！
+
 ## Languages Overview
 
 language-section-in-progress = 準備中
@@ -654,7 +825,8 @@ language-search-input =
 language-speakers = 使用者數
 localized = 已翻譯
 sentences = 句子
-total-hours = 已驗證時數
+language-validation-hours = 小時
+language-validation-progress = 驗證進度
 
 ## Contribution
 
@@ -704,8 +876,10 @@ listen-again-instruction = 幹得好！<playIcon></playIcon>準備好就可以�
 listen-3rd-time-instruction = 完成兩筆了<playIcon></playIcon>，繼續保持！
 listen-last-time-instruction = <playIcon></playIcon>最後一筆了！
 listen-empty-state = 我們已經沒有這種語言的片段可以驗證了…
+listen-loading-error = 我們無法取得錄音片段讓您聆聽確認，請稍候再試。
 speak-empty-state = 我們已經沒有這種語言的文字可以錄音了…
 speak-empty-state-cta = 貢獻語句
+speak-loading-error = 我們無法取得句子讓您錄音，請稍候再試。
 record-button-label = 錄下您的聲音
 share-title-new = <bold>請幫助我們</bold>找到更多聲音
 keep-track-profile = 註冊帳號來追蹤個人貢獻進度
@@ -986,3 +1160,336 @@ contribution-just-unsure-title = 無法決定嗎？
 contribution-just-unsure-description = 如果你遇到本指南中沒有涵蓋的狀況，還請自行盡力判斷。如果真的很難決定，直接按下「略過」到下一句去吧。
 see-more = <chevron></chevron>看更多
 see-less = <chevron></chevron>看更少
+
+# Don't rename the following section, its contents are auto-inserted based on the name. These strings are
+# automatically exported from Sentence Collector.
+# [SentenceCollector]
+
+
+## HEADER/FOOTER
+
+sc-header-home = 首頁
+sc-header-how-to = 如何做
+sc-header-add = 新增
+sc-header-review = 審核
+sc-header-rejected = 被拒絕的句子
+sc-header-my = 我的句子
+sc-header-statistics = 統計
+sc-header-profile = 個人資料
+sc-footer-discourse = Discourse
+sc-footer-report-bugs = 回報 Bug
+sc-footer-translate = 翻譯此頁面
+sc-footer-report-copyright = 回報著作權問題
+sc-footer-privacy = 隱私權
+sc-footer-terms = 使用條款
+sc-footer-cookies = Cookie
+sc-login-signup-button = 登入 / 註冊
+sc-logout-button = 登出
+
+## HOME
+
+sc-home-title = 歡迎使用 Common Voice Sentence Collector
+sc-home-intro = Sentence Collector 是 <commonVoiceLink>Common Voice</commonVoiceLink> 專案的一部分。此收集器讓專案貢獻者能夠收集驗證由社群成員提供的語句。您也可以使用此工具來匯入、清理網路上找到或收集的小規模到中規模公眾領域語料庫。所有語句都必須為公眾領域內容，每週會將通過審核的句子匯入到 Common Voice 的 repository，再於每次部署時發布到網站上。
+sc-home-collect-title = 收集句子
+sc-home-collect-text = 透過撰寫或收集公眾領域的語句來幫助我們增加內容。
+sc-home-review-title = 審核句子
+sc-home-review-text = 幫助我們依照下列標準來審核語句是否正確。
+
+## GENERAL
+
+sc-languages-fetch-error = 可用語言取得失敗，目前暫時無法貢獻，請稍候再試。
+
+## HOW-TO
+
+sc-howto-title = 如何做
+sc-howto-addlang-title = 新增要貢獻的語言
+sc-howto-addlang-text = 登入後，就可以從個人資料頁面段落選擇您要貢獻哪些語言的句子。
+sc-howto-addsen-title = 新增句子
+sc-howto-addsen-item-1 = 您送出的所有句子必須皆符合<wikipediaLink>公眾領域（CC-0）授權條款</wikipediaLink>。為了讓未使用公眾授權條款的著作也能加入，我們準備了一份<cc0WaiverLink>貢獻授權條款範本</cc0WaiverLink>協助讓願意將著作貢獻給 Common Voice 著作權人將作品轉換為公共作品。
+sc-howto-addsen-item-2 = 數字，原文段落中不應包含數字，因為會在唸出來的時候造成問題。數字的念法需依上下文而定，可能會在資料集中造成混淆。舉例來說，數字「2409」有時會念成「兩千四百零九」，也有可能念成「二四零九」。
+sc-howto-addsen-item-3 = 縮寫與首字省略詞（Acronyms）。由於諸如「USA」或「ICE」這類縮寫或將首字母合併在一起的省略詞的念法可能與文字本身不同，應該避免於原文段落中出現。此外，單一縮寫可能也會有多個不同的正確唸法，例如「ICE」可以被念成「I-C-E」或是單一個字的「ICE」。
+sc-howto-addsen-item-4 = 標點符號。應該只在有絕對必要的時候才加入特殊符號及標點。舉例來說，英文字「don’t」、「we’re」當中的撇號（apostrophe）應該包含在原文段落中，但不太可能會需要「@」或「#」等特殊符號。
+sc-howto-addsen-item-5 = 外語文字。必須使用原文語言所使用的相關文字或字母，舉例來說：「ж」是俄語字母，但英文或中文都不會用到，因此不該包含在原文中。
+sc-howto-addsen-item-6 = 各種語言可能會有<validationRulesLink>自己的審核規則</validationRulesLink>。若各語言沒有自己的驗證檔案，則使用英語通用規則。
+sc-howto-addsen-post-1 = 我們更喜歡自然、對話式的語句。雖然各種句子當中的不同腔調語音與不同單字很重要，我們希望讓錄音過程越有趣越好。引此，若您可以盡可能讓句子保持自然、讓人覺得有興趣，那就太好了。
+sc-howto-cite-title = 如何引用
+sc-howto-cite-pre-1 = 引用您所找到的語句的來源出處可避免發生抄襲事件，相當重要，也讓我們可以介入處理<copyrightIssuesLink>著作權問題</copyrightIssuesLink>。以下是幾種引用作品的方式。
+sc-howto-cite-item-1 = 您可以包含網址，例如「Common Voice - https://commonvoice.mozilla.org/」
+sc-howto-cite-item-2 = 您也可以使用學術參考文獻格式，例如哈佛格式「Mozilla (2021) Common Voice. Available at https://commonvoice.mozilla.org/ (Accessed: 15th September 2021)」
+sc-howto-cite-item-3 = 若為沒有線上版本的公眾領域文字，也可以使用學術參考文獻格式。例如哈佛格式「Jess (2021) My Public licence poems」
+sc-howto-review-title = 審核句子
+sc-howto-review-subtitle = 請確認句子符合下列條件：
+sc-howto-review-criteria-1 = 句子必須拼得正確。
+sc-howto-review-criteria-2 = 句子的文法必須正確。
+sc-howto-review-criteria-3 = 句子必須說得出來。
+sc-howto-review-criteria-4 = 若句子符合上述標準，請點擊「通過」按鈕。
+sc-howto-review-criteria-5 = 若句子不符合上述條件，點擊「退回」按鈕。若您不確定句子可不可用，也可以略過，跳到下一句。
+sc-howto-review-criteria-6 = 若您已經沒有句子可以審核了，請幫助我們收集更多句子！
+sc-howto-findpd-title = 尋找已使用公眾領域授權的句子
+sc-howto-findpd-subtitle = 到網路上搜搜看
+sc-howto-findpd-text-2 = 請務必記得我們必須取得授權，才可發布這些句子。所以請隨時確認送出的語句符合<wikipediaLink>公眾領域</wikipediaLink>授權條款。若您找到的資料來源並未明確標示，請聯絡語料的擁有者，詢問他們是否可將內容以公眾領域條款釋出。若他們同意，請協助他們完成<cc0WaiverLink>同意貢獻</cc0WaiverLink>流程；若他們不同意，您就不可使用該語料。
+sc-howto-findpd-tips = 以下是尋找句子的一些小秘訣：
+sc-howto-findpd-tips-1 = 最佳來源還有 Podcase、廣播內容、劇本腳本及任何可能包含日常對話內容的文字。
+sc-howto-findpd-tips-2 = 政府文書、書籍、文章內容也很棒，但文字會比較正式，所以較不優先。
+sc-howto-findpd-tips-3 = 不巧我們還不能使用維基媒體基金會的所有文章（包含維基百科），請不要貼過來。
+sc-howto-findpd-subtitle-2 = 與在地組織或個人合作
+sc-howto-findpd-partner-1 = 有許多公共組織可能會想要一起合作，或是已經有能夠捐贈的公眾領域語句。請聯絡您在地的大學、政府機關、開放原始碼組織，向他們說明本專案並且尋求協助。
+sc-howto-findpd-partner-2 = 語言學的專家也能幫忙，請嘗試聯繫在地的大學語言相關科系（老師或學生都沒問題），看看他們能不能幫助收集您的語言中的各種語句，與各種不同腔調的聲音。
+
+## MY SENTENCES
+
+sc-my-title = 我的句子
+sc-my-description = 此頁面讓您可以對所有送出過的句子有個快速綜覽。有需要的話，也可以在此勾選句子，並點擊底部的「刪除選取的語句」進行刪除。請只在有必要時（例如送出後才發現句子受著作權保護），才刪除該語句。
+sc-my-loading = 正在載入您的語句…
+sc-my-err-fetching = 取得您的句子時發生錯誤，請稍候再試。
+sc-my-no-sentences = 找不到句子！
+# Variables:
+#   $batchId (String) - A unique ID identifying the submission of sentences - sentences uploaded together all have the same batch ID
+sc-my-submission = 送出於：{ $batchId }
+# Variables:
+#   $source (String) - Associated source the user filled out when uploading the sentence
+sc-my-source = 來源：{ $source }
+sc-my-delete = 刪除選取的語句
+sc-my-deleting = 刪除選取的語句…
+sc-my-err-failed-delete = 選取的語句刪除失敗…請再試一次！
+
+## REJECTED
+
+sc-rejected-title = 被拒絕的句子
+sc-rejected-loading = 正在載入被拒絕的句子…
+sc-rejected-err-fetching = 取得被拒絕的句子時發生錯誤，請稍候再試。
+sc-rejected-none-found = 找不到被拒絕的句子！
+
+## STATS
+
+sc-stats-title = 統計資訊
+sc-stats-updating = 更新中…
+sc-stats-error = 無法取得統計資訊，請稍後再試。
+# Variables:
+#   $sentenceCount (Number) - Total number of sentences uploaded through Sentence Collector
+#   $languageCount (Number) - Total number of languages these sentences represent
+sc-stats-summary = Common Voice Sentence Collector 已經收集了 { $languageCount } 種語言的 { $sentenceCount } 個句子！
+
+## ADD
+
+sc-submit-err-select-lang = 請選擇語言。
+sc-submit-err-add-sentences = 請新增句子。
+sc-submit-err-add-source = 請新增來源。
+sc-submit-err-confirm-pd = 請確認這些句子是公眾領域的句子。
+sc-submit-prompt =
+    .message = 句子尚未送出，您確定要離開嗎？
+sc-submit-title = 新增句子
+sc-submit-select-language =
+    .labelText = 選擇語言
+sc-submit-add-sentences = 新增<wikipediaLink>公眾領域（Public Domain）</wikipediaLink>的句子
+sc-submit-ph-one-per-line =
+    .placeholder = 一行一句
+sc-submit-from-where = 這些<wikipediaLink>公眾領域（Public Domain）</wikipediaLink>的句子來自何處？
+sc-submit-ph-read-how-to =
+    .placeholder = 不確定如何貢獻的話，可先閱讀我們的如何貢獻文件
+sc-submit-confirm = 我確認這些句子都已經以<wikipediaLink>公眾領域條款</wikipediaLink>授權公開，而且我有權上傳。
+sc-submit-button =
+    .submitText = 送出
+sc-submit-filtered = 由於不符合規定，被過濾的句子（請以新句子重新送出）：
+sc-submit-guidelines = 請參考<howToLink>審核指南</howToLink>。
+
+## ADD LANGUAGE
+
+sc-add-lang-could-not-add = 無法新增語言
+sc-add-lang-sec-label = 新增您想要貢獻的語言
+sc-add-lang-sec-button = 新增語言
+sc-add-err-unexpected = 伺服器回覆了未預期的錯誤
+# Variables:
+#   $duplicates (Number) - Number of sentences which got rejected because they are duplicates
+sc-add-result =
+    { $duplicates ->
+        [0] 已送出語句，沒有被退回的重複句子。
+       *[other] 已送出語句，有 { $duplicates } 句重複句子被退回。
+    }
+# Variables:
+#   $sentences (Number) - Number of sentences which failed to be saved to the database - could be several different reasons
+sc-add-err-failed =
+    { $sentences ->
+        [0] 沒有失敗的句子
+       *[other] { $sentences } 句送出失敗
+    }
+sc-add-err-submission = 送出失敗
+sc-add-lang-process-notice = 若您的語言未列於此處，可以透過<languageProcessLink>此程序</languageProcessLink>申請加入。
+
+## ADD SENTENCES CONFIRMATION
+
+sc-confirm-are-you-sure =
+    .message = 句子尚未送出，您確定要離開嗎？
+sc-confirm-sentences-title = 確認新句子
+# Variables:
+#   $countOfSentences (Number) - Number of sentences the user has filled in the submission form
+sc-confirm-sentences-found =
+    { $countOfSentences ->
+        [0] 找不到句子。
+       *[other] 找到 { $countOfSentences } 句。
+    }
+# Variables:
+#   $countOfInvalidated (Number) - Number of sentences the user rejected in the review form before submission
+sc-confirm-rejected-by-you = 您退回了 { $countOfInvalidated } 句。
+sc-confirm-already-reviewed =
+    { $countOfReviewed ->
+        [0] 未審核任何句子。
+       *[other] 您審核了 { $countOfReviewed } 句，做得好！
+    }
+# Variables:
+#   $readyCount (Number) - Number of sentences ready to be uploaded
+sc-confirm-ready =
+    { $readyCount ->
+        [0] 沒有句子可以送出！
+       *[other] 已經有 { $readyCount } 句準備好可以送出！
+    }
+# Variables:
+#   $countOfUnreviewed (Number) - Number of sentences unreviewed before the upload
+sc-confirm-unreviewed = 還有 { $countOfUnreviewed } 句未經審核。您想要的話也可以在送出前先審核您的句子。
+sc-confirm-button-text = 確認
+sc-confirm-uploading = 正在上傳語句，視句子數量而定可能需要花上幾分鐘。上傳完成前請勿關閉此網站。
+
+## LANGUAGE INFO
+
+sc-lang-info-title-total = 總計
+sc-lang-info-title-personal = 個人
+# Variables:
+#   $totalSentences (Number) - Number of sentences uploaded in total for this language
+sc-lang-info-total =
+    { $totalSentences ->
+        [0] 沒有句子。
+       *[other] 共 { $totalSentences } 句。
+    }
+# Variables:
+#   $totalInReview (Number) - Number of sentences currently in the review state for this language
+sc-lang-info-in-review =
+    { $totalInReview ->
+        [0] 沒有審核中的句子。
+       *[other] { $totalInReview } 句審核中的句子。
+    }
+# Variables:
+#   $unreviewedSentencesByYou (Number) - Number of sentences the user can still review
+sc-lang-info-left-for-you =
+    { $unreviewedSentencesByYou ->
+        [0] 沒有可供您審核的句子。
+       *[other] 剩餘 { $unreviewedSentencesByYou } 句可由您審核的句子。
+    }
+sc-lang-info-review-now = <reviewLink>現在就進行審核！</reviewLink>
+sc-lang-info-add-more = <addLink>現在就新增更多句子！</addLink>
+# Variables:
+#   $validatedSentences (Number) - Number of sentences which have been approved for this language
+sc-lang-info-validated =
+    { $validatedSentences ->
+        [0] 沒有驗證過的句子。
+       *[other] { $validatedSentences } 句驗證過的句子。
+    }
+# Variables:
+#   $rejectedSentences (Number) - Number of sentences which have been rejected for this language
+sc-lang-info-rejected =
+    { $rejectedSentences ->
+        [0] 沒有被退回的句子。
+       *[other] { $rejectedSentences } 句被退回的句子。
+    }
+
+## LOGIN
+
+sc-login-err-failed = 登入失敗
+sc-login-err-try-again = 請再試一次。
+
+## PROFILE
+
+# Variables:
+#   $username (String) - eMail address of the logged in user
+sc-profile-title = 個人資料：{ $username }
+sc-personal-err-lang-not-found = 無法移除語言：找不到語言
+sc-personal-err-remove = 無法移除語言
+sc-personal-your-languages = 您的語言：
+sc-personal-remove-button = 移除
+# Variables:
+#   $sentences (Number) - Number of sentences that were added by the currently logged in user for this language
+sc-personal-added-by-you = 您新增了 { $sentences } 句
+sc-personal-not-added = 您尚未加入任何語言。
+
+## REVIEW CRITERIA
+
+sc-criteria-modal = ⓘ 審核標準
+sc-criteria-title = 審核標準
+sc-criteria-make-sure = 請確認句子符合下列條件：
+sc-criteria-item-1 = 句子必須拼得正確。
+sc-criteria-item-2 = 句子的文法必須正確。
+sc-criteria-item-3 = 句子必須說得出來。
+sc-criteria-item-4 = 若句子符合上述標準，請點擊右方的「通過」按鈕。
+sc-criteria-item-5-2 = 若句子不符合上述條件，點擊「退回」按鈕。若您不確定句子可不可用，也可以略過，跳到下一句。
+sc-criteria-item-6 = 若您已經沒有句子可以審核了，請幫助我們收集更多句子！
+
+## REVIEW
+
+sc-review-lang-not-selected = 您尚未選擇任何語言，請到<profileLink>個人資料頁面</profileLink>選擇要貢獻的語言。
+sc-review-title = 審核句子
+sc-review-loading = 正在載入語句…
+sc-review-select-language = 請選擇語言來審核句子。
+sc-review-no-sentences = 沒有可以審核的語句。<addLink>馬上來加句子！</addLink>
+sc-review-form-prompt =
+    .message = 尚未送出語句審核結果，確定嗎？
+sc-review-form-usage = 向右滑可以通過審核句子、向左滑拒絕、向上滑略過。<strong>別忘記送出您的審核結果！</strong>
+# Variables:
+#   $sentenceSource (Number) - Associated source the user filled out when uploading the sentence
+sc-review-form-source = 來源：{ $sentenceSource }
+sc-review-form-button-reject = 退回
+sc-review-form-button-skip = 略過
+sc-review-form-button-approve = 通過
+# Keyboard shortcut to use to approve a sentence (sc-review-form-button-approve)
+sc-review-form-button-approve-shortcut = Y
+# Keyboard shortcut to use to reject a sentence (sc-review-form-button-reject)
+sc-review-form-button-reject-shortcut = N
+# Keyboard shortcut to use to skip a sentence (sc-review-form-button-skip)
+sc-review-form-button-skip-shortcut = S
+sc-review-form-keyboard-usage-custom = 您也可以使用快速鍵：{ sc-review-form-button-approve-shortcut } 來通過審核、{ sc-review-form-button-reject-shortcut } 來退回、{ sc-review-form-button-skip-shortcut } 來略過
+sc-review-form-button-submit =
+    .submitText = 完成審核
+# Variables:
+#   $sentences (Number) - Number of sentences the user has reviewed in this session
+sc-review-form-reviewed-message =
+    { $sentences ->
+        [0] 未審核語句。
+       *[other] 已審核 { $sentences } 句，感謝您！
+    }
+sc-review-form-review-failure = 無法儲存審核結果，請稍候再試。
+sc-review-link = 審核
+
+## SETTINGS
+
+sc-settings-title = 設定
+sc-settings-ui-language = 介面語言
+sc-settings-reset-skipped = 重設略過的句子
+sc-settings-skipped-decription = 您先前在審核時跳過了一些句子。重設略過的句子將再次顯示所有這些被跳過的句子。此設定對所有語言都有效。
+sc-settings-show-all-button = 再次顯示略過的句子
+sc-settings-failed = 無法更改設定，請再試一次。
+# VALIDATION
+sc-validation-number-of-words = 句子須包含 1 到 14 個字
+sc-validation-no-numbers = 句子不應包含數字
+sc-validation-no-symbols = 句子不應包含標點符號
+sc-validation-no-abbreviations = 句子不應包含縮寫
+
+# [/SentenceCollector]
+
+localization-select =
+    .label = 選擇語言 / 語系
+# PARTNERSHIPS PAGE
+partnerships-header = 合作夥伴
+partnerships-header-text = 實現 Common Voice 需要付出很多努力！我們沒有辦法自己完成，想要一起加入嗎？我們很希望聽到您的意見。
+partnerships-get-in-touch = 聯繫我們
+partnerships-become-a-partner = 成為 Common Voice 的夥伴
+partnerships-community-header = 社群、創意與公民社會
+partnerships-community-description = 社群是 Common Voice 的心臟。成員來自世界各地，是語言行動家、科學家也是藝術家。您可以在<about>關於</about>頁面與<community>社群企劃書</community>頁面了解如何參與我們。若您有興趣與我們發展更深入的組織合作，<emailFragment>歡迎聯絡我們</emailFragment>。
+partnerships-foundations-header = 基金會
+partnerships-foundations-description = 我們特別著重於東非，與基金會、社團組織與社群夥伴一同讓網際網路變得更健康。了解我們的<programmaticWork>程式化工作</programmaticWork>的更多資訊。
+partnerships-governments-header = 政府機關
+partnerships-governments-description = 我們很高興能支援公部門參與科技、創新與語言權利。若您打算進行大型的專案或活動，<emailFragment>請務必聯絡我們</emailFragment>。
+partnerships-academia-header = 大學、學術單位與研究人員
+partnerships-academia-description = 我們的核心就是開放式的創新。若需合作研究、收集資料或進行採訪，<emailFragment>請聯絡我們</emailFragment>。
+partnerships-small-business-header = 中小企業，包含科技與 AI 創業公司
+partnerships-small-business-description = 我們持續想了解資料消費者們的需求與使用情境，不論是在資料收集平台上合作，或是提供資料健康度的資訊，<emailFragment>都歡迎您來信</emailFragment>。
+partnerships-corporates-header = 大型企業與平台業者
+partnerships-corporates-description = 若您想了解有關如何合作使用資料集，想要共同投資此平台的未來發展，或是尋找合作機會，<emailFragment>請聯絡我們</emailFragment>。
+partnerships-our-partners = 我們的夥伴

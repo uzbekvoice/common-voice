@@ -14,6 +14,10 @@ email-opt-in-info-sub-with-challenge = Motta e-post om utfordrings- og målpåmi
 email-opt-in-privacy-v2 = Ved å registrere deg for å motta e-post godtar du at Mozilla håndterer denne informasjonen som forklart i Mozillas <privacyLink>personvernerklæring</privacyLink>.
 indicates-required = * Indikerer obligatorisk felt
 not-available-abbreviation = ikke tilgjengelig
+banner-error-slow-1 = Beklager, Common Voice kjører sakte. Takk for din interesse.
+banner-error-slow-2 = Vi mottar mye trafikk og undersøker nå problemene.
+banner-error-slow-link = Statusside
+error-something-went-wrong = Beklager, noe gikk galt.
 
 # Don't rename the following section, its contents are auto-inserted based on the name (see scripts/pontoon-languages-to-ftl.js)
 # [Languages]
@@ -36,9 +40,9 @@ ba = Basjkirsk
 bas = Basaa
 be = Hviterussisk
 bg = Bulgarsk
-bm = Bambara
 bn = Bengalsk
 br = Bretonsk
+bs = Bosnisk
 bxr = Burjatisk
 ca = Katalansk
 cak = Kakchikel
@@ -67,6 +71,7 @@ fy-NL = Frisisk
 ga-IE = Irsk
 gl = Galisisk
 gn = Guarani
+gom = Goan Konkani
 ha = Hausa
 he = Hebraisk
 hi = Hindi
@@ -78,6 +83,8 @@ hy-AM = Armensk
 hyw = Vestarmensk
 ia = Interlingua
 id = Indonesisk
+ie = Interlingue
+ig = Igbo
 is = Islandsk
 it = Italiensk
 izh = Ingrisk
@@ -86,12 +93,16 @@ ka = Georgisk
 kaa = Karakalpak
 kab = Kabylsk
 kbd = Kabardisk
+ki = Kikuyu
 kk = Kasakhisk
+km = Khmer
 kmr = Nordkurdisk
+knn = Konkani (Devanāgarī)
 ko = Koreansk
 kpv = Komi-syriansk
 kw = Cornisk
 ky = Kirgisisk
+lb = Luxembourgsk
 lg = Luganda
 lij = Ligurisk
 lt = Litauisk
@@ -103,6 +114,7 @@ mhr = Østmarisk
 mk = Makedonsk
 ml = Malayalam
 mn = Mongolsk
+mni = Meitei-lon
 mos = Mossi
 mr = Marathi
 mrj = Vestmarisk
@@ -110,11 +122,13 @@ ms = Malaysisk
 mt = Maltesisk
 my = Burmesisk
 myv = Erziamordvinsk
+nan-tw = Taiwansk (Minnan)
 nb-NO = Norsk (bokmål)
 ne-NP = Nepalsk
 nia = Nias
 nl = Nederlandsk
 nn-NO = Norsk (nynorsk)
+nyn = Runyankole
 oc = Oksitansk
 or = Oriya
 pa-IN = Panjabi
@@ -122,12 +136,15 @@ pap-AW = Papiamento (Aruba)
 pl = Polsk
 ps = Pashto
 pt = Portugisisk
+quc = K'iche'
+quy = Quechua Chanka
 rm-sursilv = Sursilvan Retoromansk
 rm-vallader = Vallader
 ro = Rumensk
 ru = Russisk
 rw = Kinyarwanda
 sah = Jakutisk
+sat = Santali (Ol Chiki)
 sc = Sardisk
 scn = Siciliansk
 shi = Shilha
@@ -144,9 +161,14 @@ ta = Tamilsk
 te = Telugu
 tg = Tadsjikisk
 th = Thai
+ti = Tigrinja
+tig = Tigre
+tk = Turkmensk
 tl = Tagalog
 tr = Tyrkisk
 tt = Tatar
+tw = Twi
+ty = Tahitisk
 uby = Ubykh
 udm = Udmurtisk
 ug = Uigurisk
@@ -156,6 +178,7 @@ uz = Usbekisk
 vec = Venetiansk
 vi = Vietnamesisk
 vot = Votisk
+yi = Jiddisch
 yue = Kantonesisk
 zh-CN = Kinesisk (Kina)
 zh-HK = Kinesisk (Hong Kong)
@@ -188,6 +211,7 @@ logout = Logg av
 ## Home Page
 
 home-title = Prosjektet Common Voice er et initiativ fra Mozilla, som skal hjelpe maskiner med å forstå hvordan folk snakker.
+default-tagline = Mozilla Common Voice er et initiativ som skal hjelpe maskiner med å forstå hvordan folk snakker.
 home-cta = Snakk, støtt prosjektet og gjør et bidrag!
 wall-of-text-start = Stemmen er naturlig, stemmen er menneskelig. Det er derfor vi er fascinert av å lage en anvendelig taleteknologi for maskinene våre. Men for å lage systemer for talegjenkjenning trengs det svært store mengder med innspilt tale.
 wall-of-text-more-mobile = Det meste av dataene som brukes av store bedrifter er utilgjengelige for folk flest. Vi mener dette hindrer innovasjon. Derfor lanserte vi prosjektet Common Voice, et prosjekt for å hjelpe til med å gjøre talegjenkjenning tilgjengelig for alle.
@@ -285,10 +309,11 @@ shortcut-record-toggle = e
 shortcut-record-toggle-label = Ta opp/Stopp
 shortcut-rerecord-toggle = [1-5]
 shortcut-rerecord-toggle-label = Spill inn lydklipp om igjen
+shortcut-discard-ongoing-recording = ESC
+shortcut-discard-ongoing-recording-label = Forkast pågående opptak
 shortcut-submit = Enter
 shortcut-submit-label = Send inn klipp
 request-language-text = Ser du ikke språket ditt på Common Voice ennå?
-request-language-text-learn = Les hvordan du kan be om det her!
 request-language-button = Send en forespørsel om et nytt språk
 
 ## ProjectStatus
@@ -313,8 +338,16 @@ profile-form-native-language =
     .label = Morsmål
 profile-form-additional-language =
     .label = Øvrige språk
+profile-form-language =
+    .label = Språk
+profile-form-variant =
+    .label = Hvilken variant av { $language } snakker du?
+profile-form-variant-default-value = Ingen variant valgt.
 profile-form-accent =
     .label = Dialekt
+profile-form-custom-accent-help-text =
+    .label = Hvordan vil du beskrive din aksent?
+profile-form-custom-accent-placeholder-2 = Begynn å skrive for å beskrive aksenten din
 profile-form-age =
     .label = Alder
 profile-form-gender-2 =
@@ -325,6 +358,7 @@ hidden = Skjult
 visible = Synlig
 native-language =
     .label = Morsmål
+profile-form-add-accent = Legg til ny tilpasset dialekt «{ $inputValue }»
 profile-form-submit-save = Lagre
 profile-form-submit-saved = Lagret
 male = Mann
@@ -358,6 +392,10 @@ skip-submission-description = I løpet av bidragsinnsendelse vil tilbakemelding 
 skip-submission-note = Merk: Du må fortsatt velge mellom Tal eller Lytt for å endre bidragstype.
 off = Av
 on = På
+help-accent = Trenger du hjelp med dialekt?
+help-accent-explanation = Dialekten din er måten du uttaler ord på. Det kan formes av hvor du har bodd, hvilke andre språk du snakker og mange andre faktorer. Du kan dele all informasjon du føler er relevant her.
+help-variants = Trenger du hjelp med varianter?
+help-variants-explanation = Varianter er en spesifikk form for et språk - for eksempel delt av de som bor i en geografi eller et samfunn. Noen ganger kalles disse dialekter.
 
 ## Profile - Email
 
@@ -368,6 +406,7 @@ gravatar_not_found = Ingen gravatar funnet for din e-postadresse
 file_too_large = Den valgte filen er for stor
 avatar-uploaded = Avatar lastet opp
 max-file-size = maks { $kb } kb
+remove-avatar = Fjern avatar
 
 ## Profile - Email
 
@@ -405,7 +444,6 @@ faq-do-want-native-a = Ja! Vi vil særlig ha din stemme! Et delmål med Common V
 faq-why-different-speakers-q = Hvorfor trenger dere så mange forskjellige talere per språk?
 faq-why-different-speakers-a = De fleste stemmedatabaser trenes med en overvekt av visse demografier, noe som innebærer vekting mot <articleLink>menn og middelklasse</articleLink>.  Aksenter og dialekter som tenderer til å være underrepresentert i datasettene som benyttes til trening er typisk assosiert med grupper av mennesker som allerede er underrepresentert ellers i samfunnet. Mange talegjenkjenningsmotorer sliter også med å forstå kvinnelige stemmer. Derfor trenger vi stor variasjon i datasettet!
 faq-why-my-lang-q = Hvorfor er ikke mitt språk inkludert ennå?
-faq-why-my-lang-new-a = Mozilla velger eller foretrekker ingen språk over noe annet. I stedet er Common Voice et rent samfunnsdrevet initiativ. Men det krever <multilangLink>mange steg for å legge til et nytt språk</multilangLink> og å begynne med å samle inn lydklipp. Først må Common Voice nettstedet oversettes, slik at medlemmer kan bidra på sitt eget språk. Deretter trenger vi en stor samling med rettighetsfrie setninger som folk kan lese høyt. Når begge disse betingelsene er tilfredsstilt blir språket "lansert" på Common Voice, slik at folk kan begynne å spille inn lydklipp med sin stemme og validere andres bidrag. Om du vil hjelpe til med å lansere et nytt språk, besøk vårt <sentenceCollectorLink>verktøy for setningsinnsamling</sentenceCollectorLink>  for å komme i gang.
 faq-what-quality-q = Hva slags lydkvalitet kreves for at et lydklipp kan brukes i datasettet?
 faq-what-quality-a = Vi vil at Common Voice-datasettet skal reflektere lydkvaliteten som en tale-til-tekst motor opplever i virkeligheten. Så vi trenger variasjon. I tillegg til et variert utvalg av talere, vil et variert utvalg lydkvaliteter lære tale-til-tekst-motoren å håndtere varierende situasjoner i den virkelige verden, som for eksempel stemmer i bakgrunnen eller støy fra biler. Så lenge lydklippet ditt er forståelig. så burde det være godt nok for datasettet.
 faq-why-10k-hours-q = Hvorfor er 10 000 validerte timer målet for innhenting av lydklipp per språk?
@@ -434,10 +472,24 @@ faq-search-for-answers =
 ## ABOUT US
 
 about-title = Hvorfor Common Voice?
-about-subtitle = Common Voice er en del av Mozillas initiativ for å hjelpe å lære maskiner hvordan virkelige mennesker snakker. I tillegg til Common Voice-datasettet, bygger vi også en åpen kildekode talegjenkjenningsmotor kalt Deep Speech.
-about-header-description = Begge disse prosjektene er deler av våre anstrengelser for å bygge bro over det digitale skillet. Talegjenkjenning bidrar med en menneskelig dimensjon til de digitale enhetene våre, men utviklere trenger en enorm mengde med data for å lage denne. Det meste av slike data er dyre og proprietære. Vi ønsker å gjøre stemmedata gratis og offentlig tilgjengelig, og forsikre om at dataene representerer variasjonen mellom virkelige mennesker. Sammen kan vi gjøre talegjenkjenning bedre for alle.
-how-does-it-work-title = Hvordan virker det?
+how-does-it-work-title-v2 = Hvordan fungerer Common Voice?
 how-does-it-work-text = Vi masseinnsamler et åpent datasett av stemmer. Bidra med din stemme, valider nøyaktigheten av andres lydklipp, gjør datasettet bedre for alle.
+
+## How does it work section
+
+about-language-req-subtitle = Noen ber om å legge til et språk.
+about-localization-title = Oversettelse av nettsted
+about-sentence-collection-title = Setningsinnsamling
+about-sentence-collection-subtitle = Det samles inn setninger slik at folk kan lese høyt.
+about-new-lang-title = Lansering av nytt språk
+about-new-lang-subtitle = Vi lanserer Common Voice-siden på dette språket.
+about-voice-contrib-title = Stemmebidrag
+about-voice-contrib-subtitle = Folk kommer og bidrar med sine stemmer.
+about-voice-validation-title = Stemmevalidering
+about-voice-validation-subtitle = Andre personer validerer disse stemmeklippene.
+about-dataset-release-title = Utgivelse av datasett
+about-dataset-release-subtitle = Vi utgir datasettet hver 3. måned.
+about-subscribe-text = Vil du holde kontakten med Common Voice?
 about-speak = Tal
 about-speak-text = Bidragsytere spiller inn lydklipp ved å lese inn fra en samling av bidratte setninger.
 about-listen-queue = Lyttekø
@@ -454,25 +506,47 @@ about-dataset-new = Common Voice-datasettet
 about-dataset-new-text = Common Voice-datasettet inneholder hundretusenvis av lydklipp som hjelper utviklere med å lage talegjenkjenningsverktøy.
 about-clip-graveyard = Lydklippfyllinga
 about-clip-graveyard-text = Lydklippfyllinga inneholder lydklipp som ikke ble tatt med i Common Voice-datasettet. Akkurat som datasettet, er også lydklippfyllinga tilgjengelig for nedlasting.
-about-partners = Partnere
-about-become-a-partner = Bli en partner
-about-partnership = Common Voice er et samarbeidsprosjekt, og vi er avhengig av vårt samfunn av partnere og bidragsytere for å bygge det største åpen-kilde datasettet av stemmer noensinne.  Vi vil gjerne få takke følgende personer og organisasjoner for deres bistand med prosjektet:
 about-get-involved = Bli med
 about-get-involved-text-2 =
     Vil du hjelpe til med å gjøre Common Voice enda  bedre?
     Flott! Ta kontakt via e-post eller på <discourseLink>Discourse</discourseLink>,
     forumer, send inn nettstedstilbakemelding via <githubLink>GitHub</githubLink>,
     eller bli med på <matrixLink>Matrix</matrixLink>-samfunnsprat.
+about-stay-in-touch = Hvordan holder jeg kontakten?
+about-stay-in-touch-button = Registrer deg
+about-stay-in-touch-text-1 = <emailFragment>Registrer deg</emailFragment> på e-postlisten vår for å lære hvordan du kan delta i begivenheter, arrangementer og samarbeidsdesignfunksjoner på Common Voice.
 about-nav-why-common-voice = Hvorfor?
 about-nav-how-it-works = Hvordan?
 about-nav-partners = Partnere
 about-nav-get-involved = Bli med
-mycroft-title = Mycroft AI
-mycroft-subtitle = Kunstig Intelligens
-mycroft-description =
-    Mycroft er verdens første åpen kildekode digitale assistent.
-    Mycroft kjører på hva som helst - en stasjonær PC, i en bil, eller på en Raspberry Pi.
-mycroft-secondary-description = Dette er åpen kildekode som fritt kan endres, utvides og forbedres. Mycroft kan brukes i hva som helst fra vitenskapelige prosjekter til bedriftsapplikasjoner.
+
+## Community Playbook Content
+## What is a language
+
+
+## How do I add a language
+
+
+## How does localization work
+
+
+## How to add sentences
+
+
+## How to record quality
+
+
+## How to grow language
+
+
+## How to validate
+
+
+## How to access dataset
+
+
+## How are decisions made
+
 
 ## Glossary
 
@@ -566,8 +640,6 @@ subscribe = Abonner
 get-started-speech = Kom i gang med talegjenkjenning
 other-datasets = Andre stemmedatasett
 feedback-q = Har du tilbakemeldinger?
-deepspeech-info = Common Voice-datasettet komplementerer Mozillas åpen kildekode stemmegjenkjenningsmotor Deep Speech, som du kan bruke til å bygge talegjenkjenningsapplikasjoner. Les vår <githubLink>Github-oversikt</githubLink> eller bli med på <discourseLink>DeepSpeech Discourse</discourseLink> for å lære hvordan du kommer i gang.
-common-voice-info-new = Har du spørsmål om Common Voice? Ideer til forbedringer eller tilbakemeldinger om et spesifikt språk? Bli med på vårt <discourseLink> Discourse forum </discourseLink> og gi oss beskjed.
 data-other-librispeech-description = LibriSpeech er et korpus på omtrent 1000 timer med 16 kHz lest engelsk tale hentet fra innleste lydbøker i LibriVox-prosjektet.
 data-other-ted-name = TED-LIUM-korpus
 data-other-ted-description = TED-LIUM-korpuset ble produsert av presentasjoner og deres transkripsjoner tilgjengelig på TED-nettstedet.
@@ -612,6 +684,9 @@ request-language-success-content = Vi kontakte deg med mer informasjon om hvorda
 select-language = Velg Språk...
 other-language = Annet Språk
 
+## Request Language Pages
+
+
 ## Languages Overview
 
 language-section-in-progress = Pågående
@@ -627,7 +702,6 @@ language-search-input =
 language-speakers = Talt av
 localized = Oversatt
 sentences = Setninger
-total-hours = Bekreftede timer
 
 ## Contribution
 
@@ -846,6 +920,25 @@ why-delete-recordings =
     Kan du fortelle oss om hvorfor du vil at lydklippene dine blir slettet?
 profile-form-delete = Slett profil
 
+## Profile Download
+
+download-q = Trenger du å laste ned dataene dine?
+download-info = Fortell oss hva du vil laste ned:
+download-profile-title = Profil
+download-recordings-title = Innspillinger
+download-size = Størrelse
+download-selected = Valgt
+download-start = Last ned profildata
+download-request-button = Last ned
+download-request-title = { $created }
+download-request-archive-single = Enkel ZIP-fil som inneholder
+download-request-archive-multiple = Del opp i { $archiveCount } ZIP-filer som inneholder
+download-request-refresh-button = Oppdater
+download-request-modal-title = Nedlastingslenker
+download-request-modal-description = Her er lenkene for å laste ned ZIP-filene dine.
+download-request-link-text = Zip #{ $offset } av { $total }
+download-request-metadata-link = Setningstekst
+
 ## Landing
 
 welcome-staff = Velkommen medarbeidere fra { $company }!
@@ -892,7 +985,71 @@ demo-dashboard-card-body = For hvert stemmeklipp som doneres, og hvert lydklipp 
 
 ## Validation criteria
 
+contribution-criteria-link = Forstå bidragskriterier
+contribution-criteria-page-title = Bidragskriterier
 contribution-for-example = for eksempel
 contribution-misreadings-title = Feillesninger
+contribution-misreadings-description-extended-list-2 = Mangler en <strong>«s»</strong> på slutten av et ord.
+contribution-misreadings-description-extended-list-5 = Bruker flere forsøk på å lese et ord.
+contribution-background-noise-title = Bakgrunnsstøy
+contribution-background-voices-title = Bakgrunnsstemmer
+contribution-volume-title = Volum
+contribution-just-unsure-title = Bare usikker?
 see-more = <chevron></chevron>Se mer
 see-less = <chevron></chevron>Se mindre
+
+# Don't rename the following section, its contents are auto-inserted based on the name. These strings are
+# automatically exported from Sentence Collector.
+# [SentenceCollector]
+
+
+## HEADER/FOOTER
+
+
+## HOME
+
+
+## GENERAL
+
+
+## HOW-TO
+
+
+## MY SENTENCES
+
+
+## REJECTED
+
+
+## STATS
+
+
+## ADD
+
+
+## ADD LANGUAGE
+
+
+## ADD SENTENCES CONFIRMATION
+
+
+## LANGUAGE INFO
+
+
+## LOGIN
+
+
+## PROFILE
+
+
+## REVIEW CRITERIA
+
+
+## REVIEW
+
+
+## SETTINGS
+
+
+# [/SentenceCollector]
+

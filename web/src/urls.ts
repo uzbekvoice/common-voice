@@ -30,14 +30,16 @@ export default Object.freeze({
   PRIVACY: '/privacy',
   TERMS: '/terms',
   CHALLENGE_TERMS: '/challenge-terms',
-  LANGUAGES: '/languages',
   ABOUT: '/about',
   CRITERIA: '/criteria',
+  PARTNER: '/partner',
+
+  LANGUAGES: '/languages',
+  LANGUAGE_REQUEST: '/language/request',
+  LANGUAGE_REQUEST_SUCCESS: '/language/request/success',
 
   DEMO,
   INTRO: DEMO,
-  DEMO_DATASETS: DEMO + '/datasets',
-  DEMO_DASHBOARD: DEMO + '/dashboard',
   DEMO_SPEAK: DEMO + '/speak',
   DEMO_LISTEN: DEMO + '/listen',
   DEMO_ACCOUNT: DEMO + '/create-profile',
@@ -50,7 +52,7 @@ export default Object.freeze({
   HTTP_ROOT: 'https://commonvoice.mozilla.org',
   STAGING_ROOT: 'https://commonvoice.allizom.org',
   GITHUB_ROOT: 'https://github.com/mozilla/common-voice',
-
+  MOZILLA_BLOG_ROOT: 'http://foundation.mozilla.org/blog',
   S3_BUCKET:
     'https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com',
   S3_CDN: 'https://cdn.commonvoice.mozilla.org',

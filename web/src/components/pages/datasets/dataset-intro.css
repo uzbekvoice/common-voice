@@ -1,0 +1,69 @@
+.dataset-intro {
+    box-sizing: border-box;
+    padding: 0 var(--page-margin);
+    color: var(--white);
+    background: url('images/datasets-intro-background.svg');
+    background-color: #3b3b3b; /* fallback if image hasnt loaded */
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    @media (--lg-up) {
+        background-position: right;
+    }   
+
+    @media (--xl-up) {
+        padding: 5em;
+    }
+
+    /* triangle top left */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('images/datasets-intro-background-triangle.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 4vw;
+        height: 4vw;
+
+        @media (--xl-up) {
+            width: 8vw;
+            height: 8vw;
+        }
+
+        [dir='rtl'] & {
+            right: 0;
+            transform: scaleX(-1); /* flip image */
+        }
+    }
+
+    button {
+        font-size: 1em;
+        font-weight: 600;
+        text-decoration: underline;
+        color: var(--blue);
+    }
+
+    p {
+        /* max-width: 0em; */
+        line-height: 1.5;
+        white-space: pre-line;
+    }
+
+    .intro-summary {
+        padding-top: 1em;
+        margin-bottom: 1em;
+        font-size: var(--font-size-lg);
+        line-height: 1.35;
+    }
+    div {
+    @media (--lg-up) {
+        width: 50%;
+    max-width: 50em;
+
+    }
+    }
+}

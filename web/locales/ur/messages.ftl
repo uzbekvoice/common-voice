@@ -8,8 +8,8 @@ email-input =
     .label = ای میل
 submit-form-action = ‏‏جمع کریں
 loading = لوڈ ہو رہا ہے…
-email-opt-in-info = کامن وائس  کے بارے میں ای میل موصول کریں جیسے چیلنج اور گول یاددہانی ، پیشرفت کی تازہ ترین معلومات ، اور نیوز لیٹر۔
-email-opt-in-info-title = Common Voice میلنگ فہرست میں شامل ہوں
+email-opt-in-info = میں عام آواز کے متعلق رسالے، تازہ ترین خبریں، اہم اطلاعات اور دیگر معالومات کے بارے میں ای-میل کے ذریعے باخبر رہنا چاہتا ہوں
+email-opt-in-info-title = عام آواز کی ڈاک فہرست میں شامل ہوں
 email-opt-in-info-sub-with-challenge = کامن وائس  کے بارے میں ای میل موصول کریں جیسے چیلنج اور گول یاددہانی ، پیشرفت کی تازہ ترین معلومات ، اور نیوز لیٹر۔
 email-opt-in-privacy-v2 = ای میلز موصول کرنے کا انتخاب کرنے کا مطلب ہے کہ آپ اس بات سے متفق ہیں کہ موزیلا اس معلومات کو موزیلا <privacyLink> نجی پالیسی </privacyLink> تفصیل کے مطابق سنبھالے۔
 indicates-required = * مطلوبہ فیلڈ کی طرف اشارہ کرتا ہے
@@ -36,9 +36,9 @@ ba = باشکیرس
 bas = باسا
 be = بیلارسائی
 bg = بلغاریائی
-bm = بمبارا
 bn = بنگالی
 br = بریٹن
+bs = بوسنیائی
 bxr = بریات
 ca = کیٹلان
 cak = کقیچلیل
@@ -55,7 +55,7 @@ dv = ڈیویہی
 el = يونانى
 en = انگریزی
 eo = اسپيرانتو
-es = اسپینش
+es = ہسپانوی
 et = ایسٹونئن
 eu = باسکی
 fa = فارسی
@@ -78,6 +78,8 @@ hy-AM = آرمينيائى
 hyw = آرمینیائی مغربی
 ia = انٹرلنگوا
 id = ‏‏انڈونیشین
+ie = انٹرلنگوا
+ig = اگبو
 is = آئس لينڈى
 it = اطالوی
 izh = ایزورین
@@ -86,12 +88,15 @@ ka = جارجيائى
 kaa = کراکلپاک
 kab = کیبل
 kbd = کبارڈین
+ki = کیکویو
 kk = کازخ
+km = خمیر
 kmr = کرمانجی کرد
 ko = کوریائِی
 kpv = کومی زائرین
 kw = کورناش
 ky = کرغز
+lb = لکژم برگیش
 lg = لوگنڈا
 lij = لیغورین
 lt = لیتھونیائی
@@ -103,6 +108,7 @@ mhr = میڈوو ماری
 mk = مقدونیائی
 ml = ملیالم
 mn = منگولیائی
+mni = میٹی لون
 mos = موسی
 mr = مراٹھی
 mrj = ہل ماری
@@ -110,10 +116,13 @@ ms = ملئے
 mt = مالٹیائی
 my = برمی
 myv = ایرزیا
+nan-tw = تائیوانی (منان)
 nb-NO = نارویجین بوکمل
 ne-NP = نیپالی
+nia = نیاس
 nl = ڈچ
 nn-NO = نورویجیئن نینورسک
+nyn = رنیانکول
 oc = آكسيٹان
 or = اوڈیا
 pa-IN = پنجابی
@@ -127,11 +136,13 @@ ro = پیش قدمی
 ru = روسی
 rw = كنیاروندا
 sah = سکھا
+sat = سنتالی (اول چکی)
 sc = سارڈینی
 scn = سسلین
 shi = شلحہ
 si = سنہالہ
 sk = سلافی
+skr = سرائیکی
 sl = سلاوینائی
 so = صومالی
 sq = البانیائی
@@ -143,9 +154,14 @@ ta = تامل
 te = تلگو
 tg = تاجک
 th = تھائى
+ti = ٹيگرنيا
+tig = ٹیگرے
+tk = ترکمانی
 tl = ٹیگا لوگ
 tr = ترک
 tt = ‏‏طاطاری
+tw = توی
+ty = تہیشیائی
 uby = اوبیخ
 udm = اڈمورٹ
 ug = ایغور
@@ -155,6 +171,8 @@ uz = ازبک
 vec = وینشین
 vi = ویتنامی
 vot = ووٹک
+yi = یدش
+yo = یوروبا
 yue = کینٹونی
 zh-CN = چینی (چین)
 zh-HK = چینی (ہانگ کانگ)
@@ -289,6 +307,8 @@ shortcut-record-toggle = r
 shortcut-record-toggle-label = ریکارڈ/روکیں
 shortcut-rerecord-toggle = [1-5]
 shortcut-rerecord-toggle-label = تراشہ دوبارہ ریکارڈ کریں
+shortcut-discard-ongoing-recording = ESC
+shortcut-discard-ongoing-recording-label = جاری ریکارڈنگ کو مسترد کریں۔
 shortcut-submit = واپس
 shortcut-submit-label = تراشے جمع کرائیں
 request-language-text = اب تک Common Voice پر اپنی زبان نہیں دیکھ رہے ہیں؟
@@ -317,8 +337,13 @@ profile-form-native-language =
     .label = مقامی زبان
 profile-form-additional-language =
     .label = اضافی زبان
+profile-form-language =
+    .label = زبان
 profile-form-accent =
     .label = ‏‏لہجا
+profile-form-custom-accent-help-text =
+    .label = آپ اپنے لہجے کی وضاحت کیسے کریں گے؟
+profile-form-custom-accent-placeholder-2 = اپنے لہجے کو بیان کرنے کے لیے ٹائپ کرنا شروع کریں۔
 profile-form-age =
     .label = عمر
 profile-form-gender-2 =
@@ -329,6 +354,7 @@ hidden = پوشیدہ
 visible = ‏‏مرئی
 native-language =
     .label = مقامی زبان
+profile-form-add-accent = نیا حسب ضرورت لہجہ شامل کریں "{ $inputValue }"
 profile-form-submit-save = محفوظ کریں
 profile-form-submit-saved = محفوظ شدہ
 male = مردانہ
@@ -362,6 +388,7 @@ skip-submission-description = شراکت جمع کرانے کے دوران 'جم
 skip-submission-note = نوٹ: شراکت کی قسم بدلنے کے لیے آپ کو سننے یا بولنے میں سے ایک قسم کو چننا پڑے گا۔
 off = بند
 on = چالو
+help-accent = لہجے میں کچھ مدد کی ضرورت ہے؟
 
 ## Profile - Email
 
@@ -371,6 +398,8 @@ connect-gravatar = Gravatar کے ساتھ مربوط ہوں
 gravatar_not_found = آپ کے ای میل کے لئے کوئی Gravatar نہیں ملا
 file_too_large = منتخب کی گئی فائل بہت بڑی ہے۔
 avatar-uploaded = اوتار اپ لوڈ ہوگیا
+max-file-size = { $kb }kb زیادہ سے زیادہ
+remove-avatar = اوتار کو ہٹا دیں۔
 
 ## Profile - Email
 
@@ -443,10 +472,10 @@ faq-search-for-answers =
 ## ABOUT US
 
 about-title = Common Voice کیوں؟
-about-subtitle = کامن وائس موزیلا کے اس اقدام کا حصہ ہے جو مشینوں کو یہ سکھانے میں مدد فراہم کرتی ہے کہ حقیقی لوگ کس طرح بولتے ہیں۔ کامن وائس ڈیٹاسیٹ کے علاوہ ، ہم ایک اوپن سورس اسپیچ ریگنیشن انجن بھی بنا رہے ہیں جسے ڈیپ اسپیچ کہتے ہیں۔
-about-header-description = یہ دونوں منصوبے برقی تقریر کی تقسیم کو ختم کرنے کی ہماری کوششوں کا حصہ ہیں۔ آواز شناس ٹیکنالوجیز ہمارے آلات میں انسانی جہت لاتے ہیں ، لیکن ڈویلپرز کو ان کی تعمیر کے لئے صوتی ڈیٹا کی ایک بڑی مقدار کی ضرورت ہوتی ہے ۔ فی الحال زیادہ تر ڈیتا مہنگا اور ملکیتی ہے۔  ہم صوتی اعداد و شمار کو آزادانہ اور عوامی طور پر دستیاب بنانا چاہتے ہیں ، اور اس بات کو یقینی بنائیں کہ ڈیٹا حقیقی لوگوں کے تنوع کی نمائندگی کرتا ہے۔ ہم سب مل کر صوت شناسی بہتر بنا سکتے ہیں۔
-how-does-it-work-title = یہ کس طرح کام کرتا ہے
 how-does-it-work-text = ہم آوازوں کے ایک اوپن سورس ڈیٹاسیٹ کو ہجوم میں ڈال رہے ہیں۔ اپنی آواز کا عطیہ کریں ، دوسرے لوگوں کے کلپس کی درستگی کو درست کریں ، ڈیٹاسیٹ کو ہر ایک کے لئے بہتر بنائیں۔
+
+## How does it work section
+
 about-speak = بولیں
 about-speak-text = تعاون کرنے والے عطیہ کردہ جملوں کے بینک سے پڑھ کر وائس کلپس کو ریکارڈ کرتے ہیں۔
 about-listen-queue = سننے کی  قطار
@@ -473,10 +502,39 @@ about-get-involved = شامل ہوں
 about-get-involved-text-2 =
     کیا کامن وائس کو مزید بہتر بنانے میں مدد کرنا چاہتے ہیں؟  بہترین! ای میل یا <discourseLink>گفتگو  </discourseLink> فورمز کے ذریعہ رابطے میں رہیں
     <githubLink> گٹھب </githubLink> کے ذریعہ سائٹ  مسائل جمع کروائیں ، یا  <matrixLink> میٹرکس </matrixLink> کمیونٹی چیٹ میں شمولیت اختیار کریں۔
+about-stay-in-touch-button = سائن اپ کریں
 about-nav-why-common-voice = کیوں؟
 about-nav-how-it-works = کیسے ؟
 about-nav-partners = ساتھی
 about-nav-get-involved = شامل ہوں
+
+## Community Playbook Content
+## What is a language
+
+
+## How do I add a language
+
+
+## How does localization work
+
+
+## How to add sentences
+
+
+## How to record quality
+
+
+## How to grow language
+
+
+## How to validate
+
+
+## How to access dataset
+
+
+## How are decisions made
+
 mycroft-title = Mycroft Ai
 mycroft-subtitle = آرٹیفیشل انٹیلی جنس
 mycroft-description =
@@ -619,6 +677,9 @@ request-language-success-title = زبان کی درخواست کامیابی س�
 request-language-success-content = آپ کی زبان کو بہت جلد کیسے کامن وائس میں شامل کریں، اس بارے میں ہم مزید معلومات کے ساتھ رابطے میں رہیں گے۔
 select-language = زبان منتخب کریں ...
 other-language = دیگر زبانیں
+
+## Request Language Pages
+
 
 ## Languages Overview
 
@@ -855,6 +916,22 @@ profile-form-delete = پروفائل حزف کریں
 
 ## Profile Download
 
+download-q = اپنا ڈیٹا ڈاؤن لوڈ کرنے کی ضرورت ہے؟
+download-info = ہمیں بتائیں کہ آپ کیا ڈاؤن لوڈ کرنا چاہتے ہیں:
+download-profile-title = پروفائل
+download-profile-size = چند بائٹس
+download-recordings-title = ریکارڈنگز
+download-recordings-size = عام طور پر میگا بائٹس
+download-size = سائز
+download-selected = منتخب شدہ
+download-start = پروفائل ڈیٹا ڈاؤن لوڈ کریں۔
+download-request = ریکارڈنگ کی درخواست کریں۔
+download-requests = ماضی کی ریکارڈنگز ڈاؤن لوڈ کی درخواستیں۔
+download-request-button = ڈاؤن لوڈ
+download-request-title = { $created }
+download-request-refresh-button = تازہ کریں
+download-request-modal-title = ربط ڈاؤن لوڈ کریں۔
+download-request-metadata-link = جملے کا متن
 
 ## Landing
 
@@ -873,6 +950,7 @@ demo-welcome-subheader = کیا آپ مزید جاننے اور اس منصوب�
 ## Demo Datasets
 
 demo-language-select-card-header = Common Voice دنیا کا سب سے بڑا عوامی طور پر دستیاب ، کثیر لسانی وائس ڈیٹاسیٹ ہے۔
+demo-language-select-card-body = پچاس سے زیادہ زبانوں میں 259k سے زیادہ افراد کی جانب سے دیئے گئے تعاون کی بدولت ، اس اعداد و شمار کو انسانی آواز کو بہتر انداز میں جواب دینے کے لئے تقریر سے چلنے والے ایپلی کیشنز کی تربیت کے لئے استعمال کیا جا رہا ہے۔
 card-button-next = آگے
 card-button-back = پیچھے
 demo-language-select-label = زبانیں براؤز کریں
@@ -883,6 +961,7 @@ demo-account = ‏‏اکائونٹ
 ## Demo Account
 
 demo-account-card-header = شراکتیں شامل کرنے کے لیے کھاتے کی ضروری نہیں، گو مددگار ہے۔
+demo-account-card-body = دائیں طرف ہم تمام فوائد اور کیا کیا معلومات ہم سرعام کرتے ہیں کو واضع کیا گیا ہے۔ اس "عام آواز" منصوبے میں شامل ہونے کے لئے نیچے موجودہ ربط کو استعمال کریں اور اپنے ہی آل پر اپنا ایک کھاتا کھولیں۔
 demo-account-enter-email =
     .label = سائن اپ ربط ارسال کرنے کے لئے ای میل درج کریں
 demo-account-sign-up = سائن اپ ربط بھیجیں
@@ -895,6 +974,125 @@ demo-listen-subtitle = شراکت کے لئے تیار ہیں؟
 ## Demo Dashboard
 
 demo-dashboard-card-header = ذاتی ڈیش بورڈز آپ کو انفرادی اور گروہی پیشرفت کے بارے میں آگاہ رکھتے ہیں۔
+demo-dashboard-card-body = ہر آواز جو آپ شائع کریں، اور ہر آواز جس کی تسدیق کی جائے، آپ کے کھاتے کے خلاصے میں مسلسل شامل کیا جاتا ہے تاکہ آپ اپنی زبانوں کی ترقی میں باخبر رہیں۔ جی ہاں ، آپ ایک سے زائد زبانوں میں اپنا حصہ ڈال سکتے ہیں۔ <br/><br/> اپنے کھاتے کے خلاصے میں ، آپ اپنی ترقیوں پہ نظر رکھ سکتے ہیں اور یہ بھی کہ باقی برادری کے حساب سے آپ کیسے جا رہے ہیں، اور ساتھ ساتھ روزانہ یا ہفتانہ مقصد قائم کر سکتے ہیں۔
 
 ## Validation criteria
+
+contribution-criteria-nav = معیار
+contribution-criteria-link = شراکت کے معیار کو سمجھیں۔
+contribution-criteria-page-title = شراکت کا معیار
+contribution-for-example = مثال کے طور پر
+contribution-misreadings-title = غلط پڑھنا۔
+contribution-misreadings-example-2-title = ٹرائاسک کا دیوہیکل ڈائنوسار۔
+contribution-misreadings-example-5-title = ہم کافی لینے باہر جا رہے ہیں۔
+contribution-misreadings-example-6-title = ہم کافی لینے باہر جا رہے ہیں۔
+contribution-misreadings-example-7-title = ہم کافی لینے باہر جا رہے ہیں۔
+contribution-misreadings-example-8-explanation = [غیر مماثل مواد]
+contribution-varying-pronunciations-title = مختلف تلفظ
+contribution-varying-pronunciations-example-1-title = اس کے سر پر اس نے بیریٹ پہنا ہوا تھا۔
+contribution-varying-pronunciations-example-2-title = اس کا ہاتھ اٹھا ہوا تھا۔
+contribution-background-noise-title = پس منظر کی آوازیں
+contribution-background-voices-title = پس منظر کی آوازیں
+contribution-volume-title = حجم
+contribution-just-unsure-title = صرف غیر یقینی؟
+see-more = <chevron></chevron>مزید دیکھیں
+see-less = <chevron></chevron>کم دیکھیں
+
+# Don't rename the following section, its contents are auto-inserted based on the name. These strings are
+# automatically exported from Sentence Collector.
+# [SentenceCollector]
+
+
+## HEADER/FOOTER
+
+sc-header-home = ابتدائی صفحہ
+sc-header-how-to = کیسے
+sc-header-add = اضافہ کریں
+sc-header-review = جائزہ لیں
+sc-header-rejected = مسترد شدہ جملے
+sc-header-my = میرے جملے
+sc-header-statistics = شماریات
+sc-header-profile = پروفائل
+sc-footer-translate = اس صفحہ کا ترجمہ کریں
+sc-footer-privacy = رازداری
+sc-footer-terms = شرائط
+sc-footer-cookies = کوکیز
+sc-login-signup-button = لاگ ان / سائن اپ کریں
+sc-logout-button = لاگ آؤٹ
+
+## HOME
+
+sc-home-collect-title = جملے جمع کریں۔
+
+## GENERAL
+
+
+## HOW-TO
+
+sc-howto-title = کیسے
+sc-howto-addsen-title = نئے جملے شامل کریں۔
+sc-howto-cite-title = حوالہ کیسے دیں
+sc-howto-review-criteria-1 = جملے کی ہجے درست انداز میں ادا کرنے چاہیے۔
+sc-howto-review-criteria-2 = جملہ گرامر کے لحاظ سے درست ہونا چاہیے۔
+sc-howto-review-criteria-3 = جملہ بولنے کے قابل ہونا چاہیے۔
+sc-howto-findpd-subtitle = انٹرنیٹ پر انہیں تلاش کریں۔
+
+## MY SENTENCES
+
+sc-my-title = میرے جملے
+sc-my-no-sentences = کوئی جملے نہیں ملے!
+# Variables:
+#   $batchId (String) - A unique ID identifying the submission of sentences - sentences uploaded together all have the same batch ID
+sc-my-submission = جمع کرانا: { $batchId }
+sc-my-delete = منتخب جملے حذف کریں۔
+
+## REJECTED
+
+sc-rejected-title = مسترد شدہ جملے
+sc-rejected-none-found = کوئی مسترد شدہ جملے نہیں ملے!
+
+## STATS
+
+sc-stats-title = شماریات
+
+## ADD
+
+sc-submit-err-select-lang = برآیے مہربانی زبان منتخب کریں۔
+sc-submit-err-add-sentences = براہ مہربانی جملے شامل کریں۔
+sc-submit-err-add-source = براہ مہربانی  ایک ذریعہ شامل کریں۔
+
+## ADD LANGUAGE
+
+
+## ADD SENTENCES CONFIRMATION
+
+
+## LANGUAGE INFO
+
+
+## LOGIN
+
+sc-login-err-failed = لاگ ان ناکام رہے
+
+## PROFILE
+
+sc-personal-err-lang-not-found = زبان کو ہٹایا نہیں جا سکا: زبان نہیں ملی
+sc-personal-err-remove = زبان کو ہٹایا نہیں جا سکا
+sc-personal-your-languages = آپ کی زبانیں
+sc-personal-remove-button = ہٹائیں
+
+## REVIEW CRITERIA
+
+
+## REVIEW
+
+sc-review-form-button-skip = اچٹیں
+sc-review-form-button-approve = منظور کریں
+sc-review-link = جائزہ
+
+## SETTINGS
+
+sc-settings-title = سیٹنگز
+
+# [/SentenceCollector]
 

@@ -10,6 +10,7 @@ import UserClient from './lib/model/user-client';
 import DB from './lib/model/db';
 import { earnBonus } from './lib/model/achievements';
 import { getConfig } from './config-helper';
+import { ChallengeTeamToken, ChallengeToken } from 'common';
 
 const {
   ENVIRONMENT,
@@ -75,12 +76,14 @@ if (DOMAIN) {
       clientID: CLIENT_ID,
       clientSecret: CLIENT_SECRET,
       callbackURL:
-        (({
-          stage: 'https://commonvoice.allizom.org',
-          prod: 'https://commonvoice.mozilla.org',
-          dev: 'https://dev.voice.mozit.cloud',
-          sandbox: 'https://sandbox.voice.mozit.cloud',
-        } as any)[ENVIRONMENT] || '') + CALLBACK_URL,
+        ((
+          {
+            stage: 'https://commonvoice.allizom.org',
+            prod: 'https://commonvoice.mozilla.org',
+            dev: 'https://dev.voice.mozit.cloud',
+            sandbox: 'https://sandbox.voice.mozit.cloud',
+          } as any
+        )[ENVIRONMENT] || '') + CALLBACK_URL,
       scope: 'openid email',
     },
     (
@@ -97,6 +100,16 @@ if (DOMAIN) {
   console.log('No Auth0 configuration found');
 }
 
+function parseState(request: Request) {
+  const { state } = request.query;
+
+  if (!state || typeof state !== 'string') {
+    return {};
+  }
+
+  return JSON.parse(AES.decrypt(state, SECRET).toString(enc.Utf8));
+}
+
 router.get(
   CALLBACK_URL,
   passport.authenticate('auth0', { failureRedirect: '/login' }),
@@ -106,9 +119,23 @@ router.get(
       query: { state },
       session,
     } = request;
-    const { locale, old_user, old_email, redirect, enrollment } = JSON.parse(
-      AES.decrypt(state, SECRET).toString(enc.Utf8)
-    );
+
+    let currentState = {
+      locale: '',
+      old_user: '',
+      old_email: '',
+      redirect: '',
+      enrollment: { challenge: '', team: '', invite: '', referer: '' },
+    };
+
+    if (state && typeof state === 'string') {
+      const bytes = AES.decrypt(state, SECRET);
+      const decryptedData = bytes.toString(enc.Utf8);
+      currentState = JSON.parse(decryptedData);
+    }
+
+    const { locale, old_user, old_email, redirect, enrollment } = currentState;
+
     const basePath = locale ? `/${locale}/` : '/';
     if (!user) {
       response.redirect(basePath + 'login-failure');
@@ -121,12 +148,12 @@ router.get(
         session.passport.user = old_user;
       }
       response.redirect('/profile/settings?success=' + success.toString());
-    } else if (enrollment?.challenge && enrollment.team) {
+    } else if (enrollment?.challenge && enrollment?.team) {
       if (
         !(await UserClient.enrollRegisteredUser(
           user.emails[0].value,
-          enrollment.challenge,
-          enrollment.team,
+          enrollment.challenge as ChallengeToken,
+          enrollment.team as ChallengeTeamToken,
           enrollment.invite,
           enrollment.referer
         ))
@@ -134,7 +161,7 @@ router.get(
         // if the user is unregistered, pass enrollment to frontend
         user.enrollment = enrollment;
       } else {
-        // if the user is already registered, now he/she should be enrolled
+        // if the user is already registered, now they should be enrolled
         // [TODO] there should be an elegant way to get the client_id here
         const client_id = await UserClient.findClientId(user.emails[0].value);
         await earnBonus('sign_up_first_three_days', [

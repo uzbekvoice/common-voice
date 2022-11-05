@@ -30,7 +30,7 @@
     width: 100%;
     height: 100%;
     padding: 25px;
-    box-sizing: border-box;
+
     z-index: var(--middle-z-index);
     overflow: auto;
     animation: slide-in-left var(--easing) var(--transition-duration-slow);
@@ -97,7 +97,7 @@
 
 .challenge-title {
     font-weight: normal;
-    font-family: Zilla Slab;
+    font-family: 'Zilla Slab', sans-serif;
     font-size: 20px;
     line-height: 1.4;
 }
@@ -276,7 +276,7 @@
     padding: 0;
     max-height: 205px;
     width: 100%;
-    box-sizing: border-box;
+
     overflow: auto;
     list-style: none;
     min-width: 580px;
@@ -317,19 +317,10 @@
 
     @keyframes rotate {
         from {
-            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
         }
         to {
-            -webkit-transform: rotate(360deg);
-        }
-    }
-
-    @-moz-keyframes rotate {
-        from {
-            -moz-transform: rotate(0deg);
-        }
-        to {
-            -moz-transform: rotate(360deg);
+            transform: rotate(360deg);
         }
     }
 
@@ -379,7 +370,6 @@
             justify-content: center;
             align-items: center;
             margin-right: 0;
-            box-sizing: border-box;
         }
 
         & .position {
@@ -441,7 +431,6 @@
         }
         & .week {
             width: 15%;
-            box-sizing: border-box;
         }
         & .star-points {
             mask-image: url('../../../ui/icons/star.svg');
@@ -456,16 +445,16 @@
             }
             &.star-points-2 {
                 mask-image: url('../awards/star.svg');
-                background: linear-gradient(to top, var(--warm-grey), #cccccc);
+                background: linear-gradient(to top, var(--warm-grey), #ccc);
             }
             &.star-points-3 {
                 mask-image: url('../awards/star.svg');
-                background: linear-gradient(to top, #cccccc, #e7e8ea);
+                background: linear-gradient(to top, #ccc, #e7e8ea);
             }
         }
         & .point {
             width: 20%;
-            box-sizing: border-box;
+
             margin-right: 0;
         }
         & .approved {
@@ -479,7 +468,6 @@
             background: var(--blue);
             width: 20%;
             margin-right: 30px;
-            box-sizing: border-box;
 
             & svg {
                 flex-shrink: 0;
@@ -524,13 +512,12 @@
         display: flex;
         background-color: var(--lighter-grey);
         border-bottom: 0;
-        display: flex;
         padding: 0 0 10px 20px;
         font-family: var(--base-font-family);
         font-size: 12px;
         letter-spacing: 0.43px;
         color: var(--warm-grey);
-        box-sizing: border-box;
+
         & .ranking {
             width: 40%;
         }
@@ -597,7 +584,7 @@
     width: 140px;
     height: 50px;
     border-radius: 50px;
-    box-sizing: border-box;
+
     align-items: center;
     justify-content: center;
     position: relative;
@@ -605,7 +592,7 @@
     &:hover {
         transition: 0.3s all;
     }
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         width: 100%;

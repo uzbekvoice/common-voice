@@ -2,49 +2,38 @@ import { Localized } from '@fluent/react';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, Redirect, withRouter } from 'react-router';
-import { LOCALES, NATIVE_NAMES } from '../../services/localization';
 import { trackGlobal, getTrackClass } from '../../services/tracker';
 import StateTree from '../../stores/tree';
 import { User } from '../../stores/user';
 import { Locale } from '../../stores/locale';
 import URLS from '../../urls';
-import { isProduction, replacePathLocale } from '../../utility';
-import { LocaleLink, LocaleNavLink, isContributable } from '../locale-helpers';
+import { replacePathLocale } from '../../utility';
+import { LocaleLink, LocaleNavLink } from '../locale-helpers';
 import {
   CogIcon,
   DashboardIcon,
   MenuIcon,
   MicIcon,
   OldPlayIcon,
-  TargetIcon,
-  ExternalLinkIcon,
 } from '../ui/icons';
-import { Avatar, LabeledSelect, LinkButton } from '../ui/ui';
+import { Avatar, LinkButton } from '../ui/ui';
 import Content from './content';
 import Footer from './footer';
-import LocalizationSelect from './localization-select';
+import LocalizationSelect from '../localization-select/localization-select';
+import LocalizationSelectComplex from '../localization-select/localization-select-complex';
 import Logo from './logo';
 import Nav from './nav';
 import UserMenu from './user-menu';
-import * as cx from 'classnames';
+import cx from 'classnames';
 import WelcomeModal from '../welcome-modal/welcome-modal';
+import NonProductionBanner from './non-production-banner';
 import {
   ChallengeTeamToken,
   challengeTeamTokens,
   ChallengeToken,
   challengeTokens,
-  FeatureType,
-  features,
 } from 'common';
 import API from '../../services/api';
-import NotificationBanner from './../notification-banner/notification-banner';
-import { Notifications } from '../../stores/notifications';
-
-export const LOCALES_WITH_NAMES = LOCALES.map(code => [
-  code,
-  NATIVE_NAMES[code] || code,
-]).sort((l1, l2) => l1[1].localeCompare(l2[1]));
-
 interface PropsFromState {
   locale: Locale.State;
   user: User.State;
@@ -58,81 +47,19 @@ interface PropsFromDispatch {
 interface LayoutProps
   extends PropsFromState,
     PropsFromDispatch,
-    RouteComponentProps<any, any, any> {}
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    RouteComponentProps<any, any, any> {
+  children?: React.ReactNode;
+}
 
 interface LayoutState {
   challengeTeamToken: ChallengeTeamToken;
   challengeToken: ChallengeToken;
   isMenuVisible: boolean;
   hasScrolled: boolean;
-  showStagingBanner: boolean;
   showWelcomeModal: boolean;
   featureStorageKey?: string;
 }
-
-const SegmentBanner = ({
-  locale,
-  featureStorageKey,
-}: {
-  locale: string;
-  featureStorageKey: string;
-}) => {
-  const notification: Notifications.Notification = {
-    id: 99,
-    kind: 'banner',
-    content: (
-      <>
-        <Localized
-          id="target-segment-first-banner"
-          vars={{ locale: NATIVE_NAMES[locale] }}
-        />
-      </>
-    ),
-    bannerProps: {
-      storageKey: featureStorageKey,
-      links: [
-        {
-          to: URLS.SPEAK,
-          className: 'cta',
-          persistAfterClick: true,
-          children: (
-            <>
-              <TargetIcon />
-              <Localized
-                key="target-segment-add-voice"
-                id="target-segment-add-voice">
-                <div />
-              </Localized>
-            </>
-          ),
-        },
-        {
-          href:
-            locale === 'es'
-              ? URLS.TARGET_SEGMENT_INFO_ES
-              : URLS.TARGET_SEGMENT_INFO,
-          blank: true,
-          persistAfterClick: true,
-          className: 'cta external',
-          children: (
-            <>
-              <ExternalLinkIcon />
-              <Localized
-                key="target-segment-learn-more"
-                id="target-segment-learn-more">
-                <div />
-              </Localized>
-            </>
-          ),
-        },
-      ],
-    },
-  };
-
-  return (
-    <NotificationBanner key="target-segment" notification={notification} />
-  );
-};
 
 class Layout extends React.PureComponent<LayoutProps, LayoutState> {
   private installApp: HTMLElement;
@@ -142,13 +69,12 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
     challengeToken: undefined,
     isMenuVisible: false,
     hasScrolled: false,
-    showStagingBanner: !isProduction(),
+
     showWelcomeModal: false,
     featureStorageKey: null,
   };
 
   async componentDidMount() {
-    const { locale, api, user } = this.props;
     window.addEventListener('scroll', this.handleScroll);
     this.visitHash();
 
@@ -160,25 +86,24 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
       challengeToken: challengeToken,
       showWelcomeModal:
         challengeTeamToken !== undefined && challengeToken !== undefined,
-      featureStorageKey: await this.getFeatureKey(locale),
     });
   }
 
-  componentDidUpdate(nextProps: LayoutProps, nextState: LayoutState) {
-    if (this.props.location.pathname !== nextProps.location.pathname) {
-      this.setState({ isMenuVisible: false });
+  componentDidUpdate(prevProps: LayoutProps) {
+    const { pathname, key, hash } = this.props.location;
 
-      // Immediately scrolling up after page change has no effect.
-      setTimeout(() => {
-        if (location.hash) {
-          this.visitHash();
-        } else {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          });
-        }
-      }, 250);
+    const hasPathnameChanged = pathname !== prevProps.location.pathname;
+    const locationKeyHasChanged = key !== prevProps.location.key;
+    const shouldScrollToHash = hash && locationKeyHasChanged;
+
+    if (hasPathnameChanged) {
+      this.setState({ isMenuVisible: false });
+      window.scrollTo({ top: 0 });
+      this.visitHash();
+    }
+
+    if (!hasPathnameChanged && shouldScrollToHash) {
+      this.visitHash();
     }
   }
 
@@ -188,10 +113,11 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
 
   private visitHash() {
     if (location.hash) {
-      setTimeout(() => {
-        const node = document.querySelector(location.hash);
-        node && node.scrollIntoView();
-      }, 100);
+      const hash = location.hash.split('?')[0];
+      const node = document.querySelector(hash);
+      if (node) {
+        node.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 
@@ -206,14 +132,11 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
     this.setState({ isMenuVisible: !this.state.isMenuVisible });
   };
 
-  private selectLocale = async (locale: string) => {
+  private handleLocaleChange = async (locale: string) => {
     const { setLocale, history } = this.props;
     trackGlobal('change-language', locale);
     history.push(replacePathLocale(history.location.pathname, locale));
     setLocale(locale);
-    this.setState({
-      featureStorageKey: await this.getFeatureKey(locale),
-    });
   };
 
   private getChallengeToken = () => {
@@ -228,38 +151,18 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
     );
   };
 
-  private async getFeatureKey(locale: string) {
-    let feature = null;
-
-    if (isContributable(locale)) {
-      feature = await this.props.api.getFeatureFlag(
-        'singleword_benchmark',
-        locale
-      );
-    }
-
-    return feature ? feature.storageKey : null;
-  }
-
   render() {
-    const { locale, location, user } = this.props;
+    const { children, locale, location, user } = this.props;
     const {
       challengeTeamToken,
       challengeToken,
       hasScrolled,
       isMenuVisible,
-      showStagingBanner,
       showWelcomeModal,
-      featureStorageKey,
     } = this.state;
     const isBuildingProfile = location.pathname.includes(URLS.PROFILE_INFO);
-
-    const pathParts = location.pathname
-      .replace(/(404|503)/g, 'error-page')
-      .split('/');
-    const className = cx(pathParts[2] ? pathParts.slice(2).join(' ') : 'home', {
-      'staging-banner-is-visible': showStagingBanner,
-    });
+    const pathParts = location.pathname.split('/');
+    const className = cx(pathParts[2] ? pathParts.slice(2).join(' ') : 'home');
 
     const alreadyEnrolled =
       this.state.showWelcomeModal && user.account?.enrollment?.challenge;
@@ -277,77 +180,52 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
             teamToken={challengeTeamToken}
           />
         )}
-        <header className={hasScrolled ? 'active' : ''}>
-          <div>
-            <Logo />
-            <Nav id="main-nav" />
-          </div>
-          <div>
-            {this.renderTallies()}
-            {user.account ? (
-              <UserMenu />
-            ) : isBuildingProfile ? null : (
-              <Localized id="login-signup">
-                <LinkButton className="login" href="/login" rounded outline />
-              </Localized>
-            )}
-            {LOCALES.length > 1 && (
-              <LocalizationSelect
-                locale={locale}
-                locales={LOCALES_WITH_NAMES}
-                onChange={this.selectLocale}
-              />
-            )}
-            <button
-              id="hamburger-menu"
-              onClick={this.toggleMenu}
-              className={isMenuVisible ? 'active' : ''}>
+        <div className="header-wrapper">
+          <header className={cx('header', { active: hasScrolled })}>
+            <div>
+              <Logo />
+              <Nav id="main-nav" />
+            </div>
+            <div>
+              {this.renderTallies()}
               {user.account ? (
-                <Avatar url={user.account.avatar_url} />
-              ) : (
-                <MenuIcon className={isMenuVisible ? 'active' : ''} />
+                <UserMenu />
+              ) : isBuildingProfile ? null : (
+                <Localized id="login-signup">
+                  <LinkButton className="login" href="/login" rounded outline />
+                </Localized>
               )}
-            </button>
-          </div>
-        </header>
-        {showStagingBanner && (
-          <div className="staging-banner">
-            You're on the staging server. Voice data is not collected here.{' '}
-            <a href={URLS.HTTP_ROOT} target="_blank" rel="noopener noreferrer">
-              Don't waste your breath.
-            </a>{' '}
-            <a
-              href={`${URLS.GITHUB_ROOT}/issues/new`}
-              rel="noopener noreferrer"
-              target="_blank">
-              Feel free to report issues.
-            </a>{' '}
-            <button onClick={() => this.setState({ showStagingBanner: false })}>
-              Close
-            </button>
-          </div>
-        )}
-        <Content location={location} />
+              <LocalizationSelectComplex
+                locale={locale}
+                onLocaleChange={this.handleLocaleChange}
+              />
+              <button
+                id="hamburger-menu"
+                onClick={this.toggleMenu}
+                className={isMenuVisible ? 'active' : ''}>
+                {user.account ? (
+                  <Avatar url={user.account.avatar_url} />
+                ) : (
+                  <MenuIcon className={isMenuVisible ? 'active' : ''} />
+                )}
+              </button>
+            </div>
+          </header>
+        </div>
+        <NonProductionBanner />
+        <main id="content">
+          {children ? children : <Content location={location} />}
+        </main>
         <Footer />
         <div
           id="navigation-modal"
           className={this.state.isMenuVisible ? 'active' : ''}>
           <Nav>
             <div className="user-nav">
-              {LOCALES.length > 1 && (
-                <LabeledSelect
-                  className="localization-select"
-                  value={locale}
-                  onChange={(event: any) =>
-                    this.selectLocale(event.target.value)
-                  }>
-                  {LOCALES_WITH_NAMES.map(([code, name]) => (
-                    <option key={code} value={code}>
-                      {name}
-                    </option>
-                  ))}
-                </LabeledSelect>
-              )}
+              <LocalizationSelect
+                locale={locale}
+                onLocaleChange={this.handleLocaleChange}
+              />
 
               {user.account && (
                 <div>
@@ -367,18 +245,14 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
                   </LocaleNavLink>
                 </div>
               )}
-              {!isBuildingProfile && (
-                <>
-                  {user.account ? (
-                    <Localized id="logout">
-                      <LinkButton rounded href="/logout" />
-                    </Localized>
-                  ) : (
-                    <Localized id="login-signup">
-                      <LinkButton rounded href="/login" />
-                    </Localized>
-                  )}
-                </>
+              {user.account ? (
+                <Localized id="logout">
+                  <LinkButton rounded href="/logout" />
+                </Localized>
+              ) : (
+                <Localized id="login-signup">
+                  <LinkButton rounded href="/login" />
+                </Localized>
               )}
             </div>
           </Nav>

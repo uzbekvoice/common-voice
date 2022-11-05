@@ -16,6 +16,9 @@ email-opt-in-info-sub-with-challenge = Pokea barua pepe kama vile ukumbusho wa c
 email-opt-in-privacy-v2 = Kwa kuchagua kupokea ujumbe kwa njia ya barua pepe unakubaliana na  Mozilla kutunza ujumbe huu kama ilivyoelekezwa katika <privacyLink>Sera ya faragha ya Mozilla</privacyLink>
 indicates-required = * Inaashiria sehemu inayohitajika
 not-available-abbreviation = haihitajiki
+banner-error-slow-1 = Samahani, Common Voice inafanya kazi polepole. Asante kwa hamu yako.
+banner-error-slow-link = Ukurasa wa Hali
+error-something-went-wrong = Samahani, kuna jambo lililokwenda mrama
 
 # Don't rename the following section, its contents are auto-inserted based on the name (see scripts/pontoon-languages-to-ftl.js)
 # [Languages]
@@ -38,9 +41,9 @@ ba = Kibashkiri
 bas = Kibasaa
 be = Kibelarusi
 bg = Kibulgeria
-bm = Kibambara
 bn = Kibengali
 br = Kibretoni
+bs = Kibosnia
 bxr = Kiburyatia
 ca = Kikatalonia
 cak = Kikiiche
@@ -69,6 +72,7 @@ fy-NL = Kifrisia
 ga-IE = Kieire
 gl = Kigalisia
 gn = Kiguarani
+gom = Kikonkani cha Goa
 ha = Kihausa
 he = Kiebrania
 hi = Kihindi
@@ -80,6 +84,8 @@ hy-AM = Kiarmenia
 hyw = Kiarmenia ya Magharibi
 ia = Kiintalingua
 id = Kiindonesia
+ie = Kiinterlingue
+ig = Kiigbo
 is = Kiaislandi
 it = Kiitaliano
 izh = Kiizhorian
@@ -88,22 +94,28 @@ ka = Kijojia
 kaa = Kikarakalpak
 kab = Kikabylia
 kbd = Kikabardia
+ki = Kikuyu
 kk = Kikazaki
+km = Kikhmer
 kmr = Kurmanji Kikurdi
+knn = Kikonkani (Devanagari)
 ko = Kikorea
 kpv = Kikomi
 kw = Kikoni
 ky = Kirigizistani
+lb = Kiluxemburg
 lg = Kiganda
 lij = Kiliguria
 lt = Kilithuania
 lv = Kilatvia
+mai = Maithili
 mdf = Kimoksha
 mg = Kimalagasi
 mhr = Kimari ya Mashariki
 mk = Kimasedonia
 ml = Kimalayalamu
 mn = Kimongoli
+mni = Kimeitei
 mos = Kimosi
 mr = Kimarathi
 mrj = Kimari ya Magharibi
@@ -111,26 +123,35 @@ ms = Kimalei
 mt = Kimalta
 my = Kiburma
 myv = Kierzya
+nan-tw = Kitaiwani (Minnan)
 nb-NO = Kinorwe cha Bokmal
 ne-NP = Kinepali
+nia = Kinias
 nl = Kiholanzi
 nn-NO = Kinorwe cha Nynorsk
+nyn = Kirunyankole
 oc = Kiositani
 or = Kiodia
 pa-IN = Kipanjabi
+pap-AW = Kipapiamento (Aruba)
 pl = Kipoli
 ps = Kipashto
 pt = Kireno
+quc = Kikiiche
+quy = Kiquechua Chanka
 rm-sursilv = Kirumi Sursilvan
 rm-vallader = Kirumi Vallader
 ro = Kiromania
 ru = Kirusi
 rw = Kinyarwanda
 sah = Kisakha
+sat = Kisanthali (Ol Chiki)
 sc = Kisadinia
 scn = Kisisilia
+shi = Kishilha
 si = Kisinhala
 sk = Kislovakia
+skr = Kisaraiki
 sl = Kislovenia
 so = Kisomali
 sq = Kialbania
@@ -142,9 +163,15 @@ ta = Kitamili
 te = Kitelugu
 tg = Kitajiki
 th = Kithai
+ti = Kitigirinya
+tig = Kitiga
+tk = Kiturumeni
 tl = Kitagalogi
+tok = Toki Pona
 tr = Kituruki
 tt = Kitatari
+tw = Kitiwi
+ty = Kitahiti
 uby = Ubiki
 udm = Kiudmurti
 ug = Kiuiguri
@@ -154,6 +181,7 @@ uz = Kiuzbeki
 vec = Kivenetia
 vi = Kivietnamu
 vot = Kivoti
+yi = Kiyidi
 yo = Kiyoruba
 yue = Kikantonisi
 zh-CN = Kichina (Uchina)
@@ -187,6 +215,7 @@ logout = Toka
 ## Home Page
 
 home-title = Common Voice ni hatua ya Mozilla ya kusaidia kufunza mashine jinsi watu huzungumza.
+default-tagline = Mozilla Common Voice ni mradi wa kusaidia kufundisha mashine jinsi watu wanavyozungumza.
 home-cta = Zungumza, changia hapa!
 wall-of-text-start = Sauti ni asili na ni ya kibinadamu. Kwa sababu hiyo, tunavutiwa na kuunda teknolojia ya sauti itakayotumika na mashine zetu. Ili kuunda mifumo ya sauti, kiwango kikubwa sana cha data ya sauti kinahitajika.
 wall-of-text-more-mobile = Asilimia kubwa ya data inayotumika na makampuni makubwa haifikiki kwa urahisi na asilimia kubwa ya watu. Tunadhania kuwa hili ni pingamizi kwa uvumbuzi. Alimradi, tumeanzisha mradi wa Common Voice ili kusaidia kufanya (teknolojia ya) utambuzi wa sauti uwe wazi kwa watu wote.
@@ -280,6 +309,10 @@ shortcut-record-toggle = r
 shortcut-record-toggle-label = Nasa sauti/ Acha
 shortcut-rerecord-toggle = [1-5]
 shortcut-rerecord-toggle-label = rekodi upya
+shortcut-discard-ongoing-recording = ESC
+shortcut-discard-ongoing-recording-label = Puuza rekodi inayoendelea
+shortcut-submit = Rejesha
+shortcut-submit-label = Wasilisha vipande
 request-language-text = hujaona lugha yako kwenye common voice bado?
 request-language-text-learn = Jifunze jinsi ya kuiomba hapa!
 request-language-button = Agiza lugha
@@ -306,8 +339,16 @@ profile-form-native-language =
     .label = lugha ya asili
 profile-form-additional-language =
     .label = Lugha ya ziada
+profile-form-language =
+    .label = Lugha
+profile-form-variant =
+    .label = Je, unazungumza lahaja gani cha { $language }?
+profile-form-variant-default-value = Hakuna lahaja iliyochaguliwa
 profile-form-accent =
     .label = Lafudhi
+profile-form-custom-accent-help-text =
+    .label = Je, unaweza kuelezeaje lafudhi yako?
+profile-form-custom-accent-placeholder-2 = Anza kuandika ili kuelezea lafudhi yako
 profile-form-age =
     .label = Umri
 profile-form-gender-2 =
@@ -318,6 +359,7 @@ hidden = Imefichwa
 visible = inayoonekana
 native-language =
     .label = Lugha asili
+profile-form-add-accent = Ongeza lafudhi mpya maalum "{ $inputValue }"
 profile-form-submit-save = Hifadhi
 profile-form-submit-saved = Imehifadhiwa
 male = mwanaume
@@ -351,6 +393,10 @@ skip-submission-description = Wakati wa mchango, uwasilishaji wa maoni utarukwa 
 skip-submission-note = Kumbuka: Bado utahitaji kuchagua kati ya kuzungumza au kusikiliza ili ubadilishe aina ya uchangiaji.
 off = zima
 on = washa
+help-accent = Je, unahitaji usaidizi kuhusu lafudhi?
+help-accent-explanation = Lafudhi yako ni jinsi unavyotamka maneno. Inaweza kubadilishwa na mahali umeishi, lugha zingine unazungumza na mambo mengine mengi. Unaweza shirikia maelezo yoyote unayohisi yanafaa hapa.
+help-variants = Je, unahitaji usaidizi kuhusu lahaja?
+help-variants-explanation = Lahaja ni aina mahususi ya lugha - kwa mfano inayoshirikiwa na wale wanaoishi katika jiografia au jumuiya. Wakati mwingine hizi huitwa lahaja.
 
 ## Profile - Email
 
@@ -359,6 +405,8 @@ browse-file = Buruta na ushushe au <browseWrap> Vinjari </BrowseWrap>
 connect-gravatar = Ungana na Gravatar
 gravatar_not_found = Hakuna taswira inayotambuliwa ulimwenguni iliyopatikana kwa barua pepe yako
 file_too_large = Faili lililochaguliwa ni kubwa sana
+avatar-uploaded = Taswira ya mtumiaji imapakiwa
+max-file-size = { $kb }kb upeo
 
 ## Profile - Email
 
@@ -430,12 +478,25 @@ faq-search-for-answers =
 ## ABOUT US
 
 about-title = Kwanini Common Voice?
-about-subtitle = Common Voice ni hatua ya Mozilla ya kusaidia kufunza mashine jinsi watu wanavyozungumza. Mbali na daftari la Common Voice, pia tunaunda injini ya utambuzi wa sauti ya chanzo wazi inayoitwa Deep Speech.
-about-header-description =
-    Miradi hii yote ni sehemu ya juhudi zetu za kupunguza mgawanyiko wa sauti ya kidigitali. Teknolojia za utambuzi wa sauti huleta mwelekeo wa kibinadamu kwenye vifaa vyetu, lakini watengenezaji programu wanahitaji idadi kubwa ya data ya sauti ili kuzijenga. Hivi sasa, data nyingi ni ghali na ya wamiliki.
-    Tunataka kufanya data ya sauti kupatikana kwa uhuru na kwa umma, na kuhakikisha data inawakilisha utofauti wa watu. Pamoja tunaweza kufanya utambuzi wa sauti kuwa bora kwa kila mtu.
-how-does-it-work-title = inafanyaje kazi
+how-does-it-work-title-v2 = Common Voice inafanyaje kazi?
 how-does-it-work-text = Tunachangisha chanzo wazi la daftari la sauti. Toa sauti yako, halalisha usahihi wa vipande vya sauti vya watu wengine, fanya daftari liwe bora kwa kila mtu.
+
+## How does it work section
+
+about-language-req-subtitle = Mtu anaomba lugha iongezwe.
+about-localization-title = Ujanibishaji wa Tovuti
+about-localization-subtitle = Maandishi ya tovuti yanatafsiriwa katika lugha hiyo.
+about-sentence-collection-title = Mkusanyiko wa sentensi
+about-sentence-collection-subtitle = Sentensi hukusanywa ili watu wasome kwa sauti.
+about-new-lang-title = Uzinduzi wa Lugha Mpya
+about-new-lang-subtitle = Tunazindua tovuti ya Common Voice katika lugha hii.
+about-voice-contrib-title = Mchango wa Sauti
+about-voice-contrib-subtitle = Watu wanakuja na kuchangia sauti zao.
+about-voice-validation-title = Uthibitishaji wa Sauti
+about-voice-validation-subtitle = Watu wengine huhalalisha klipu hizo za sauti.
+about-dataset-release-title = Toleo la hifadhi data
+about-dataset-release-subtitle = Tunatoa hifadhidata kila baada ya miezi 3.
+about-subscribe-text = Je, ungependa kuendelea kuwasiliana na Common Voice?
 about-speak = Zungumza
 about-speak-text = Wachangiaji hurekodi vipande vya sauti kwa kusoma kutoka kwa benki ya sentensi zilizotolewa.
 about-listen-queue = Foleni ya kusikiliza
@@ -463,10 +524,58 @@ about-get-involved-text-2 =
     Je! Unataka kusaidia kufanya Common Voice kuwa bora zaidi?
     Vizuri! Wasiliana kupitia barua pepe au idhaa ya <discourseLink> Discourse </discourseLink>
     ,wasilisha maswala ya tovuti kupitia <githubLink> GitHub </githubLink>, au ujiunge na mazungumzo ya jamii ya <matrixLink> Matrix </matrixLink>.
+about-stay-in-touch = Je, ninawezaje endelea kuwasiliana?
+about-stay-in-touch-button = Jisajili
+about-stay-in-touch-text-1 = <emailFragment>Jisajili</emailFragment> kwa orodha yetu ya wanaopokea barua pepe ili kujifunza jinsi unavyoweza kushiriki katika kampeni, matukio na vipengele vya kubuni pamoja kwenye Common Voice.
+about-stay-in-touch-text-2 = Unaweza kukutana na watu wengine katika jumuiya za lugha za Mozilla kwa kujiunga na <discourseLink>DiscourseLink</discourseLink> kwa mazungumzo ya mada, au <matrixLink>Matrix</matrixLink> kwa ushauri wa haraka.
 about-nav-why-common-voice = Kwanini?
 about-nav-how-it-works = kivipi?
 about-nav-partners = Washiriki
 about-nav-get-involved = Jihusishe
+about-nav-how-it-works-2 = Common Voice inafanyaje kazi?
+about-nav-playbook = Jifunze jinsi ya kushiriki
+
+## Community Playbook Content
+## What is a language
+
+about-playbook-what-is-language = Lugha kwenye Common Voice ni nini?
+
+## How do I add a language
+
+about-playbook-how-add-language = Je, ninawezaje kuongeza lugha?
+about-playbook-how-add-language-content-1 = Kwanza, angalia kama lugha yako <languageLink>tayari ipo</languageLink>. Ikiwa halipo, unahitaji <strong>kutafsiri tovuti na kukusanya sentensi</strong>.
+about-playbook-how-add-language-content-3 = <strong>Ili kukusanya sentensi</strong> - <scVideo>sanidi</scVideo> kwenye <scLink>Kikusanya Sentensi</scLink>.
+
+## How does localization work
+
+about-playbook-how-localize = Je, ujanibishaji wa tovuti hufanya kazi vipi?
+about-playbook-how-localize-content-1 = Tafsiri ya tovuti ya Common Voice hufanyika kwenye <strong>Pontoon</strong>.
+about-playbook-how-localize-content-4 = Tovuti iko tayari kuzinduliwa inapofikia kukamilika kwa 75%.
+about-playbook-how-localize-content-5 = Tazama kielezi chetu cha video kukusaidia
+
+## How to add sentences
+
+about-playbook-how-add-sentences = Je, ninaongezaje sentensi?
+
+## How to record quality
+
+
+## How to grow language
+
+about-playbook-how-grow-language-content-2 = Matukio
+about-playbook-how-grow-language-content-4 = Mtandao wa kijamii
+
+## How to validate
+
+about-playbook-how-validate-content-1 = Ikiwa ungeweza <strong>kuzisikia</strong> na <strong>kuzielewa</strong>, kwa kawaida ni <strong>bora zaidi kuziidhinisha</strong>.
+about-playbook-how-validate-content-2 = <strong>Usikatae vipande vya sauti ambavyo mzungumzaji ‘ana lafudhi’ ambayo ni tofauti na yako</strong> - hii ni muhimu ili utambuzi wa sauti ifanye kazi vyema kwa kila mtu.
+
+## How to access dataset
+
+about-playbook-how-access-dataset = Je, ninawezaje kufikia na kutumia mkusanyiko wa data?
+
+## How are decisions made
+
 mycroft-title = Mycroft Ai
 mycroft-subtitle = Intelijensia bandia
 mycroft-description =
@@ -668,7 +777,7 @@ share-clip = Sambaza kipande chako cha sauti
 share-common-voice = Sambaza Common Voice
 review-instruction = Pitia na rekodi tena vipande vya sauti ikiwa inahitajika.
 record-submit-tooltip = { $actionType } wasilisha ikiwa tayari
-clips-uploaded = Vipande vilivyo pakiwa
+clips-uploaded = Vipande vimepakiwa
 record-abort-title = Maliza kurekodi kwanza?
 record-abort-text = Kuondoka sasa inamaanisha utapoteza maendeleo yako
 record-abort-submit = Tuma vipande
@@ -846,6 +955,15 @@ profile-form-delete = Futa wasifu
 
 ## Profile Download
 
+download-q = Je, unahitaji kupakua data yako?
+download-info = Tuambie ungependa kupakua nini:
+download-profile-title = Wasifu
+download-recordings-title = Rekodi
+download-size = Ukubwa
+download-selected = Imechaguliwa
+download-start = Pakua data ya wasifu
+download-request = Omba rekodi
+download-request-button = Pakua
 
 ## Landing
 
@@ -906,3 +1024,60 @@ contribution-misreadings-example-8-explanation = [Maudhui yasiyolingana]
 contribution-varying-pronunciations-title = Matamshi tofauti
 contribution-varying-pronunciations-example-1-title = Kichwani alikuwa amevaa bereti.
 contribution-background-noise-title = Kelele za mandharinyuma
+see-more = <chevron></chevron>Angalia zaidi
+
+# Don't rename the following section, its contents are auto-inserted based on the name. These strings are
+# automatically exported from Sentence Collector.
+# [SentenceCollector]
+
+
+## HEADER/FOOTER
+
+
+## HOME
+
+
+## GENERAL
+
+
+## HOW-TO
+
+
+## MY SENTENCES
+
+
+## REJECTED
+
+
+## STATS
+
+
+## ADD
+
+
+## ADD LANGUAGE
+
+
+## ADD SENTENCES CONFIRMATION
+
+
+## LANGUAGE INFO
+
+
+## LOGIN
+
+
+## PROFILE
+
+
+## REVIEW CRITERIA
+
+
+## REVIEW
+
+
+## SETTINGS
+
+
+# [/SentenceCollector]
+

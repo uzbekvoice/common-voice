@@ -3,11 +3,12 @@
     border-radius: 4px;
     border: 1.6px solid var(--light-grey);
 }
+
 .title-container {
     min-height: 142px;
     height: auto;
     display: flex;
-    box-sizing: border-box;
+
     align-items: center;
     padding: 0 60px 0 20px;
     position: relative;
@@ -203,6 +204,15 @@ img.icon {
             display: block;
             width: 100%;
             overflow: hidden;
+
+            text-align: left;
+
+            .avatar-wrap {
+                width: 48px;
+                height: 48px;
+                margin: 0 15px 0 0;
+                float: left;
+            }
         }
 
         .container {
@@ -220,7 +230,7 @@ img.icon {
             padding: 0;
             .container {
                 padding: 0.75rem 1.25rem;
-                box-sizing: border-box;
+
                 border-bottom: 1px solid var(--light-grey);
             }
         }
@@ -297,17 +307,6 @@ img.icon {
             }
         }
 
-        .column {
-            box-sizing: border-box;
-            text-align: left;
-
-            .avatar-wrap {
-                width: 48px;
-                height: 48px;
-                margin: 0 15px 0 0;
-                float: left;
-            }
-        }
         .divider {
             display: none;
         }

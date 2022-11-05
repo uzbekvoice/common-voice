@@ -2,6 +2,8 @@ import { Localized } from '@fluent/react';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
+import * as Sentry from '@sentry/react';
+
 import { useAccount, useAPI, useAction } from '../../../hooks/store-hooks';
 import { useRouter } from '../../../hooks/use-router';
 import URLS from '../../../urls';
@@ -10,6 +12,7 @@ import {
   isContributable,
   LocaleNavLink,
   useLocale,
+  useNativeLocaleNames,
 } from '../../locale-helpers';
 import { Notifications } from '../../../stores/notifications';
 import StatsPage from './stats/stats';
@@ -19,8 +22,10 @@ import ChallengePage from './challenge/challenge';
 import { Button } from '../../ui/ui';
 import InviteModal from '../../invite-modal/invite-modal';
 import { isChallengeLive, pilotDates, isEnrolled } from './challenge/constants';
+
 import './dashboard.css';
-import { NATIVE_NAMES } from '../../../services/localization';
+
+const SentryRoute = Sentry.withSentryRouting(Route);
 
 const TITLE_BAR_LOCALE_COUNT = 3;
 
@@ -31,6 +36,7 @@ const TopBar = ({
   dashboardLocale: string;
   setShowInviteModal(arg: any): void;
 }) => {
+  const nativeNames = useNativeLocaleNames();
   const { history, location } = useRouter();
   const [, toLocaleRoute] = useLocale();
   const account = useAccount();
@@ -53,7 +59,7 @@ const TopBar = ({
     : 0;
 
   const locales = [''].concat(
-    (account ? account.locales : [])
+    (account ? account.languages : [])
       .map(({ locale }) => locale)
       .filter(l => isContributable(l))
   );
@@ -104,6 +110,8 @@ const TopBar = ({
                 path
               }>
               <Localized id={label}>
+                {/* Localized injects content into child tag */}
+                {/* eslint-disable-next-line jsx-a11y/heading-has-content */}
                 <h2 />
               </Localized>
             </LocaleNavLink>
@@ -148,7 +156,7 @@ const TopBar = ({
                   onChange={() => setLocale(l)}
                 />
                 {l ? (
-                  <span>{NATIVE_NAMES[l]}</span>
+                  <span>{nativeNames[l]}</span>
                 ) : (
                   <Localized id={ALL_LOCALES}>
                     <span />
@@ -172,7 +180,7 @@ const TopBar = ({
                 {dropdownLocales.map(l =>
                   l ? (
                     <option key={l} value={l}>
-                      {NATIVE_NAMES[l]}
+                      {nativeNames[l]}
                     </option>
                   ) : (
                     <Localized key={ALL_LOCALES} id={l ? l : ALL_LOCALES}>
@@ -271,7 +279,7 @@ export default function Dashboard() {
     if (!account) {
       try {
         sessionStorage.setItem('redirectURL', location.pathname);
-      } catch(e) {
+      } catch (e) {
         console.warn(`A sessionStorage error occurred ${e.message}`);
       }
 
@@ -318,7 +326,7 @@ export default function Dashboard() {
       <div className="inner">
         <Switch>
           {pages.map(({ subPath, Page }) => (
-            <Route
+            <SentryRoute
               key={subPath}
               exact
               path={match.path + subPath}
@@ -333,7 +341,7 @@ export default function Dashboard() {
               )}
             />
           ))}
-          <Route
+          <SentryRoute
             path={match.path + '/:dashboardLocale'}
             render={({
               match: {
@@ -347,7 +355,7 @@ export default function Dashboard() {
                 />
                 <Switch>
                   {pages.map(({ subPath, Page }) => (
-                    <Route
+                    <SentryRoute
                       key={subPath}
                       exact
                       path={match.path + '/' + dashboardLocale + subPath}
@@ -356,7 +364,7 @@ export default function Dashboard() {
                       )}
                     />
                   ))}
-                  <Route
+                  <SentryRoute
                     render={() => (
                       <Redirect
                         to={toLocaleRoute(URLS.DASHBOARD + defaultPage)}
@@ -367,7 +375,7 @@ export default function Dashboard() {
               </>
             )}
           />
-          <Route
+          <SentryRoute
             render={() => (
               <Redirect to={toLocaleRoute(URLS.DASHBOARD + defaultPage)} />
             )}

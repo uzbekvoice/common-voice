@@ -1,17 +1,11 @@
 import * as React from 'react';
 import { Localized } from '@fluent/react';
-import {
-  GitHubLink,
-  DiscourseLink,
-  ContactLink,
-  MatrixLink,
-} from '../../shared/links';
-import {
-  GithubIconCode,
-  DiscourseIconCode,
-  MatrixIcon,
-  ContactIconCode,
-} from '../../ui/icons';
+import { Link } from 'react-router-dom';
+import { DiscourseLink, MatrixLink } from '../../shared/links';
+import { DiscourseIconCode, MailIcon } from '../../ui/icons';
+import RoundButton from '../../ui/round-button';
+import VisuallyHidden from '../../visually-hidden/visually-hidden';
+import { SECTIONS } from './constants';
 
 import './get-involved.css';
 
@@ -20,54 +14,56 @@ const GetInvolved: React.ComponentType = () => {
     <>
       <img
         className="wave-footer"
-        src={require('../images/wave-footer@3x.png')}
+        src={require('./images/wave-blue.svg')}
         alt=""
         role="presentation"
       />
 
-      {/*<div className="become-partner">
-        <ContactLink>
-          <Localized id="about-become-a-partner">
-            <span />
+      <div className="about-container">
+        <div className="robot-section">
+          <img src="/img/mars-3d.png" alt="Robot" />
+        </div>
+
+        <div className="text-section">
+          <div className="line" />
+          <Localized id="about-stay-in-touch">
+            <h1 />
           </Localized>
-          <ArrowLeft />
-        </ContactLink>
-      </div>*/}
 
-      <div className="robot-section">
-        <img src={require('./images/robot-footer.svg')} alt="Robot" />
-      </div>
+          <p>
+            <RoundButton>
+              <Link to={`#${SECTIONS.SUBSCRIBE}`}>
+                <VisuallyHidden>
+                  <Localized id="about-stay-in-touch-button" />
+                </VisuallyHidden>
+                <MailIcon />
+              </Link>
+            </RoundButton>
+            <Localized
+              id="about-stay-in-touch-text-1"
+              elems={{
+                emailFragment: <a href={`#${SECTIONS.SUBSCRIBE}`} />,
+              }}>
+              <span />
+            </Localized>
+          </p>
 
-      <div className="text-section">
-        <div className="line" />
-
-        <Localized id="about-get-involved">
-          <h1 />
-        </Localized>
-
-        <Localized
-          id="about-get-involved-text-2"
-          elems={{
-            discourseLink: <DiscourseLink />,
-            githubLink: <GitHubLink />,
-            matrixLink: <MatrixLink />,
-          }}>
-          <p />
-        </Localized>
-
-        <div className="get-involved-icons">
-          {[
-            [ContactLink, ContactIconCode],
-            [DiscourseLink, DiscourseIconCode],
-            [GitHubLink, GithubIconCode],
-            [MatrixLink, MatrixIcon],
-          ].map(([LinkComponent, IconComponent]: [any, any], index: number) => (
-            <LinkComponent
-              key={`get-involved-icon-${index}`}
-              className="round-button">
-              <IconComponent />
-            </LinkComponent>
-          ))}
+          <p>
+            <RoundButton>
+              <DiscourseLink>
+                <VisuallyHidden>Discourse</VisuallyHidden>
+                <DiscourseIconCode />
+              </DiscourseLink>
+            </RoundButton>
+            <Localized
+              id="about-stay-in-touch-text-2"
+              elems={{
+                discourseLink: <DiscourseLink />,
+                matrixLink: <MatrixLink />,
+              }}>
+              <span />
+            </Localized>
+          </p>
         </div>
       </div>
     </>

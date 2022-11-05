@@ -1,12 +1,14 @@
-import Nav from './nav';
 import * as React from 'react';
-import * as cx from 'classnames';
-import Partners from './partners';
+import cx from 'classnames';
+import Nav from './nav';
 import { SECTIONS } from './constants';
 import HowItWorks from './how-it-works';
+import Playbook from './playbook';
 import GetInvolved from './get-involved';
 import WhyCommonVoice from './why-common-voice';
+import Subscribe from '../../email-subscribe-block/subscribe';
 import useActiveSection from '../../../hooks/use-active-section';
+import Page from '../../ui/page';
 
 import './about.css';
 
@@ -14,7 +16,7 @@ const About: React.ComponentType = React.memo(() => {
   const activeSection = useActiveSection(Object.values(SECTIONS));
 
   return (
-    <section className="about-main-container">
+    <Page className="about-main-container">
       {[
         [SECTIONS.WHY_COMMON_VOICE, WhyCommonVoice],
         [
@@ -25,15 +27,9 @@ const About: React.ComponentType = React.memo(() => {
           Nav,
         ],
         [SECTIONS.HOW_IT_WORKS, HowItWorks],
-        // [SECTIONS.PARTNERS, Partners],
+        [SECTIONS.SUBSCRIBE, Subscribe],
+        [SECTIONS.PLAYBOOK, Playbook],
         [SECTIONS.GET_INVOLVED, GetInvolved],
-        [
-          {
-            activeSection: activeSection,
-            navType: 'mobile',
-          },
-          Nav,
-        ],
       ].map(([section, SectionComponent]: [string, any], index: number) => {
         if (typeof section === 'object') {
           return <SectionComponent key={`section-${index}`} {...section} />;
@@ -46,12 +42,18 @@ const About: React.ComponentType = React.memo(() => {
             className={cx('about-hero', section, {
               active: section === activeSection,
             })}>
-            <SectionComponent />
+            {section === SECTIONS.SUBSCRIBE ? (
+              <SectionComponent light subscribeText="about-subscribe-text" />
+            ) : (
+              <SectionComponent />
+            )}
           </section>
         );
       })}
-    </section>
+    </Page>
   );
 });
+
+About.displayName = 'About';
 
 export default About;

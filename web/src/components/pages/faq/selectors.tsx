@@ -1,12 +1,12 @@
 import * as React from 'react';
+import memoize from 'lodash.memoize';
+
 import URLS from '../../../urls';
 import { StyledLink } from '../../ui/ui';
 import { LocaleLink } from '../../locale-helpers';
 import { stringContains } from '../../../utility';
 import { WithLocalizationProps } from '@fluent/react';
 import { BENEFITS, WHATS_PUBLIC } from '../../../constants';
-
-const memoize = require('lodash.memoize');
 
 export const SECTIONS: any = {
   whatIsCV: 'what-is-common-voice',
@@ -75,21 +75,10 @@ const SECTION_CONTENTS: any = {
     ],
     [
       'faq-why-my-lang-q',
-      'faq-why-my-lang-new-a',
+      'faq-why-my-lang-a',
       {
         elems: {
-          multilangLink: (
-            <StyledLink
-              href="https://medium.com/mozilla-open-innovation/more-common-voices-24a80c879944"
-              blank
-            />
-          ),
-          sentenceCollectorLink: (
-            <StyledLink
-              href="https://common-voice.github.io/sentence-collector/"
-              blank
-            />
-          ),
+          languageRequestLink: <StyledLink to={URLS.LANGUAGE_REQUEST} />,
         },
       },
     ],

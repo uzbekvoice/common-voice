@@ -14,6 +14,10 @@ email-opt-in-info-sub-with-challenge = Dóstańće mejlki, kaž na přikład wu�
 email-opt-in-privacy-v2 = Jeli chceće e-mejlki dóstać, dyrbiće do wobchadźenja Mozilla z tymi informacijemi zwolić, kotrež so w <privacyLink>prawidłach priwatnosće</privacyLink> Mozilla rozjasnjeja.
 indicates-required = * Woznamjenja trěbne polo
 not-available-abbreviation = Ničo k dispoziciji
+banner-error-slow-1 = Bohužel Common Voice pomału běži. Dźakujemy so za waš zajim.
+banner-error-slow-2 = Dóstawamy wjele wobchada a přepytujemy tuchwilu problemy.
+banner-error-slow-link = Statusowa strona
+error-something-went-wrong = Hopla, něšto je so nimokuliło
 
 # Don't rename the following section, its contents are auto-inserted based on the name (see scripts/pontoon-languages-to-ftl.js)
 # [Languages]
@@ -36,9 +40,9 @@ ba = Baškiršćina
 bas = Basašćina
 be = Běłorušćina
 bg = Bołharšćina
-bm = Bambaršćina, Bambara
 bn = Bengalšćina
 br = Bretonšćina
+bs = Bosnišćina
 bxr = Burjatšćina
 ca = Katalanšćina
 cak = Kaqchikel
@@ -52,6 +56,7 @@ da = Danšćina
 de = Němčina
 dsb = Delnjoserbšćina
 dv = Dhivehi
+dyu = Dioula
 el = Grjekšćina
 en = Jendźelšćina
 eo = Esperanto
@@ -67,9 +72,11 @@ fy-NL = Frizišćina
 ga-IE = Iršćina
 gl = Galicišćina
 gn = Guaranšćina, Guarani
+gom = Goaska konkanišćina
 ha = Hausa
 he = Hebrejšćina
 hi = Hindišćina
+hil = Hiligajnonšćina
 hr = Chorwatšćina
 hsb = Hornjoserbšćina
 ht = Haitišćina
@@ -84,19 +91,26 @@ is = Islandšćina
 it = Italšćina
 izh = Ižoršćina
 ja = Japanšćina
+jbo = Lodźbanšćina
 ka = Georgišćina
 kaa = Karakalpakšćina
 kab = Kabylšćina
 kbd = Kabardinšćina
 ki = Kikujušćina
 kk = Kazachšćina
+km = Khmeršćina
 kmr = Kurmandźiska kurdišćina
+kn = Kanadišćina, Kannada
+knn = Konkanišćina (dewanagari)
 ko = Korejšćina
 kpv = Komi-syrjenšćina
 kw = Kornišćina
 ky = Kirgišćina
+lb = Luksemburgšćina
 lg = Luganda
 lij = Ligurišćina
+ln = Lingala
+lo = Laošćina
 lt = Litawšćina
 lv = Letišćina
 mai = Majtilišćina
@@ -106,6 +120,7 @@ mhr = Łučna marišćina
 mk = Makedonšćina
 ml = Malajalamšćina
 mn = Mongolšćina
+mni = Meetei Lon
 mos = Mossišćina
 mr = Maratišćina
 mrj = Hórska marišćina
@@ -115,12 +130,16 @@ my = Burmašćina
 myv = Erzya
 nan-tw = Taiwanšćina (Minnan)
 nb-NO = Norwegski Bokmål
+nd = IsiNdebele (sewjerny)
 ne-NP = Nepalšćina
 nia = Niašćina
 nl = Nižozemšćina
 nn-NO = Norwegski Nynorsk
+nr = IsiNdebele (južny)
+nso = Sewjerna Sothošćina
 nyn = Nkorešćina
 oc = Okcitanšćina
+om = Afaan Ormoo
 or = Odiašćina
 pa-IN = Pundžabšćina
 pap-AW = Papiamento (Aruba)
@@ -128,6 +147,7 @@ pl = Pólšćina
 ps = Paštošćina, Pašto
 pt = Portugalšćina
 quc = Kičešćina
+quy = Quechua Chanka
 rm-sursilv = Retoromanšćina Sursilvan
 rm-vallader = Retoromanšćina Vallader
 ro = Rumunšćina
@@ -137,13 +157,18 @@ sah = Sachašćina
 sat = Santališćina (Ol Chiki)
 sc = Sardinšćina
 scn = Sicilšćina
+sdh = Južna kurdišćina
 shi = Tašelhitšćina
 si = Singalezišćina
 sk = Słowakšćina
+skr = Saraiki
 sl = Słowjenšćina
+snk = Soninke
 so = Somalšćina
 sq = Albanšćina
 sr = Serbišćina
+ss = Siswatišćina, Siswati
+st = Sesothošćina
 sv-SE = Šwedšćina
 sw = Swahilišćina, Swahili
 syr = Syrišćina
@@ -152,8 +177,13 @@ te = Telugušćina
 tg = Tadźikišćina
 th = Thaišćina
 ti = Tigrinja
+tig = Tigre
+tk = Turkmenšćina
 tl = Tagalog
+tn = Setswana
+tok = Toki Pona
 tr = Turkowšćina
+ts = Tsongašćina
 tt = Tataršćina
 tw = Twi
 ty = Tahitišćina
@@ -163,15 +193,19 @@ ug = Ujguršćina
 uk = Ukrainšćina
 ur = Urdu
 uz = Uzbekšćina
+ve = Venda
 vec = Wenecianišćina
 vi = Vietnamšćina
 vot = Wotšćina
+xh = Xhosa
 yi = Jiddišćina
 yo = Joruba
 yue = Kantonšćina
+zgh = Tamazight
 zh-CN = Chinšćina (China)
 zh-HK = Chinšćina (Hong Kong)
 zh-TW = Chinšćina (Taiwan)
+zu = Zulu
 
 # [/]
 
@@ -305,7 +339,6 @@ shortcut-discard-ongoing-recording-label = Běžne natočenje zaćisnyć
 shortcut-submit = Zapodaće
 shortcut-submit-label = Natočenja wotpósłać
 request-language-text = Waša rěč hišće na Common Voice njeje?
-request-language-text-learn = Zhońće, kak móžeće to tu požadać!
 request-language-button = Rěč požadać
 
 ## ProjectStatus
@@ -332,8 +365,16 @@ profile-form-native-language =
     .label = Maćeršćina
 profile-form-additional-language =
     .label = Přidatna rěč
+profile-form-language =
+    .label = Rěč
+profile-form-variant =
+    .label = Kotru wariantu rěče { $language } rěčiće?
+profile-form-variant-default-value = Žana warianta wubrana
 profile-form-accent =
     .label = Akcent
+profile-form-custom-accent-help-text =
+    .label = Kak byšće swój akcent wopisował?
+profile-form-custom-accent-placeholder-2 = Započńće pisać, zo byšće swój akcent wopisował
 profile-form-age =
     .label = Staroba
 profile-form-gender-2 =
@@ -344,6 +385,7 @@ hidden = Schowany
 visible = Widźomny
 native-language =
     .label = Maćeršćina
+profile-form-add-accent = Nowy swójski akcent „{ $inputValue }“ přidać
 profile-form-submit-save = Składować
 profile-form-submit-saved = Składowany
 male = Muski
@@ -377,6 +419,10 @@ skip-submission-description = Při sobuskutkowanju so zapodawanski komentar po k
 skip-submission-note = Kedźbu: Dyrbiće hišće mjez Rěčeć abo Słuchać wubrać, zo byšće typ sobuskutkowanja změnił.
 off = Wupinjeny
 on = Zapinjeny
+help-accent = Trjebaće pomoc wo akcenće?
+help-accent-explanation = Waš akcent je wašnje, kak słowa wurjekujeće. Jeho charakter wot toho wotwisuje, hdźež sće žiwy był, kotre druhe rěče rěčiće a wot wjele druhich faktorow. Móžeće wšě informacije zdźělić, kotrež za relewantne maće.
+help-variants = Trjebaće pomoc za warianty?
+help-variants-explanation = Warianty su specifiska forma rěče - rěča so na přikład wot ludźi, kotřiž su we wěstym regionje abo zhromadźenstwje žiwi. Druhdy wone so dialekty mjenuja.
 
 ## Profile - Email
 
@@ -387,6 +433,7 @@ gravatar_not_found = Njeje so žadyn gravatar za wašu e-mejl namakał
 file_too_large = Wubrana dataja je přewulka
 avatar-uploaded = Awatar je so nahrał
 max-file-size = { $kb } kb maks.
+remove-avatar = Awatar wotstronić
 
 ## Profile - Email
 
@@ -413,7 +460,7 @@ faq-why-important-a =
 faq-how-get-q = Kak móžu daty Common Voice dóstać?
 faq-how-get-a = Datowa sadźba Common Voice je pod licencu <licenseLink>CC0</licenseLink> na <datasetLink>našej stronje datowych sadźbow</datasetLink> za sćehnjenje k dispoziciji. Móžeće tež wjacore druhe zjawnje k dispoziciji stejace datowe sadźby ze samsneje strony sćahnyć.
 faq-when-release2-q = Hdy daty Common Voice w druhich rěčach wozjewiće?
-faq-when-release2-a = Wjacerěčna wersija datoweje sadźby Common Voice so tuchwilu walčkuje a čišći. Jeli chceće nam pomhać, Common Voice nowe rěče přidać, wopytajće <sentenceCollectorLink>nastroj zběranja sadow</sentenceCollectorLink>, zo byšće datowej sadźbje nowe sady přidał, a <pontoonLink>Pontoon</pontoonLink> Mozilla, zo byšće websydło přełožił. Nowe rěče so Common Voice za přinošowanje hłosow přidawaja, hdyž je so 5000 schwalenych sadow nahromadźiło.
+faq-when-release2-a = Wjacerěčna wersija datoweje sadźby Common Voice so tuchwilu walčkuje a čišći. Jeli chceće nam pomhać, Common Voice nowe rěče přidać, wopytajće <sentenceCollectorLink>nastroj hromadźenja sadow</sentenceCollectorLink>, zo byšće datowej sadźbje nowe sady přidał, a <pontoonLink>Pontoon</pontoonLink> Mozilla, zo byšće websydło přełožił. Nowe rěče so Common Voice za přinošowanje hłosow přidawaja, hdyž je so 5000 schwalenych sadow nahromadźiło.
 faq-why-mission-q = Čehodla je Common Voice dźěl misije Mozilla?
 faq-why-mission-a = Mozilla je sej předewzał, web za kóždeho wotewrjeny a přistupny dźeržeć. Zo bychmy to činili, dyrbimy webawtorow přez webprojekty kaž Common Voice wukmanić. Dokelž hłosowe technologije přez nišowe nałoženja wurostuja, wěrimy, zo dyrbja wšěm wužiwarjam jenak słužić. To rěka, do dalšich rěčow inwestować a wšelake akcenty a demografije wobkedźbować , hdyž so hłosowe technologije wuwiwaja a testuja. Common Voice je zjawna resursa, kotraž wšěm k dispoziciji steji, a teamy a wuwiwarjo Mozilla na cyłym swěće wužiwaja jón hižo za projekty.
 faq-what-cv-and-deepspeech-q = Što je rozdźěl mjez Common Voice a Deep Speech?
@@ -427,7 +474,9 @@ faq-why-different-speakers-a =
     Najwjace hłosowych datowych bankow so z nadreprezentaciju wěstych demografijow trenuje, přez kotrež  so <articleLink>muscy wobdźělnicy a wobdźělnicy srjedźneje klasy</articleLink> preferuja. Akcenty a dialekty, kotrež su zwjetša podreprezentowane w datowych sadźbach su typisce zwjazane ze skupinami ludźi, kotrež su hižo ke kromje stłóčene. Wjele mašinow ma hižo ćeže, žónske hłosy rozumić.
     Tohodla chcemy wšelakorosc w swojej hłosowej datowej bance!
 faq-why-my-lang-q = Čehodla moja rěč hišće njeje?
-faq-why-my-lang-new-a = Mozilla sej wěstu rěč njewudypuje a wěste rěče njepreferuje. Město toho je Common Voice iniciatiwa, kotrež so dospołnje wot zhromadźenstwa doprědka ćěri, ale su trěbne <multilangLink>wjacore kroki, zo by so nowa rěč přidała</multilangLink> a zo by so hromadźenje rěčnych darow započało. Najprjedy dyrbi so websydło Common Voice přełožować, zo bychu čłonojo zhromadźenstwa přistup na nazhonjenja sobuskutkowarjow w swojej rěči měli. Jako přichodne trjebamy wulku zběrku sadow bjez awtorskoprawniskeho škita, kotrež ludźo móža wótře předčitać. Hdyž stej tutej žadani spjelnjenej, so rěč na Common Voice "startuje", zo bychu ludźo móhli swój hłós natočić a dary druhich wobkrućić. Jeli chceće pomhać, nowu rěč startować, wobhladajće sej naš <sentenceCollectorLink>nastroj za hromadźenje sadow</sentenceCollectorLink>, zo byšće započał.
+faq-why-my-lang-a =
+    Common Voice je crowdsourcingowa platforma, a rěče su so wot dobrowólnikow přidali.
+    Bychmy rady wašu rěč přidali! <languageRequestLink>Wo přidawanje wašeje rěče prosyć.</languageRequestLink>
 faq-what-quality-q = Kotra awdiokwalita je trěbna, zo by so hłosowy klip w datowej sadźbje wužiwał?
 faq-what-quality-a = Chcemy, zo datowa sadźba Common Voice awdiokwalitu wotbłyšćuje, kotruž mašina rěčenja do teksta w swobodnej přirodźe słyša, pytamy tuž za wšelakorosću. Nimo wšelakoreho zhromadźenstwa rěčnikow, datowa sadźba z wšelakej awdiokwalitu mašinu rěčenja do teksta wukmani, z rozdźělnymi situacijemi z woprawdźiteho žiwjenja wobchadźeć, wot rozmołwow w pozadku do  awtoweho šuma. Tak dołho kaž waš hłosowy klip je rozumić, dyrbjał dobry dosć za datowu sadźbu być.
 faq-why-10k-hours-q = Čehodla je 10&#x202f;000 přepruwowanych hodźin na rěč cil za awdionatočenje?
@@ -459,15 +508,25 @@ faq-search-for-answers =
 ## ABOUT US
 
 about-title = Čehodla Common Voice?
-about-subtitle = Common Voice je dźěl iniciatiwy Mozilla, kotraž ma mašiny wučić, kak woprawdźići ludźo rěča. Nimo datoweje sadźby Common Voice, wuwiwamy program za rěčenske spóznaće wotewrjeneho žórła z mjenom Deep Speech.
-about-header-description =
-    Wobaj projektaj stej dźěl našich napinanjow, zo byštej mjezotu digitalneho rěčenja přemosćiłoj. Technologije hłosoweho spóznaća čłowjesku dimensiju na naše graty přinjesu, ale wuwiwarjo trjebaja nimoměry wjele hłosowych datow, zo bychu so wutworili. Tuchwilu je najwjace z tutych datow drohe a proprietarne.
-    Chcemy hłosowe daty darmotnje a zjawnje k dispoziciji stajić a zawěsćić, zo daty wšelakorosć woprawdźitych ludźi wotbłyšćuja. Hromadźe móžemy hłosowe spóznaće za kóždeho polěpšić.
-about-header-description-2 =
-    Tutón projekt je napinanje, zo bychmy mjezotu digitalneho rěčenja přemosćiłoj. Technologije hłosoweho spóznaća čłowjesku dimensiju na naše graty přinjesu, ale wuwiwarjo trjebaja nimoměry wjele hłosowych datow, zo bychu so wutworili. Tuchwilu je najwjace z tutych datow drohe a proprietarne.
-    Chcemy hłosowe daty darmotnje a zjawnje k dispoziciji stajić a zawěsćić, zo daty wšelakorosć woprawdźitych ludźi wotbłyšćuja. Hromadźe móžemy hłosowe spóznaće za kóždeho polěpšić.
-how-does-it-work-title = Kak to funguje
+how-does-it-work-title-v2 = Kak Common Voice funguje?
 how-does-it-work-text = Přeměsćamy datowu sadźbu hłosow wotewrjeneho žórła do dobrowólnikow. Darće swój hłós, přepruwujće dokładnosć klipy druhich wosobow, polěpšće datowu sadźbu za kóždeho.
+
+## How does it work section
+
+about-language-req-subtitle = Něchtó wo přidawanje rěče prosy.
+about-localization-title = Lokalizacija websydłow
+about-localization-subtitle = Tekst websydła je do teje rěče přełoženy.
+about-sentence-collection-title = Zběrka sadow
+about-sentence-collection-subtitle = Sady so zběraja, zo bychu ludźo je wótře čitali.
+about-new-lang-title = Wozjewjenje noweje rěče
+about-new-lang-subtitle = Wozjewjamy sydło Common Voice w tutej rěči.
+about-voice-contrib-title = Přinošowanje k hłosam
+about-voice-contrib-subtitle = Ludźo přińdu a darja swoje hłosy.
+about-voice-validation-title = Přepruwowanje hłosow
+about-voice-validation-subtitle = Druzy ludźo tute hłosowe klipy přepruwuja.
+about-dataset-release-title = Wozjewjenje datoweje sadźby
+about-dataset-release-subtitle = Wozjewjamy datowu sadźbu kóžde 3 měsacy.
+about-subscribe-text = Chceće z Common Voice w zwisku wostać?
 about-speak = Rěčeć
 about-speak-text = Sobuskutkowarjo čitaja z datoweje banki sadow a nahrawaja hłosowe klipy.
 about-listen-queue = Słuchowy čakanski rynk
@@ -484,26 +543,87 @@ about-dataset-new = Datowa sadźba Common Voice
 about-dataset-new-text = Datowa sadźba Common Voice statysacy hłosowych přikładow wobsahuje, kotrež wuwiwarjam pomhaja, nastroje za spóznawanje hłosow wutworić.
 about-clip-graveyard = Klipowy kěrchow
 about-clip-graveyard-text = Klipowy kěrchow z hłosowych klipow wobsteji, kotrež njejsu do datoweje sadźby Common Voice šafnyli. Kaž datowa sadźba je klipowy kěrchow za sćehnjenje k dispoziciji.
-about-partners = Partnerojo
-about-become-a-partner = Budźće partner
-about-partnership =
-    Common Voice je projekt zhromadźenstwa a wotwisujemy wot našeho zhromadźenstwa z partnerow a sobuskutkowarjow, zo bychmy najwjetšu datowu sadźbu wotewrjeneho žórła wuwiwali.
-    
-    Chcemy so slědowacym ludźom a organizacijam za jich pomoc na projekće dźakować:
 about-get-involved = Čińće sobu
 about-get-involved-text-2 =
     Chceće pomhać, Common Voice polěpšić?
     Wulkotnje! Stajće so z nami přez e-mejl abo we forumach <discourseLink>Discourse</discourseLink>  do zwiska, sćelće sydłowe problemy přez <githubLink>Github</githubLink> abo wopytajće nas w chaće zhromadźenstwa <matrixLink>Matrix</matrixLink>.
+about-stay-in-touch = Kak móžu w zwisku wostać?
+about-stay-in-touch-button = Registrować
+about-stay-in-touch-text-1 = <emailFragment>Registrujće so</emailFragment> za našu rozesyłansku lisćinu, zo byšće zhonił, kak móžeće so na kampanjach, podawkach a kodesignych funkcijach na Common Voice wobdźělić.
+about-stay-in-touch-text-2 = Přidružće so <discourseLink>Discourse</discourseLink> za temowe rozmołwy abo <matrixLink>Matrix</matrixLink> za spěšnu radu, zo byšće so z druhimi ludźimi w rěčnych zhromadźenstwach Mozilla zetkał.
 about-nav-why-common-voice = Čehodla?
 about-nav-how-it-works = Kak?
 about-nav-partners = Partnerojo
 about-nav-get-involved = Čińće sobu
-mycroft-title = Mycroft Ai
-mycroft-subtitle = Kumšnta inteligenca
-mycroft-description =
-    Mycroft je prěni asistent wotewrjeneho žórła swěta.
-    Mycroft wšudźe běži - na desktopowym ličaku, w auće abo na Raspberry Pi.
-mycroft-secondary-description = To je softwara wotewrjeneho žórła, kotraž da so darmotnje znowa měšeć, rozšěrić a polěpšić. Mycroft da so za wšitko wužiwać, wot wědomostneho projekta do předewzaćelskeje softwary.
+about-nav-how-it-works-2 = Kak Common Voice funguje?
+about-nav-playbook = Zhońće, kak móžeće so wobdźělić
+
+## Community Playbook Content
+## What is a language
+
+about-playbook-what-is-language = Što je rěč na Common Voice?
+about-playbook-what-is-language-content-2 = Chcemy, zo rěčne modele lěpje móža, wjele rozdźělnych rěčnikow rozumić. Zo by to je móžne, dyrbi datowa sadźba wjele rozdźělnych ludźi reprezentować.
+about-playbook-what-is-language-content-3 = Někotre rěče maja enormne rozdźělne w gramatice, wokabularje a wurjekowanju. Tohodla budźemy w lěće 2022 <ctaLink>„warianty“ zawjedować</ctaLink>. To zhromadźenstwam móžnosć dawa, swoje rěče we wjetšej datowej sadźbje rozeznawać.
+
+## How do I add a language
+
+about-playbook-how-add-language = Kak móžu rěč přidać?
+about-playbook-how-add-language-content-1 = Přepruwujće najprjedy, hač waša rěč <languageLink>hižo eksistuje</languageLink>. Jeli nic, dyrbiće <strong>sydło překožować a sady zběrać</strong>.
+about-playbook-how-add-language-translating-heading = Sydło přełožować
+about-playbook-how-add-language-translating-content-1 = <translateVideoLink>Čitajće naš přewodnik, kak móžeće Pontoon wužiwać.</translateVideoLink>
+about-playbook-how-add-language-collecting-sentences-heading = Sady hromadźić
+about-playbook-how-add-language-collecting-sentences-content-1 = <sentenceCollectorVideo>Čitajće naš přewodnik wo wužiwanju hromadźak sadow</sentenceCollectorVideo>.
+about-playbook-how-add-language-collecting-sentences-content-2 =
+    Móžeće <sentenceCollectorLinkAdd>mało sadow</sentenceCollectorLinkAdd> přidać
+    abo <bulkImportDocsLink>hromady z pomocu Githubs importować</bulkImportDocsLink>.
+    Njezabywajće, zo sady dyrbja <licenseLink>CC0 (abo powšitkownosći wužitne) być</licenseLink>, móžeće pak tež swójske spisać.
+about-playbook-how-add-language-collecting-sentences-content-3 = <sentenceCollectorFragment>Hlejće wjace wo hromadźenju sadow</sentenceCollectorFragment>.
+
+## How does localization work
+
+about-playbook-how-localize = Kak lokalizowanje sydłow funguje?
+about-playbook-how-localize-content-1 = Přełožowanje sydła Common Voice so na <strong>Pontoon</strong> wotměwa.
+about-playbook-how-localize-content-2 = <pontoonAccountLink>Załožće konto</pontoonAccountLink>, jeli žane nimaće. Wubjerće swoju rěč<strong>(„Team“)</strong> a potom projekt <pontoonCvLink>Common Voice</pontoonCvLink>. Tam dataje namakaće, kotrež dyrbja so přełožować. Klikńće na jednu z nich, potom so słowa w jendźelšćinje a kašćik za přełožowanje pokazuja.
+about-playbook-how-localize-content-3 = Přełožowanje  so z jendźelšćiny přewjedźe, ale móžeće <strong>namjety</strong> w druhich rěčach widźeć. Klikńće na <strong>profilowy</strong> symbol, potom na wotkaz <strong>Nastajenja</strong> a přidajće rěče, kotrež rěčiće. Deleka w prawym róžku budźe lisćina přełožkow z mjenom <strong>Locales</strong>. Přełožki so na sydle po jednym dnju pokazaja.
+about-playbook-how-localize-content-4 = Sydło je hotowe za wozjewjenje, hdyž je po 75 % dokónčene.
+about-playbook-how-localize-content-5 = Wobhladajće sej rozjasnjenske widejo
+
+## How to add sentences
+
+about-playbook-how-add-sentences = Kak móžu sady přidać?
+about-playbook-how-add-sentences-content-1 = <strong>Hromadźak sadow</strong> je nastroj za hromadźenje a přepruwowanje zjawnje přistupnych sadow. <scAccountLink>Dyrbiće konto załožić</scAccountLink>. Přidajće potom swojemu <strong>profilej</strong> swoju rěč. Móžeće sady <strong>přidać</strong> abo do toho přidate sady <strong>přepruwować</strong>.
+about-playbook-how-add-sentences-content-2 = Sady dyrbja so wot dweju wosobow přepruwować a akceptować, zo bychu so do Common Voice přewzali. Směrnicy za swoju rěč <languageGuidelinesLink>tu</languageGuidelinesLink> wutworiće. Sady dyrbja <licenseLink>zjawnje přistupne</licenseLink> a krótše hač 15 słowow być. Móžeće wobsedźerja teksta prosyć, zo by jón z pomocu našeho wozjewjenja wzdaća pod <waiverLink>CC0</waiverLink> stajił a jo na commonvoice@mozilla.com pósłał.
+about-playbook-how-add-sentences-content-3 = Móžeće <scraperLink>ekstraktor sadow</scraperLink> wužiwać, zo byšće krótke sady z Wikipedije dóstał.
+about-playbook-how-add-sentences-content-4 = Sady, kotrež su přepruwowane, so na srjedach eksportuja a su po přichodnym wozjewjenju k dispoziciji.
+
+## How to record quality
+
+about-playbook-how-record-quality = Kak móžu hłosowy klip we wysokej kwaliće natočić?
+about-playbook-how-record-content-3 = Čitajće sadu prócniwje – njewuwostajejće, njeměnjejće abo njepřidawajće słowa.
+about-playbook-how-record-content-5 = <accuracyLink>Zhońće wjace wo kriterijach dokładnosće.</accuracyLink>
+
+## How to grow language
+
+about-playbook-how-grow-language = Kak móžemy rěč na Common Voice skutkownje rosć dać?
+about-playbook-how-grow-language-content-2 = Podawki
+about-playbook-how-grow-language-content-4 = Socialne medije
+about-playbook-how-grow-language-content-6 = Partnerstwa a syće
+
+## How to validate
+
+about-playbook-how-validate = Zwotkel wěm, hač mam hłosowy klip schwalić?
+about-playbook-how-validate-content-4 = Jeli klip so wot 2 wosobow wotpokazuje, wozjewi so w druhej dźělnej sadźbje datoweje sadźby.
+
+## How to access dataset
+
+about-playbook-how-access-dataset = Kak mam přistup k datowej sadźbje a kak móžu ju wužiwać?
+
+## How are decisions made
+
+about-playbook-how-project-governance = Kak so projektowe rozsudy tworja?
+about-playbook-how-project-governance-content-3 = Priwatnosć, wěstota a transparenca.
+about-playbook-how-project-governance-content-5 = Hódnota a připóznaće.
+about-playbook-how-project-governance-content-6 = Mjezsobna rozprawniska winowatosć.
 
 ## Glossary
 
@@ -562,6 +682,7 @@ review-delete-recordings = Natočenja zhašeć
 
 ## Datasets Page
 
+datasets-heading = Datowe sadźby
 datasets-headline = Tworimy wjacerěčnu datowu sadźbu hłosow wotewrjeneho žórła, kotruž móže kóždy wužiwać, zo by rěčenske nałoženja trenował.
 datasets-positioning =
     Wěrimy, zo wulke, zjawnje k dispoziciji stejace datowe sadźby inowaciju a strowe komercielne wubědźowanje w rěčenskej technologiji na zakładźe mašinoweho wuknjenja spěchuja.
@@ -570,6 +691,8 @@ datasets-positioning =
     
     Mějće tutu stronu jako referencny dypk za druhe hłosowe datowe sadźy wotewrjeneho žórła a, dokelž Common Voice dale rosće, jako startowy dypk za naše najnowše aktualizacije.
 language = Rěč
+download-dataset-header = Datowu sadźbu sćahnyć
+download-dataset-tag = Wubjerće požadanu rěčnu datowu sadźbu a wersiju, kotruž chceće sćahnyć.
 # File size in gigabytes
 size = Wulkosć
 validated-hr-total = Wobkrućene hodźiny dohromady
@@ -646,6 +769,28 @@ request-language-success-content = Přizjewimy so jara bórze z dalšimi informa
 select-language = Rěč wubrać...
 other-language = Druha rěč
 
+## Request Language Pages
+
+request-language-heading = Wo nowu rěč prosyć
+request-language-explanation-1 =
+    Přepruwujće, hač waša rěč je na
+    <languagesPageLink>stronje rěčow Common Voice</languagesPageLink> podata.
+    Jeli nic, wupjelńće tutón formular a <strong>budźemy wam wužitnu mejlku, kotraž rozjasnja, kak móžeće swoju rěč připrawić</strong>.
+request-language-form-email =
+    .label = Waša e-mejlowa adresa
+request-language-form-info =
+    .label = Informacije wo rěči
+request-language-form-info-explanation =
+    Přidajće tak wjele informacije kaž móžno wo rěči. Na
+    přikład:
+request-language-form-info-explanation-list-1 = Mjena wašeje rěče
+request-language-form-info-explanation-list-2 = <isoCodeLink>ISO-kody</isoCodeLink>, jeli su znate
+request-language-form-info-explanation-list-3 = Wotkazy na websydła, kotrež móža nam pomhać, rěč rozumić
+request-language-google-recaptcha-required = reCAPTCHA je trěbny, jeli chceće pokročować
+request-language-google-recaptcha-error = Něšto je so z reCAPTCHA nimokuliło. Prošu spytajće hišće raz.
+# Success page
+request-language-success-heading = Wulki dźak! Sće próstwu wo nowu rěč pósłał
+
 ## Languages Overview
 
 language-section-in-progress = W přihotowanju
@@ -661,7 +806,8 @@ language-search-input =
 language-speakers = Rěčnicy
 localized = Přełoženy
 sentences = Sady
-total-hours = Hodźiny dohromady
+language-validation-hours = Hodźiny
+language-validation-progress = Přepruwowanski postup
 
 ## Contribution
 
@@ -691,7 +837,7 @@ record-cta = Natočenje startować
 record-platform-not-supported = Je nam žel, ale waša platforma so tuchwilu njepodpěruje.
 record-platform-not-supported-desktop = Na desktopowych ličakach móžeće najnowšu wersiju sćahnyć:
 record-platform-not-supported-ios-non-safari = Prošu pokročujće na iOS ze Safari, zo byšće natočenje zmóžnił…
-record-must-allow-microphone = Dyrbiće přistup na mikrofon dowolić.
+record-must-allow-microphone = Dyrbiće přistup k mikrofonej dowolić.
 record-no-mic-found = Žadyn mikrofon namakany.
 record-error-too-short = Natočenje bě překrótke.
 record-error-too-long = Natočenje bě předołhe.
@@ -1019,3 +1165,338 @@ contribution-reader-effects-title = Efekty čitarja
 contribution-just-unsure-title = Jenož njewěsty?
 see-more = <chevron></chevron>Wjace pokazać
 see-less = <chevron></chevron>Mjenje pokazać
+
+# Don't rename the following section, its contents are auto-inserted based on the name. These strings are
+# automatically exported from Sentence Collector.
+# [SentenceCollector]
+
+
+## HEADER/FOOTER
+
+sc-header-home = Startowa strona
+sc-header-how-to = Nawod
+sc-header-add = Přidać
+sc-header-review = Pohódnoćenje
+sc-header-rejected = Wotpokazane sady
+sc-header-my = Moje sady
+sc-header-statistics = Statistika
+sc-header-profile = Profil
+sc-footer-discourse = Discourse
+sc-footer-report-bugs = Zmylki zdźělić
+sc-footer-translate = Tutu stronu přełožować
+sc-footer-report-copyright = Problemy z awtorskim prawom zdźělić
+sc-footer-privacy = Priwatnosć
+sc-footer-terms = Wuměnjenja
+sc-footer-cookies = Placki
+sc-login-signup-button = Přizjewić / Registrować
+sc-logout-button = Wotzjewić
+
+## HOME
+
+sc-home-title = Witajće k Common Voice Sentence Collector
+sc-home-collect-title = Sady hromadźić
+sc-home-collect-text = Pomhajće nam, zjawnje přistupne sady pisać abo hromadźić.
+sc-home-review-title = Sady přepruwować
+sc-home-review-text = Pomhajće nam, korektnosć sadow po směrnicach přepruwować.
+
+## GENERAL
+
+sc-languages-fetch-error = K dispoziciji stejace rěče njedachu so wotwołać. Přinoški tuchwilu móžne njejsu. Prošu spytajće pozdźišo hišće raz.
+
+## HOW-TO
+
+sc-howto-title = Nawod
+sc-howto-addlang-title = Rěče přidać, z kotrymiž so dźěła
+sc-howto-addlang-text = Hdyž sće přizjewjeny, móžeće swoje rěče we wotrězku Profil wubrać.
+sc-howto-addsen-title = Nowe sady přidać
+sc-howto-addsen-item-1 = Wšě sady, kotrež zapodawaće, dyrbja pod <wikipediaLink>licencu Public Domain (CC-0)</wikipediaLink> być. Zo bychmy přiwzaće dźěła podpěrowali, kotrež pod zjawnej licencu njeje, smy <cc0WaiverLink>předłohu za přinoški</cc0WaiverLink> za dźěła wutworili, ke kotrymž by mějićel awtorskeho prawa rady swój material přinošował.
+sc-howto-addsen-item-5 = Wukrajne pismiki. Pismiki dyrbja w rěči płaćiwe być, w kotrejž so je rěča. “ж” na přikład je pismik w ruskim alfabeće, ale so ženje w jendźelšćinje njewužiwa a njeměli so tohodla ženje w jendźelskim žórłowym teksće jewić.
+sc-howto-addsen-item-6 = Rěče móža swoje <validationRulesLink>swójske přepruwowanske prawidła</validationRulesLink> z přidatnymi žadanjemi měć. Jeli za rěč specifiska přepruwowanska dataja njeje, wužiwamy powšitkowne jendźelske prawidła.
+sc-howto-cite-title = Citować
+sc-howto-cite-item-1 = Wy móhł websydło podać, na př. „Common Voice - https://commonvoice.mozilla.org/“
+sc-howto-review-title = Sady přepruwować
+sc-howto-review-subtitle = Zawěsćće, zo sady slědowacym kriterijam wotpowěduja:
+sc-howto-review-criteria-1 = Sada dyrbi prawje napisana być.
+sc-howto-review-criteria-2 = Sada dyrbi gramatiski korektna być.
+sc-howto-review-criteria-3 = Sada dyrbi wurjekujomna być.
+sc-howto-review-criteria-4 = Jeli sada kriterijam wotpowěduje, klikńće na tłóčatko „Schwalić“.
+sc-howto-review-criteria-5 = Jeli sada kriterijam horjeka njewotpowěduje, klikńće na tłóčatko „Wotpokazać“. Jeli sej wo sadźe wěsty njejsće, móžeće tež ju přeskočić a k přichodnej přeńć.
+sc-howto-review-criteria-6 = Jeli wam sady wuńdu, pomhajće nam dalše sady zběrać.
+sc-howto-findpd-title = Zjawne sady namakać
+sc-howto-findpd-subtitle = Pytajće w interneće za nimi
+sc-howto-findpd-tips = Tu su někotre pokiwy, zo byšće sady namakał:
+sc-howto-findpd-tips-3 = Bohužel njemóžemy nastawki z Wikimedije měć. Njekopěrujće potajkim žane nastawki wottam.
+sc-howto-findpd-subtitle-2 = Dźěłajće z lokalnymi organizacijemi abo jednotliwcami hromadźe
+
+## MY SENTENCES
+
+sc-my-title = Moje sady
+sc-my-description = Tuta strona wam přehlad wšěch wašich zapodatych sadow da. Móžeće tež hižo zapodate sady zhašeć, jeli trjeba, hdyž kontrolny kašćik pódla nich markěrujeće a deleka na &quot;Wubrane sady zhašeć&quot; klikaće. Prošu wotstrońće sady jenož, jeli je absolutnje trjeba, na přikład, jeli sće po tym pytnył, zo sada je přez awtorske prawo škitana.
+sc-my-loading = Waše sady so začituja…
+sc-my-err-fetching = Zmylk při wotwołowanju wašich sadow. Prošu spytajće hišće raz.
+sc-my-no-sentences = Žane sady namakane!
+# Variables:
+#   $batchId (String) - A unique ID identifying the submission of sentences - sentences uploaded together all have the same batch ID
+sc-my-submission = Zapodaće: { $batchId }
+# Variables:
+#   $source (String) - Associated source the user filled out when uploading the sentence
+sc-my-source = Žórło: { $source }
+sc-my-delete = Wubrane sady zhašeć
+sc-my-deleting = Wubrane sady so zhašeja…
+sc-my-err-failed-delete = Wubrane sady njedachu so zhašeć … Prošu spytajće hišće raz!
+
+## REJECTED
+
+sc-rejected-title = Wotpokazane sady
+sc-rejected-loading = Wotpokazane sady so začituja…
+sc-rejected-err-fetching = Zmylk při wotwołowanju wotpokazanych sadow. Prošu spytajće hišće raz.
+sc-rejected-none-found = Žane wotpokazane sady namakane!
+
+## STATS
+
+sc-stats-title = Statistika
+sc-stats-updating = Aktualizuje so…
+sc-stats-error = Njemóžachmy statistiku wotwołać. Prošu spytajće pozdźišo hišće raz.
+# Variables:
+#   $sentenceCount (Number) - Total number of sentences uploaded through Sentence Collector
+#   $languageCount (Number) - Total number of languages these sentences represent
+sc-stats-summary = The Common Voice Sentence Collector je { $sentenceCount } sadow w { $languageCount } rěčach zběrał!
+
+## ADD
+
+sc-submit-err-select-lang = Prošu wubjerće rěč.
+sc-submit-err-add-sentences = Prošu přidajće sady.
+sc-submit-err-add-source = Prošu přidajće žórło.
+sc-submit-err-confirm-pd = Prošu wobkrućće, zo tute sady su zjawnosći k dispoziciji.
+sc-submit-prompt =
+    .message = Sady njejsu so wotpósłali, chceće woprawdźe woteńć?
+sc-submit-title = Sady přidać
+sc-submit-select-language =
+    .labelText = Rěč wubrać
+sc-submit-add-sentences = <wikipediaLink>Zjawnje přistupne</wikipediaLink> sady přidać
+sc-submit-ph-one-per-line =
+    .placeholder = Jedna sada na linku
+sc-submit-from-where = Zwotkel su tute <wikipediaLink>zjawnje přistupne</wikipediaLink> sady?
+sc-submit-ph-read-how-to =
+    .placeholder = Čitajće naš nawod, jeli sej wěsty njejsće, kak dyrbiće je přirjadować
+sc-submit-confirm = Wobkrućam, zo tute sady su <wikipediaLink>zjawnje přistupne</wikipediaLink> a mam prawo je nahrać.
+sc-submit-button =
+    .submitText = Wotpósłać
+sc-submit-filtered = Filtrowane sady falowacych žadanjow dla (prošu zapodajće krute wersije jako nowe sady):
+sc-submit-guidelines = Prošu přepruwujće <howToLink>směrnicy</howToLink>.
+
+## ADD LANGUAGE
+
+sc-add-lang-could-not-add = Rěč njeda so přidać
+sc-add-lang-sec-label = Přidajće rěč, ke kotrejž chceće přinošować
+sc-add-lang-sec-button = Rěč přidać
+sc-add-err-unexpected = Njewočakowana wotmołwa ze serwera
+# Variables:
+#   $duplicates (Number) - Number of sentences which got rejected because they are duplicates
+sc-add-result =
+    { $duplicates ->
+        [0] Zapodate sady. { $duplicates } sadow je so jako duplikat wotpokazało.
+        [one] Zapodate sady. { $duplicates } sada je so jako duplikat wotpokazała.
+        [two] Zapodate sady. { $duplicates } sadźe stej so jako duplikataj wotpokazałoj.
+        [few] Zapodate sady. { $duplicates } sady su so jako duplikaty wotpokazali.
+       *[other] Zapodate sady. { $duplicates } sadow je so jako duplikat wotpokazało.
+    }
+# Variables:
+#   $sentences (Number) - Number of sentences which failed to be saved to the database - could be several different reasons
+sc-add-err-failed =
+    { $sentences ->
+        [0] Žane sady njejsu so poradźili
+        [one] { $sentences } sada njeje so poradźiła
+        [two] { $sentences } sadźe njejstej so poradźiłoj
+        [few] { $sentences } sady njejsu so poradźili
+       *[other] { $sentences } sadow njeje so poradźiło
+    }
+sc-add-err-submission = Zapodawanski zmylk
+sc-add-lang-process-notice = Jeli waša rěč tu nalistowana njeje, móžeće ju přez <languageProcessLink>tutón proces</languageProcessLink> požadać.
+
+## ADD SENTENCES CONFIRMATION
+
+sc-confirm-are-you-sure =
+    .message = Sady njejsu so wotpósłali, chceće woprawdźe woteńć?
+sc-confirm-sentences-title = Nowe sady wobkrućić
+# Variables:
+#   $countOfSentences (Number) - Number of sentences the user has filled in the submission form
+sc-confirm-sentences-found =
+    { $countOfSentences ->
+        [0] Žane sady njejsu so namakali.
+        [one] { $countOfSentences } sada njeje so namakała.
+        [two] { $countOfSentences } sadźe njejstej so namakałoj.
+        [few] { $countOfSentences } sady njejsu so namakali.
+       *[other] { $countOfSentences } sadow njeje so namakało.
+    }
+# Variables:
+#   $countOfInvalidated (Number) - Number of sentences the user rejected in the review form before submission
+sc-confirm-rejected-by-you = Sće { $countOfInvalidated } wotpokazał
+sc-confirm-already-reviewed =
+    { $countOfReviewed ->
+        [0] Žana sada njeje so přepruwowała.
+        [one] { $countOfReviewed } sada jo so hižo přepruwowała. Wulkotne dźěło!
+        [two] { $countOfReviewed } sadźe stej so hižo přepruwowałoj. Wulkotne dźěło!
+        [few] { $countOfReviewed } sady su so hižo přepruwowali. Wulkotne dźěło!
+       *[other] { $countOfReviewed } sadow je so hižo přepruwowało. Wulkotne dźěło!
+    }
+# Variables:
+#   $readyCount (Number) - Number of sentences ready to be uploaded
+sc-confirm-ready =
+    { $readyCount ->
+        [0] Žana sada za zapodaće hotowa!
+        [one] { $readyCount } sada za zapodaće hotowa!
+        [two] { $readyCount } sadźe za zapodaće hotowej!
+        [few] { $readyCount } sady za zapodaće hotowe!
+       *[other] { $readyCount } sadow za zapodaće hotowe!
+    }
+# Variables:
+#   $countOfUnreviewed (Number) - Number of sentences unreviewed before the upload
+sc-confirm-unreviewed = Njepřepruwowane sady: { $countOfUnreviewed }. Jeli chceće, móžeće nětko tež swoje sady přepruwować, prjedy hač je wotposćeleće.
+sc-confirm-button-text = Wobkrućić
+sc-confirm-uploading = Sady so nahrawaja. To móže někotre mjeńšiny trać, wotwisujo wot ličby přidatych sadow. Prošu njezačinjejće tute websydło.
+
+## LANGUAGE INFO
+
+sc-lang-info-title-total = Dohromady
+sc-lang-info-title-personal = Wosobinski
+# Variables:
+#   $totalSentences (Number) - Number of sentences uploaded in total for this language
+sc-lang-info-total =
+    { $totalSentences ->
+        [0] Žane dospołne sady.
+        [one] { $totalSentences } dospołna sada.
+        [two] { $totalSentences } dospołnej sadźe.
+        [few] { $totalSentences } dospołne sady.
+       *[other] { $totalSentences } dospołnych sadow.
+    }
+# Variables:
+#   $totalInReview (Number) - Number of sentences currently in the review state for this language
+sc-lang-info-in-review =
+    { $totalInReview ->
+        [0] Žane sady na přepruwowanje nječakaja.
+        [one] { $totalInReview } sada na přepruwowanje čaka.
+        [two] { $totalInReview } sadźe na přepruwowanje čakatej.
+        [few] { $totalInReview } sady na přepruwowanje čakaja.
+       *[other] { $totalInReview } sadow na přepruwowanje čaka.
+    }
+# Variables:
+#   $unreviewedSentencesByYou (Number) - Number of sentences the user can still review
+sc-lang-info-left-for-you =
+    { $unreviewedSentencesByYou ->
+        [0] Za přepruwowanje žane sady njejsu.
+        [one] Dyrbiće hišće { $unreviewedSentencesByYou } sadu přepruwować.
+        [two] Dyrbiće hišće { $unreviewedSentencesByYou } sadźe přepruwować.
+        [few] Dyrbiće hišće { $unreviewedSentencesByYou } sady přepruwować.
+       *[other] Dyrbiće hišće { $unreviewedSentencesByYou } sadow přepruwować.
+    }
+sc-lang-info-review-now = <reviewLink>Nětko přepruwować!</reviewLink>
+sc-lang-info-add-more = <addLink>Přidajće nětko wjace sadow!</addLink>
+# Variables:
+#   $validatedSentences (Number) - Number of sentences which have been approved for this language
+sc-lang-info-validated =
+    { $validatedSentences ->
+        [0] Žane wobkrućene sady.
+        [one] { $validatedSentences } wobkrućena sada.
+        [two] { $validatedSentences } wobkrućenej sadźe.
+        [few] { $validatedSentences } wobkrućene sady.
+       *[other] { $validatedSentences } wobkrućenych sadow.
+    }
+# Variables:
+#   $rejectedSentences (Number) - Number of sentences which have been rejected for this language
+sc-lang-info-rejected =
+    { $rejectedSentences ->
+        [0] Žane wotpokazane sady.
+        [one] { $rejectedSentences } wotpokazana sada.
+        [two] { $rejectedSentences } wotpokazanej sadźe.
+        [few] { $rejectedSentences } wotpokazane sady.
+       *[other] { $rejectedSentences } wotpokazanych sadow.
+    }
+
+## LOGIN
+
+sc-login-err-failed = Přizjewjenje njeje so poradźiło
+sc-login-err-try-again = Prošu spytajće hišće raz.
+
+## PROFILE
+
+# Variables:
+#   $username (String) - eMail address of the logged in user
+sc-profile-title = Profil: { $username }
+sc-personal-err-lang-not-found = Rěč njeda so wotstronić: Rěč njeje so namakała
+sc-personal-err-remove = Rěč njeda so wotstronić
+sc-personal-your-languages = Waše rěče:
+sc-personal-remove-button = wotstronić
+# Variables:
+#   $sentences (Number) - Number of sentences that were added by the currently logged in user for this language
+sc-personal-added-by-you = Sće { $sentences } přidał
+sc-personal-not-added = Hišće njejsće rěče přidał.
+
+## REVIEW CRITERIA
+
+sc-criteria-modal = ⓘ Přepruwowanske kriterije
+sc-criteria-title = Přepruwowanske kriterije
+sc-criteria-make-sure = Zawěsćće, zo sady slědowacym kriterijam wotpowěduja:
+sc-criteria-item-1 = Sada dyrbi prawje napisana być.
+sc-criteria-item-2 = Sada dyrbi gramatisce korektna być.
+sc-criteria-item-3 = Sada dyrbi wurjekujomna być.
+sc-criteria-item-4 = Jeli sada kriterijam wotpowěduje, klikńće na tłóčatko „Schwalić“.
+sc-criteria-item-5-2 = Jeli sada kriterijam horjeka njewotpowěduje, klikńće na tłóčatko „Wotpokazać“. Jeli sej wo sadźe wěsty njejsće, móžeće tež ju přeskočić a k přichodnej přeńć.
+sc-criteria-item-6 = Jeli wam sady wuńdu, pomhajće nam dalše sady zběrać.
+
+## REVIEW
+
+sc-review-lang-not-selected = Njejsće rěče wubrał. Prošu přeńdźće k swojemu <profileLink>profilej</profileLink>, zo byšće rěče wubrał.
+sc-review-title = Sady přepruwować
+sc-review-loading = Sady so začituja…
+sc-review-select-language = Prošu wubjerće rěč, zo byšće sady přepruwował.
+sc-review-no-sentences = Žane sady za přepruwowanje. <addLink>Přidajće nětko dalše sady!</addLink>
+sc-review-form-prompt =
+    .message = Přepruwowane sady hišće zapodate njejsu, něwěrno?
+sc-review-form-usage = Šmórńće naprawo, zo byšće sadu schwalił. Šmórńće nalěwo, zo byšće ju wotpokazał. Šmórńće horje, zo byšće ju přeskočił. <strong>Njezabywajće, swoje pohódnoćenje zapodać!</strong>
+# Variables:
+#   $sentenceSource (Number) - Associated source the user filled out when uploading the sentence
+sc-review-form-source = Žórło: { $sentenceSource }
+sc-review-form-button-reject = Wotpokazać
+sc-review-form-button-skip = Přeskočić
+sc-review-form-button-approve = Schwalić
+# Keyboard shortcut to use to approve a sentence (sc-review-form-button-approve)
+sc-review-form-button-approve-shortcut = h
+# Keyboard shortcut to use to reject a sentence (sc-review-form-button-reject)
+sc-review-form-button-reject-shortcut = W
+# Keyboard shortcut to use to skip a sentence (sc-review-form-button-skip)
+sc-review-form-button-skip-shortcut = P
+sc-review-form-keyboard-usage-custom = Móžeće tež tastowe skrótšenki wužiwać: { sc-review-form-button-approve-shortcut }, zo byšće schwalił, { sc-review-form-button-reject-shortcut }, zo byšće wotpokazał, { sc-review-form-button-skip-shortcut }, zo byšće přeskočił
+sc-review-form-button-submit =
+    .submitText = Pohódnoćenje dokónčić
+# Variables:
+#   $sentences (Number) - Number of sentences the user has reviewed in this session
+sc-review-form-reviewed-message =
+    { $sentences ->
+        [0] Žane sady přepruwowane.
+        [one] { $sentences } sada je so přepruwowała. Wulki dźak!
+        [two] { $sentences } sadźe stej so přepruwowałoj. Wulki dźak!
+        [few] { $sentences } sady su so přepruwowali. Wulki dźak!
+       *[other] { $sentences } sadow je so přepruwowało. Wulki dźak!
+    }
+sc-review-form-review-failure = Pohódnoćenje njeda so składować. Prošu spytajće pozdźišo hišće raz.
+sc-review-link = Pohódnoćić
+
+## SETTINGS
+
+sc-settings-title = Nastajenja
+sc-settings-ui-language = Rěč wužiwarskeho powjercha
+sc-settings-reset-skipped = Přeskočene sady wróćo stajić
+sc-settings-skipped-decription = Sće do toho sady při pohódnoćenju přeskočił. Wróćostajenje přeskočenych sadow budźe wšě přeskočene sady znowa pokazować. To je njewotwisne wot rěče.
+sc-settings-show-all-button = Wšě přeskočene sady hišće raz pokazać
+sc-settings-failed = Nastajenja njedadźa so změnić. Prošu spytajće hišće raz.
+# VALIDATION
+sc-validation-number-of-words = Sada dyrbi mjez 1 a (inkluziwnje) 14 słowami wobsahować
+sc-validation-no-numbers = Sada njeměła ličby wobsahować
+sc-validation-no-symbols = Sada njeměła symbole wobsahować
+sc-validation-no-abbreviations = Sada njeměła skrótšenki wobsahować
+
+# [/SentenceCollector]
+
+localization-select =
+    .label = Rěč/Lokalizaciju wubrać

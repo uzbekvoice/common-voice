@@ -24,29 +24,48 @@ export default class Bucket {
   /**
    * Fetch a public url for the resource.
    */
-  public getPublicUrl(key: string, bucketType?: string, cdn?: boolean) {
-    // @TODO: add CDN handling back in
-    return this.s3.getSignedUrl('getObject', {
-      Bucket:
-        bucketType === 'dataset'
-          ? getConfig().DATASET_BUCKET_NAME
-          : getConfig().CLIP_BUCKET_NAME,
+  public getPublicUrl(key: string, bucketType?: string) {
+    const {
+      ENVIRONMENT,
+      DATASET_BUCKET_NAME,
+      CLIP_BUCKET_NAME,
+      S3_CONFIG,
+      S3_LOCAL_DEVELOPMENT_ENDPOINT,
+    } = getConfig();
+
+    let url = this.s3.getSignedUrl('getObject', {
+      Bucket: bucketType === 'dataset' ? DATASET_BUCKET_NAME : CLIP_BUCKET_NAME,
       Key: key,
       Expires: 60 * 60 * 12,
     });
+
+    if (ENVIRONMENT === 'local') {
+      // allow us to access s3proxy files correctly in development
+      url = url.replace(
+        S3_CONFIG.endpoint.toString(),
+        S3_LOCAL_DEVELOPMENT_ENDPOINT
+      );
+    }
+
+    return url;
   }
 
   /**
    * Construct the public URL for a resource that needs no token
    */
   public getUnsignedUrl(bucket: string, key: string) {
-    return getConfig().ENVIRONMENT === 'local'
-      ? `${getConfig().S3_CONFIG.endpoint}/${
-          getConfig().CLIP_BUCKET_NAME
-        }/${key}`
-      : `https://${bucket}.s3.dualstack.${
-          getConfig().BUCKET_LOCATION
-        }.amazonaws.com/${key}`;
+    const {
+      ENVIRONMENT,
+      S3_LOCAL_DEVELOPMENT_ENDPOINT,
+      CLIP_BUCKET_NAME,
+      AWS_REGION,
+    } = getConfig();
+
+    if (ENVIRONMENT === 'local') {
+      return `${S3_LOCAL_DEVELOPMENT_ENDPOINT}/${CLIP_BUCKET_NAME}/${key}`;
+    }
+
+    return `https://${bucket}.s3.dualstack.${AWS_REGION}.amazonaws.com/${key}`;
   }
 
   /**
@@ -65,7 +84,6 @@ export default class Bucket {
         .promise();
     }
   }
-
 
   /**
    * Check if given file exists
@@ -127,6 +145,7 @@ export default class Bucket {
       } catch (e) {
         console.log(e.message);
         console.log(`aws error retrieving clip_id ${id}`);
+        await this.model.db.markInvalid(id.toString());
       }
     }
 
@@ -154,9 +173,17 @@ export default class Bucket {
     const passThrough = new PassThrough();
 
     const s3pipe = s3Zip
-      .archive({ s3: this.s3, bucket }, '', paths, paths.map(path =>
-        `takeout_${takeout.id}_pt_${chunkIndex}/${ path.split('/').length > 1 ? path.split('/')[1] : path }`
-      ))
+      .archive(
+        { s3: this.s3, bucket },
+        '',
+        paths,
+        paths.map(
+          path =>
+            `takeout_${takeout.id}_pt_${chunkIndex}/${
+              path.split('/').length > 1 ? path.split('/')[1] : path
+            }`
+        )
+      )
       .pipe(passThrough);
 
     await this.s3
@@ -210,7 +237,7 @@ export default class Bucket {
     return clip ? this.getPublicUrl(clip.path) : null;
   }
 
-    /**
+  /**
    * Delete function for S3 used for removing old avatars
    */
   public async deletePath(path: string) {
@@ -221,5 +248,4 @@ export default class Bucket {
       })
       .promise();
   }
-
 }

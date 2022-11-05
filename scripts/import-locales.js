@@ -1,13 +1,23 @@
 const fs = require('fs');
 const path = require('path');
+const mysql = require('mysql');
 const { parse } = require('@fluent/syntax');
-const request = require('request-promise-native');
-
-const TRANSLATED_MIN_PROGRESS = 0.9;
-const CONTRIBUTABLE_MIN_SENTENCES = 5000;
+const fetch = require('node-fetch');
+const { promisify } = require('util');
+const { getConfig } = require('../server/js/config-helper');
+const TRANSLATED_MIN_PROGRESS = 0.75;
 
 const dataPath = path.join(__dirname, '..', 'locales');
 const localeMessagesPath = path.join(__dirname, '..', 'web', 'locales');
+
+const { MYSQLHOST, MYSQLUSER, MYSQLPASS, MYSQLDBNAME } = getConfig();
+
+const dbConfig = {
+  host: MYSQLHOST,
+  user: MYSQLUSER,
+  password: MYSQLPASS,
+  database: MYSQLDBNAME,
+};
 
 function saveDataJSON(name, data) {
   fs.writeFileSync(
@@ -17,27 +27,11 @@ function saveDataJSON(name, data) {
 }
 
 async function fetchPontoonLanguages() {
-  const { data } = await request({
-    uri: 'https://pontoon.mozilla.org/graphql',
-    method: 'POST',
-    json: true,
-    body: {
-      query: `{
-            project(slug: "common-voice") {
-              localizations {
-                totalStrings
-                approvedStrings
-                locale {
-                  code
-                  name
-                  direction
-                }
-              }
-            }
-          }`,
-      variables: null,
-    },
-  });
+  const url =
+    'https://pontoon.mozilla.org/graphql?query={project(slug:%22common-voice%22){localizations{totalStrings,approvedStrings,locale{code,name,direction}}}}';
+  const response = await fetch(url);
+  const { data } = await response.json();
+
   return data.project.localizations
     .map(({ totalStrings, approvedStrings, locale }) => ({
       code: locale.code,
@@ -105,7 +99,7 @@ async function importPontoonLocales() {
   ]);
 }
 
-async function importContributableLocales() {
+async function importContributableLocales(locales) {
   const sentencesPath = path.join(__dirname, '..', 'server', 'data');
   const oldContributable = JSON.parse(
     fs.readFileSync(path.join(dataPath, 'contributable.json'), 'utf-8')
@@ -133,7 +127,7 @@ async function importContributableLocales() {
             : count,
         0
       );
-    return count > CONTRIBUTABLE_MIN_SENTENCES;
+    return count > locales[name].targetSentenceCount;
   });
   saveDataJSON('contributable', names.sort());
 }
@@ -159,11 +153,38 @@ async function buildLocaleNativeNameMapping() {
 }
 
 async function importLocales() {
-  await Promise.all([
-    importPontoonLocales(),
-    importContributableLocales(),
-    buildLocaleNativeNameMapping(),
-  ]);
+  try {
+    const pool = mysql.createPool(dbConfig);
+
+    pool.getConnection(async (err, connection) => {
+      if (err) throw err;
+      const db = promisify(connection.query).bind(connection);
+      let locales = {};
+
+      db(`select * from locales`)
+        .then(data => {
+          locales = data.reduce((obj, locale) => {
+            obj[locale.name] = {
+              name: locale.name,
+              id: locale.id,
+              targetSentenceCount: locale.target_sentence_count,
+            };
+            return obj;
+          }, {});
+        })
+        .finally(async () => {
+          await Promise.all([
+            importPontoonLocales(),
+            importContributableLocales(locales),
+            buildLocaleNativeNameMapping(),
+          ]);
+          connection.destroy();
+        });
+    });
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
 }
 
 importLocales().catch(e => console.error(e));

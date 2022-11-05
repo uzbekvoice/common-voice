@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Localized } from '@fluent/react';
 
+import PageHeading from '../../ui/page-heading';
+
 import './why-common-voice.css';
 
 const WhyCommonVoice: React.ComponentType<{}> = () => {
@@ -15,17 +17,11 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
       <div className="about-container about-heading">
         <div className="about-header">
           <div className="about-header-text">
-            <div className="line" />
+            <PageHeading>
+              <Localized id="about-title" />
+            </PageHeading>
 
-            <Localized id="about-title">
-              <h1 />
-            </Localized>
-
-            <Localized id="default-tagline">
-              <h2 />
-            </Localized>
-
-            <Localized id="about-header-description-2">
+            <Localized id="about-header-description-v2" elems={{ p: <p /> }}>
               <h2 className="header-description" />
             </Localized>
           </div>
@@ -34,7 +30,7 @@ const WhyCommonVoice: React.ComponentType<{}> = () => {
             <img
               className="robot"
               src={require('./images/robot.png')}
-              alt="Waves"
+              alt="robot"
             />
           </div>
         </div>

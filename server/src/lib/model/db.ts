@@ -1,19 +1,25 @@
 import { getConfig } from '../../config-helper';
 import Mysql, { getMySQLInstance } from './db/mysql';
 import Schema from './db/schema';
-import ClipTable, { DBClipWithVoters } from './db/tables/clip-table';
+import ClipTable, { DBClip } from './db/tables/clip-table';
 import VoteTable from './db/tables/vote-table';
-import { ChallengeToken, Sentence } from 'common';
-import { features } from 'common';
-import { TaxonomyToken, taxonomies } from 'common';
+import {
+  ChallengeToken,
+  Sentence,
+  TaxonomyToken,
+  taxonomies,
+  Language,
+  Datasets,
+} from 'common';
+import lazyCache from '../lazy-cache';
+const MINUTE = 1000 * 60;
+const DAY = MINUTE * 60 * 24;
 
 // When getting new sentences/clips we need to fetch a larger pool and shuffle it to make it less
 // likely that different users requesting at the same time get the same data
 const SHUFFLE_SIZE = 500;
 
 const THREE_WEEKS = 3 * 7 * 24 * 60 * 60 * 1000;
-
-const PRIORITY_TAXONOMY = 'Benchmark';
 
 // Ref JIRA ticket OI-1300 - we want to exclude languages with fewer than 500k active global speakers
 // from the single sentence record limit, because they are unlikely to amass enough unique speakers
@@ -55,26 +61,36 @@ export const getParticipantSubquery = (
   `;
 };
 
-let localeIds: { [name: string]: number };
 let termIds: { [name: string]: number };
 
-export async function getLocaleId(locale: string): Promise<number> {
-  if (locale === 'overall') return null;
-
-  if (!localeIds) {
+const getLanguageMap = lazyCache(
+  `get-language-id-map`,
+  async () => {
     const [rows] = await getMySQLInstance().query(
       'SELECT id, name FROM locales'
     );
-    localeIds = rows.reduce(
+    //{en: 1, fr:2, ...}
+    return rows.reduce(
       (obj: any, { id, name }: any) => ({
         ...obj,
         [name]: id,
       }),
       {}
     );
+  },
+  DAY
+);
+
+export async function getLocaleId(locale: string): Promise<number> {
+  if (locale === 'overall') return null;
+
+  const languageIds = await getLanguageMap();
+
+  if (!languageIds) {
+    return null;
   }
 
-  return localeIds[locale];
+  return languageIds[locale];
 }
 
 export async function getTermIds(term_names: string[]): Promise<number[]> {
@@ -146,36 +162,91 @@ export default class DB {
     }
   }
 
-  async getSentenceCountByLocale(locales: string[]): Promise<any> {
+  async getSentenceCountByLocale(): Promise<
+    {
+      locale_id: number;
+      count: number;
+    }[]
+  > {
     const [rows] = await this.mysql.query(
       `
-        SELECT COUNT(*) AS count, locales.name AS locale
-        FROM sentences
-        LEFT JOIN locales ON sentences.locale_id = locales.id
-        WHERE locales.name IN (?) AND sentences.is_used
-        GROUP BY locale
-      `,
-      [locales]
+      SELECT
+        COUNT(*) AS count,
+        locale_id
+      FROM
+        sentences
+      WHERE
+        sentences.is_used = 1
+      GROUP BY
+        locale_id;
+      `
     );
+    return rows;
+  }
+
+  /**
+   * Get valid and random clips per language
+   * @param languageId
+   * @param limit
+   * @returns
+   */
+  async getClipsToBeValidated(
+    languageId: number,
+    limit: number
+  ): Promise<DBClip[]> {
+    const [rows] = await this.mysql.query(
+      `
+        SELECT c.id as id, 
+        c.path as path, 
+        s.has_valid_clip as has_valid_clip,
+        c.client_id as client_id, 
+        s.text as sentence,
+        c.original_sentence_id as original_sentence_id
+        FROM clips c
+        LEFT JOIN sentences s ON s.id = c.original_sentence_id and c.locale_id = ?
+        WHERE c.is_valid IS NULL AND s.clips_count <= 15
+        ORDER BY rand()
+        limit ?
+      `,
+      [languageId, limit]
+    );
+
     return rows;
   }
 
   async getClipCount(): Promise<number> {
     return this.clip.getCount();
   }
+
   async getSpeakerCount(
-    locales: string[]
-  ): Promise<{ locale: string; count: number }[]> {
+    localeIds: number[]
+  ): Promise<{ locale_id: number; count: number }[]> {
     return (
       await this.mysql.query(
         `
-        SELECT locales.name AS locale, COUNT(DISTINCT clips.client_id) AS count
+        SELECT clips.locale_id, COUNT(DISTINCT clips.client_id) AS count
         FROM clips
-        LEFT JOIN locales ON clips.locale_id = locales.id
-        WHERE locales.name IN (?)
-        GROUP BY locale
+        WHERE clips.locale_id IN (?)
+        GROUP BY clips.locale_id
       `,
-        [locales]
+        [localeIds]
+      )
+    )[0];
+  }
+
+  async getTotalUniqueSpeakerCount(
+    localeIds: number[]
+  ): Promise<{ locale_id: number; count: number }[]> {
+    return (
+      await this.mysql.query(
+        `
+        SELECT temp.locale_id, COUNT(1) AS count
+        FROM (select c.locale_id, count(1) from clips c
+        WHERE c.locale_id IN (?)
+        GROUP BY c.client_id, c.locale_id) temp
+        GROUP BY temp.locale_id
+      `,
+        [localeIds]
       )
     )[0];
   }
@@ -326,8 +397,8 @@ export default class DB {
     client_id: string,
     locale: string,
     count: number
-  ): Promise<DBClipWithVoters[]> {
-    let taxonomySentences: DBClipWithVoters[] = [];
+  ): Promise<DBClip[]> {
+    let taxonomySentences: DBClip[] = [];
     const locale_id = await getLocaleId(locale);
     const exemptFromSSRL = !SINGLE_SENTENCE_LIMIT.includes(locale);
 
@@ -360,7 +431,56 @@ export default class DB {
     locale_id: number,
     count: number,
     exemptFromSSRL?: boolean
-  ): Promise<DBClipWithVoters[]> {
+  ): Promise<DBClip[]> {
+    // get cached clips for given language
+    const cachedClips: DBClip[] = await lazyCache(
+      `new-clips-per-language-${locale_id}`,
+      async () => {
+        return await this.getClipsToBeValidated(locale_id, 10000);
+      },
+      MINUTE
+    )();
+
+    //filter out users own clips
+    const validUserClips: DBClip[] = cachedClips.filter(
+      (row: DBClip) => row.client_id != client_id
+    );
+
+    // potentially cache-able
+    // get users previously interacted clip ids
+    const [submittedUserClipIds] = await this.mysql.query(
+      `
+      SELECT clip_id
+        FROM votes
+        WHERE client_id = ?
+        UNION ALL
+        SELECT clip_id
+        FROM reported_clips reported
+        WHERE client_id = ?
+        UNION ALL
+        SELECT clip_id
+        FROM skipped_clips skipped
+        WHERE client_id = ?
+      `,
+      [client_id, client_id, client_id]
+    );
+
+    //remove dups and store as a flat set
+    const skipClipIds: Set<number> = new Set(
+      submittedUserClipIds.map((row: { clip_id: number }) => row.clip_id)
+    );
+
+    //get clips that a user hasnt already seen
+    const validClips = new Set(
+      validUserClips.filter((clip: DBClip) => {
+        if (exemptFromSSRL) return !skipClipIds.has(clip.id);
+        //only return clips that have not been valiadated before
+        return !skipClipIds.has(clip.id) && clip.has_valid_clip === 0;
+      })
+    );
+
+    if (validClips.size > count) return Array.from(validClips);
+
     const [clips] = await this.mysql.query(
       `
       SELECT *
@@ -377,6 +497,10 @@ export default class DB {
           SELECT clip_id
           FROM reported_clips reported
           WHERE reported.clip_id = clips.id AND client_id = ?
+          UNION ALL
+          SELECT clip_id
+          FROM skipped_clips skipped
+          WHERE skipped.clip_id = clips.id AND client_id = ?
         )
         AND sentences.clips_count <= 15
         ${exemptFromSSRL ? '' : 'AND sentences.has_valid_clip = 0'}
@@ -385,12 +509,18 @@ export default class DB {
       ) t
       ORDER BY RAND()
       LIMIT ?`,
-      [locale_id, client_id, client_id, client_id, SHUFFLE_SIZE, count]
+      [
+        locale_id,
+        client_id,
+        client_id,
+        client_id,
+        client_id,
+        SHUFFLE_SIZE,
+        count,
+      ]
     );
-    for (const clip of clips) {
-      clip.voters = clip.voters ? clip.voters.split(',') : [];
-    }
-    return clips as DBClipWithVoters[];
+
+    return clips as DBClip[];
   }
 
   async findClipsMatchingTaxonomy(
@@ -398,7 +528,7 @@ export default class DB {
     locale_id: number,
     count: number,
     segments: string[]
-  ): Promise<DBClipWithVoters[]> {
+  ): Promise<DBClip[]> {
     const [clips] = await this.mysql.query(
       `
       SELECT *
@@ -436,6 +566,10 @@ export default class DB {
           SELECT clip_id
           FROM reported_clips reported
           WHERE reported.clip_id = clips.id AND client_id = ?
+          UNION ALL
+          SELECT clip_id
+          FROM skipped_clips skipped
+          WHERE skipped.clip_id = clips.id AND client_id = ?
         )
         GROUP BY original_sentence_id
         LIMIT ?
@@ -451,19 +585,19 @@ export default class DB {
         client_id,
         client_id,
         client_id,
+        client_id,
         SHUFFLE_SIZE,
         count,
       ]
     );
     for (const clip of clips) {
-      clip.voters = clip.voters ? clip.voters.split(',') : [];
       clip.taxonomy = {
         name: clip.term_name,
         source: clip.term_sentence_source,
       };
     }
 
-    return clips as DBClipWithVoters[];
+    return clips as DBClip[];
   }
 
   /**
@@ -474,7 +608,8 @@ export default class DB {
     id: string,
     auth_token?: string
   ): Promise<boolean> {
-    const guidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+    const guidRegex =
+      /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
     const authRegex = /^\w{40}$/;
 
     if (!guidRegex.test(id) || (auth_token && !authRegex.test(auth_token))) {
@@ -619,23 +754,32 @@ export default class DB {
       console.error('error saving clip', e);
     }
   }
-
-  async getValidClipCount(
-    locales: string[]
-  ): Promise<{ locale: string; count: number }[]> {
+  async getAllClipCount(
+    localeIds: number[]
+  ): Promise<{ locale_id: number; count: number }[]> {
     const [rows] = await this.mysql.query(
       `
-        SELECT locale, COUNT(*) AS count
-        FROM (
-         SELECT locales.name AS locale
-         FROM clips
-         LEFT JOIN locales ON clips.locale_id = locales.id
-         WHERE locales.name IN (?) AND is_valid
-         GROUP BY clips.id
-        ) AS valid_clips
-        GROUP BY locale
+        SELECT locale_id, COUNT(*) AS count
+        FROM clips
+        WHERE locale_id IN (?)
+        GROUP BY locale_id
       `,
-      [locales]
+      [localeIds]
+    );
+    return rows;
+  }
+
+  async getValidClipCount(
+    localeIds: number[]
+  ): Promise<{ locale_id: number; count: number }[]> {
+    const [rows] = await this.mysql.query(
+      `
+        SELECT locale_id, COUNT(*) AS count
+        FROM clips
+        WHERE locale_id IN (?) AND is_valid
+        GROUP BY locale_id
+      `,
+      [localeIds]
     );
     return rows;
   }
@@ -801,6 +945,128 @@ export default class DB {
     )[0][0];
   }
 
+  async getLanguages(): Promise<Language[]> {
+    const [rows] = await this.mysql.query(
+      `SELECT 
+      l.id, 
+      l.name, 
+      l.target_sentence_count as target_sentence_count, 
+      count(1) as total_sentence_count,
+      l.is_contributable
+        FROM locales l
+        LEFT JOIN sentences s ON s.locale_id = l.id
+        GROUP BY l.id`
+    );
+    return rows.map(
+      (row: {
+        id: number;
+        name: string;
+        is_contributable: boolean;
+        target_sentence_count: number;
+        total_sentence_count: number;
+      }) => ({
+        id: row.id,
+        name: row.name,
+        is_contributable: row.is_contributable,
+        sentencesCount: {
+          targetSentenceCount: row.target_sentence_count,
+          currentCount: row.total_sentence_count,
+        },
+      })
+    );
+  }
+
+  async getAllLanguages(): Promise<Language[]> {
+    const [rows] = await this.mysql.query(
+      `SELECT *
+        FROM locales l
+    `
+    );
+    return rows;
+  }
+
+  /**
+   * Get all datasets. Filterable by type (singleword, delta, complete)
+   *
+   * @param {string} releaseType
+   * @return {*}  {Promise<Language[]>}
+   * @memberof DB
+   */
+  async getAllDatasets(releaseType: string): Promise<Datasets[]> {
+    const [rows] = await this.mysql.query(
+      `SELECT 
+      l.id,
+      l.name,
+      l.release_dir,
+      l.multilingual,
+      l.bundle_date,
+      l.release_date,
+      l.total_clips_duration,
+      l.valid_clips_duration,
+      l.release_type,
+      ld.checksum,
+      ld.size,
+      l.download_path,
+      temp.languages_count
+        FROM datasets l
+        JOIN locale_datasets ld on l.id = ld.dataset_id
+        JOIN (
+          SELECT count(1) as languages_count, dataset_id
+          FROM locale_datasets xld
+          GROUP BY xld.dataset_id
+        ) temp ON temp.dataset_id = l.id
+        WHERE is_deprecated = false
+        ${releaseType ? ` AND release_type = ?` : ''}
+        GROUP BY l.id
+        ORDER BY l.release_date DESC
+    `,
+      [releaseType]
+    );
+    return rows;
+  }
+
+  async getLanguageDatasetStats(languageCode: string): Promise<Language[]> {
+    const [rows] = await this.mysql.query(
+      `SELECT
+      ld.id,
+      ld.dataset_id,
+      ld.locale_id,
+      ld.total_clips_duration,
+      ld.valid_clips_duration,
+      ld.average_clips_duration,
+      ld.total_users,
+      ld.size,
+      ld.checksum,
+      d.release_date,
+      d.name,
+      d.release_dir,
+      d.download_path
+    FROM
+      locale_datasets ld
+    JOIN datasets d ON
+      d.id = ld.dataset_id
+    WHERE
+      ld.locale_id = ?
+      AND d.release_type in ("complete", "delta")
+      AND d.is_deprecated = false
+    ORDER BY
+      d.release_date DESC
+    `,
+      [await getLocaleId(languageCode)]
+    );
+    return rows;
+  }
+
+  async getAllLanguagesWithDatasets(): Promise<Language[]> {
+    const [rows] = await this.mysql.query(
+      `SELECT DISTINCT l.name, l.id
+        FROM locale_datasets ld
+        JOIN locales l ON l.id = ld.locale_id 
+    `
+    );
+    return rows;
+  }
+
   async getRequestedLanguages(): Promise<string[]> {
     const [rows] = await this.mysql.query(
       'SELECT language FROM requested_languages'
@@ -809,9 +1075,7 @@ export default class DB {
   }
 
   async findRequestedLanguageId(language: string): Promise<number | null> {
-    const [
-      [row],
-    ] = await this.mysql.query(
+    const [[row]] = await this.mysql.query(
       'SELECT * FROM requested_languages WHERE LOWER(language) = LOWER(?) LIMIT 1',
       [language]
     );
@@ -839,9 +1103,7 @@ export default class DB {
   }
 
   async getUserClient(client_id: string) {
-    const [
-      [row],
-    ] = await this.mysql.query(
+    const [[row]] = await this.mysql.query(
       'SELECT * FROM user_clients WHERE client_id = ?',
       [client_id]
     );
@@ -877,45 +1139,130 @@ export default class DB {
     )[0][0].count;
   }
 
-  async saveAccents(client_id: string, accents: { [locale: string]: string }) {
-    await Promise.all(
-      Object.entries(accents).map(async ([locale, accent]) =>
-        this.mysql.query(
-          `
-        INSERT INTO user_client_accents (client_id, locale_id, accent) VALUES (?, ?, ?)
-          ON DUPLICATE KEY UPDATE accent = VALUES(accent)
+  async getVariants(client_id: string, locale?: string) {
+    const [variants] = await this.mysql.query(
+      `
+      SELECT name as lang, variant_token AS token, v.id AS variant_id, variant_name FROM variants v
+      LEFT JOIN locales ON v.locale_id = locales.id
+       ${locale ? 'WHERE locale_id = ?' : ''}
       `,
-          [client_id, await getLocaleId(locale), accent]
-        )
-      )
+      locale ? [await getLocaleId(locale)] : []
     );
+
+    if (!variants) return;
+
+    const mappedVariants = variants.reduce((acc: any, curr: any) => {
+      if (!acc[curr.lang]) {
+        acc[curr.lang] = [];
+      }
+
+      const variant = {
+        id: curr.variant_id,
+        token: curr.token,
+        name: curr.variant_name,
+      };
+
+      acc[curr.lang].push(variant);
+      return acc;
+    }, {});
+
+    return mappedVariants;
+  }
+
+  async getAccents(client_id: string, locale?: string) {
+    const [accents] = await this.mysql.query(
+      `
+      SELECT name as lang, accent_token AS token, a.id AS accent_id, accent_name, a.user_submitted FROM accents a
+      LEFT JOIN locales ON a.locale_id = locales.id
+      WHERE (NOT user_submitted OR client_id = ?)
+      `,
+      [client_id]
+    );
+
+    const mappedAccents = accents.reduce((acc: any, curr: any) => {
+      if (!acc[curr.lang]) {
+        acc[curr.lang] = { userGenerated: {}, preset: {}, default: {} };
+      }
+
+      const accent = {
+        id: curr.accent_id,
+        token: curr.token,
+        name: curr.accent_name,
+      };
+
+      if (curr.accent_name === '') {
+        // Each language has a default accent placeholder for unspecified accents
+        acc[curr.lang].default = accent;
+      } else if (curr.user_submitted) {
+        // Note: currently the query only shows the user values that they created
+        acc[curr.lang].userGenerated[curr.accent_id] = accent;
+      } else {
+        acc[curr.lang].preset[curr.accent_id] = accent;
+      }
+
+      return acc;
+    }, {});
+
+    return mappedAccents;
   }
 
   async createSkippedSentence(id: string, client_id: string) {
-    await this.mysql.query(
-      `
+    // Sometimes stale sentences are being skipped which is unhandled w/o a trycatch
+    try {
+      await this.mysql.query(
+        `
         INSERT INTO skipped_sentences (sentence_id, client_id) VALUES (?, ?)
       `,
-      [id, client_id]
-    );
+        [id, client_id]
+      );
+    } catch (error) {
+      console.error(
+        `Unable to skip sentence (error message: ${error.message})`
+      );
+    }
+  }
+
+  async createSkippedClip(id: string, client_id: string) {
+    try {
+      await this.mysql.query(
+        `
+          INSERT INTO skipped_clips (clip_id, client_id) VALUES (?, ?)
+        `,
+        [id, client_id]
+      );
+    } catch (error) {
+      console.error(`Unable to skip clip (error message: ${error.message})`);
+    }
   }
 
   async saveActivity(client_id: string, locale: string) {
-    await this.mysql.query(
-      `
+    try {
+      await this.mysql.query(
+        `
         INSERT INTO user_client_activities (client_id, locale_id) VALUES (?, ?)
       `,
-      [client_id, await getLocaleId(locale)]
-    );
+        [client_id, await getLocaleId(locale)]
+      );
+    } catch (error) {
+      console.error(
+        `Unable to save activity (error message: ${error.message})`
+      );
+    }
   }
 
   async insertDownloader(locale: string, email: string, dataset: string) {
-    await this.mysql.query(
-      `
+    try {
+      await this.mysql.query(
+        `
         INSERT INTO downloaders (locale_id, email, dataset_id) VALUES (?, ?, (SELECT id FROM datasets WHERE release_dir = ? LIMIT 1)) ON DUPLICATE KEY UPDATE created_at = NOW()
       `,
-      [await getLocaleId(locale), email, dataset]
-    );
+        [await getLocaleId(locale), email, dataset]
+      );
+    } catch (error) {
+      console.error(
+        `Unable to insert downloader (error message: ${error.message})`
+      );
+    }
   }
 
   async createReport(
@@ -1029,9 +1376,12 @@ export default class DB {
   }
 
   async clipExists(client_id: string, sentence_id: string) {
-    const [[row]] = await this.mysql.query(`
+    const [[row]] = await this.mysql.query(
+      `
       SELECT id FROM clips WHERE client_id = ? AND original_sentence_id = ?
-    `, [client_id, sentence_id]);
+    `,
+      [client_id, sentence_id]
+    );
 
     return !!row;
   }

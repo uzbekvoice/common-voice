@@ -14,6 +14,8 @@ email-opt-in-info-sub-with-challenge = Prejemajte e-poštna sporočila, kot so o
 email-opt-in-privacy-v2 = S potrditvijo prejemanja e-pošte soglašate z ravnanjem s temi podatki, kot je razloženo v Mozillini <privacyLink>politiki zasebnosti</privacyLink>.
 indicates-required = * Zahtevano polje
 not-available-abbreviation = Ni na voljo
+banner-error-slow-1 = Oprostite, Common Voice deluje počasi. Hvala za vaše zanimanje.
+banner-error-slow-link = Stran s stanjem
 
 # Don't rename the following section, its contents are auto-inserted based on the name (see scripts/pontoon-languages-to-ftl.js)
 # [Languages]
@@ -36,12 +38,13 @@ ba = baškirščina
 bas = basa
 be = beloruščina
 bg = bolgarščina
-bm = bambarščina
 bn = bengalščina
 br = bretonščina
+bs = bosanščina
 bxr = burijatščina
 ca = katalonščina
 cak = kaqchikel
+ckb = osrednja kurdščina
 cnh = hakha chin
 co = korziščina
 cs = češčina
@@ -77,6 +80,8 @@ hy-AM = armenščina
 hyw = zahodna armenščina
 ia = interlingva
 id = indonezijščina
+ie = interlingve
+ig = igbo
 is = islandščina
 it = italijanščina
 izh = ingrijščina
@@ -85,11 +90,15 @@ ka = gruzinščina
 kaa = karakalpaščina
 kab = kabilščina
 kbd = kabardščina
+ki = kikujščina
 kk = kazaščina
+km = kmerščina
+knn = konkanščina (devangarska pisava)
 ko = korejščina
 kpv = komijščina
 kw = kornijščina
 ky = kirgiščina
+lb = luksemburščina
 lg = lugandščina
 lij = ligurščina
 lt = litovščina
@@ -139,10 +148,13 @@ ta = tamilščina
 te = teluščina
 tg = tadžiščina
 th = tajščina
+ti = tigrajščina
+tk = turkmenščina
 tl = tagaloščina
 tr = turščina
 tt = tatarščina
 tw = tvijščina
+ty = tahitščina
 uby = ubiščina
 udm = udmurtščina
 ug = ujgurščina
@@ -152,6 +164,7 @@ uz = uzbeščina
 vec = beneščina
 vi = vietnamščina
 vot = votščina
+yi = jidiš
 yo = jorubščina
 yue = kantonščina
 zh-CN = kitajščina (Kitajska)
@@ -260,6 +273,7 @@ whats-public = Kaj je javno?
 email-not-public = Vašega e-poštnega naslova ne bomo javno objavili.
 recordings-and-locale-public = Število posnetkov in jeziki, pri katerih sodelujete, bodo javni.
 username-optin-public = Svoje uporabniško ime lahko nastavite kot javno ali anonimno.
+demographic-deidentified-clarity-2 = Izbirno predloženi demografski podatki (npr. starost, spol, jezik in naglas) v vašem profilu ne bodo nikoli objavljeni in ne bodo povezani z vašim računom v naboru podatkov. Posamezni zvočni posnetki bodo zaradi natančnejše analize povezani z demografskimi podatki - na primer, raziskovalec bo morda želel model usposabljanja usmeriti na določen demografski segment.
 username-email-not-demographic = Vaše uporabniško ime in e-poštni naslov ne bosta povezana z objavljenimi podatki.
 
 ## Speak & Listen Shortcuts
@@ -288,9 +302,10 @@ shortcut-record-toggle = s
 shortcut-record-toggle-label = Snemaj/Ustavi
 shortcut-rerecord-toggle = [1-5]
 shortcut-rerecord-toggle-label = Znova posnemi posnetek
+shortcut-discard-ongoing-recording = ESC
+shortcut-discard-ongoing-recording-label = Zavrzi trenutno snemanje
 shortcut-submit-label = Pošlji posnetke
 request-language-text = Vaš jezik še ni vključen v Common Voice?
-request-language-text-learn = Naučite se, kako to zahtevati!
 request-language-button = Predlagaj jezik
 
 ## ProjectStatus
@@ -317,8 +332,12 @@ profile-form-native-language =
     .label = Materni jezik
 profile-form-additional-language =
     .label = Dodatni jezik
+profile-form-language =
+    .label = Jezik
 profile-form-accent =
     .label = Naglas
+profile-form-custom-accent-help-text =
+    .label = Kako bi opisali svoj naglas?
 profile-form-age =
     .label = Starost
 profile-form-gender-2 =
@@ -385,7 +404,12 @@ change-email-setings = E-poštni naslov spremenite v nastavitvah pod Identiteta 
 
 faq-title = Pogosta vprašanja
 faq-what-cv-q = Kaj je Common Voice?
+faq-what-cv-a = Tehnologija prepoznavanja glasu predstavlja revolucijo na področju interakcije s stroji, vendar so trenutno razpoložljivi sistemi dragi in lastniški. Common Voice je del pobude Mozille, da se tehnologije za prepoznavanje glasu izboljšajo in postanejo dostopnejše za vse. Common Voice je obsežna globalna baza podarjenih glasov, ki vsakomur omogoča hitro in enostavno učenje aplikacij z glasovno podporo v potencialno vseh jezikih.
 faq-why-important-q = Zakaj je to pomembno?
+faq-why-important-a =
+    Govor je pogosto najbolj naraven način medsebojne komunikacije in glasovne tehnologije prinašajo to udobje našim računalnikom in mobilnim napravam. Razvijalce želimo opolnomočiti za izdelavo neverjetnih aplikacij za prepoznavanje glasu, kot so prevajalci v realnem času in digitalni pomočniki z glasovno podporo. Toda trenutno je večina glasovnih podatkov, potrebnih za izdelavo tovrstnih aplikacij, draga in lastniška. Upamo, da bo nabor podatkov Common Voice razvijalcem dal tisto, kar potrebujejo za inovacije, in omogočil, da bo tehnologija govora na voljo v njihovem jeziku.
+    
+    Da bi bilo prepoznavanje glasu še bolj univerzalno, zbiramo vzorce glasu v široko govorjenih jezikih, pa tudi tiste z manjšo populacijo govorcev, ki jih komercialne storitve za prepoznavanje govora pogosto premalo uporabljajo. Objava raznolikega nabora glasov bo razvijalcem, podjetnikom in celotnim govornim skupnostim omogočila, da sami odpravijo to vrzel.
 faq-how-get-q = Kako lahko prenesem podatke Common Voice?
 faq-how-get-a = Podatkovni niz Common Voice je na voljo za prenos pod licenco <licenseLink>CC0</licenseLink> na <datasetLink>naši strani podatkovnih nizov</datasetLink>. Z iste strani lahko prenesete tudi več drugih javno dostopnih podatkovnih nizov.
 faq-when-release2-q = Kdaj boste objavili podatke Common Voice v drugih jezikih?
@@ -429,9 +453,11 @@ faq-search-for-answers =
 ## ABOUT US
 
 about-title = Zakaj Common Voice?
-about-subtitle = Common Voice je del Mozilline pobude, ki pomaga učiti stroje, kako ljudje govorijo. Poleg nabora podatkov Common Voice gradimo tudi odprtokodni mehanizem za prepoznavanje govora, imenovan Deep Speech.
-how-does-it-work-title = Kako deluje
+how-does-it-work-title-v2 = Kako Common Voice deluje?
 how-does-it-work-text = Ustvarjamo odprtokodni glasovni nabor podatkov. Prispevajte svoj glas in preverite točnost posnetkov drugih ljudi, da bo nabor podatkov boljši za vsakogar.
+
+## How does it work section
+
 about-speak = Govori
 about-speak-text = Sodelujoči posnamejo glasovne posnetke iz nabora zbranih stavkov.
 about-listen-queue = Poslušaj – Čakalna vrsta
@@ -448,12 +474,6 @@ about-dataset-new = Nabor podatkov Common Voice
 about-dataset-new-text = Nabor podatkov Common Voice vsebuje več sto tisoč glasovnih posnetkov, ki razvijalcem pomagajo pri izdelavi orodij za prepoznavanje govora.
 about-clip-graveyard = Pokopališče posnetkov
 about-clip-graveyard-text = Pokopališče posnetkov sestavljajo glasovni posnetki, ki niso bili vključeni v nabor podatkov Common Voice. Tako kot nabor podatkov, je tudi pokopališče posnetkov na voljo za prenos.
-about-partners = Partnerji
-about-become-a-partner = Postanite partner
-about-partnership =
-    Common Voice je skupni projekt, pri katerem s pomočjo naše skupnosti partnerjev in sodelavcev ustvarjamo največji odprtokodni nabor podatkov doslej.
-    
-    Za pomoč pri projektu se zahvaljujemo naslednjim posameznikom in organizacijam:
 about-get-involved = Pridružite se
 about-get-involved-text-2 =
     Želite izboljšati Common Voice?
@@ -464,12 +484,41 @@ about-nav-why-common-voice = Zakaj?
 about-nav-how-it-works = Kako?
 about-nav-partners = Partnerji
 about-nav-get-involved = Pridružite se
-mycroft-title = Mycroft Ai
-mycroft-subtitle = Umetna inteligenca
-mycroft-description =
-    Mycroft je prvi odprtokodni asistent.
-    Mycroft deluje kjerkoli – na namiznem računalniku, v avtomobilu ali na Raspberry Pi.
-mycroft-secondary-description = To je odprtokodna programska oprema, ki jo je mogoče prosto prilagajati, razširiti in izboljšati. Mycroft se lahko uporablja za karkoli, od znanstvenega projekta do programske opreme.
+about-nav-how-it-works-2 = Kako Common Voice deluje?
+
+## Community Playbook Content
+## What is a language
+
+about-playbook-what-is-language = Kaj je jezik za Common Voice?
+
+## How do I add a language
+
+about-playbook-how-add-language = Kako dodam jezik?
+
+## How does localization work
+
+
+## How to add sentences
+
+
+## How to record quality
+
+
+## How to grow language
+
+about-playbook-how-grow-language-content-2 = Dogodki
+about-playbook-how-grow-language-content-4 = Družbena omrežja
+about-playbook-how-grow-language-content-6 = Partnerstva in mreže
+
+## How to validate
+
+
+## How to access dataset
+
+
+## How are decisions made
+
+about-playbook-how-project-governance-content-3 = Zasebnost, varnost in preglednost.
 
 ## Glossary
 
@@ -559,8 +608,6 @@ subscribe = Naroči se
 get-started-speech = Začnite s prepoznavanjem govora
 other-datasets = Drugi glasovni nabori podatkov
 feedback-q = Želite poslati povratne informacije?
-deepspeech-info = Nabor podatkov Common Voice dopolnjuje Mozillin odprtokodni sistem za prepoznavanje govora Deep Speech, ki ga lahko uporabite za izdelavo aplikacij za prepoznavanje govora. Če želite izvedeti, kako začeti, preberite naš <githubLink>priročnik na Githubu</githubLink> ali se nam pridružite <DiscourseLink>na forumu Discourse</discourseLink>.
-common-voice-info-new = Imate vprašanja o projektu Common Voice? Zamisli za izboljšave ali povratne informacije o določenem jeziku? Pridružite se nam na <discourseLink>forumu Discourse</discourseLink> in nam to sporočite.
 data-other-librispeech-description = LibriSpeech je korpus, sestavljen iz približno 1000 ur branih angleških besedil (pri 16 kHz), pridobljen iz zvočnih knjig projekta LibriVox.
 data-other-ted-name = Korpus TED-LIUM
 data-other-ted-description = TED-LIUM je korpus, ki ga sestavljajo zvočni posnetki predstavitev in njihovi prepisi, dostopni na spletni strani TED.com.
@@ -605,6 +652,9 @@ request-language-success-content = V kratkem se vam bomo oglasili z več informa
 select-language = Izberite jezik ...
 other-language = Drug jezik
 
+## Request Language Pages
+
+
 ## Languages Overview
 
 language-section-in-progress = V nastajanju
@@ -620,7 +670,6 @@ language-search-input =
 language-speakers = Govorcev
 localized = Lokalizirano
 sentences = Stavki
-total-hours = Skupaj ur
 
 ## Contribution
 
@@ -839,6 +888,30 @@ why-delete-recordings =
     Bi nam bili pripravljeni povedati, zakaj želite izbrisati svoje posnetke?
 profile-form-delete = Izbriši profil
 
+## Profile Download
+
+download-q = Želite prenesti svoje podatke?
+download-info = Povejte, kaj želite prenesti:
+download-profile-title = Profil
+download-profile-info = Vključuje e-poštni naslov, uporabniško ime in demografske podatke, ki so na voljo takoj
+download-profile-size = Nekaj bajtov
+download-recordings-title = Posnetke
+download-size = Velikost
+download-selected = Izbrano
+download-start = Prenesi podatke profila
+download-request = Zahtevaj posnetke
+download-requests = Pretekle zahteve za prenos posnetkov
+download-requests-info = Ko zahtevate svoje posnetke, jih zberemo v eno ali več datotek ZIP. Tukaj so vaše pretekle zahteve:
+download-request-button = Prenesi
+download-request-title = { $created }
+download-request-description = { $clipCount } glasovnih posnetkov, skupna velikost arhiva { $size }. Poteče { $expires }.
+download-request-archive-single = Ena datoteka ZIP, ki vsebuje
+download-request-archive-multiple = Razdeljeno na več datotek ZIP ({ $archiveCount }), ki vsebujejo
+download-request-refresh-button = Osveži
+download-request-modal-title = Povezave za prenos
+download-request-modal-description = Tu so povezave za prenos datotek ZIP.
+download-request-link-text = ZIP št. { $offset } od { $total }
+
 ## Landing
 
 welcome-staff = Dobrodošli sodelavci { $company }!
@@ -874,6 +947,120 @@ demo-account-sign-up = Pošlji povezavo za registracijo
 
 ## Validation criteria
 
+contribution-criteria-nav = Merila
 contribution-for-example = na primer
 contribution-volume-title = Glasnost
 contribution-just-unsure-title = Samo niste prepričani?
+see-more = <chevron></chevron>Prikaži več
+see-less = <chevron></chevron>Prikaži manj
+
+# Don't rename the following section, its contents are auto-inserted based on the name. These strings are
+# automatically exported from Sentence Collector.
+# [SentenceCollector]
+
+
+## HEADER/FOOTER
+
+sc-header-statistics = Statistika
+sc-header-profile = Profil
+sc-footer-discourse = Discourse
+sc-footer-report-bugs = Prijavi napake
+sc-footer-translate = Prevedi stran
+sc-footer-privacy = Zasebnost
+sc-footer-terms = Pogoji
+sc-footer-cookies = Piškotki
+sc-login-signup-button = Prijava / Registracija
+sc-logout-button = Odjava
+
+## HOME
+
+
+## GENERAL
+
+
+## HOW-TO
+
+
+## MY SENTENCES
+
+# Variables:
+#   $batchId (String) - A unique ID identifying the submission of sentences - sentences uploaded together all have the same batch ID
+sc-my-submission = Prispevek: { $batchId }
+# Variables:
+#   $source (String) - Associated source the user filled out when uploading the sentence
+sc-my-source = Vir:  { $source }
+sc-my-delete = Izbriši izbrane stavke
+sc-my-deleting = Brisanje izbranih stavkov …
+
+## REJECTED
+
+sc-rejected-title = Zavrnjeni stavki
+
+## STATS
+
+sc-stats-title = Statistika
+sc-stats-updating = Posodabljanje …
+
+## ADD
+
+sc-submit-err-select-lang = Izberite jezik.
+sc-submit-err-add-source = Prosimo, dodajte vir.
+sc-submit-err-confirm-pd = Prosimo, potrdite, da so ti stavki v javni domeni.
+sc-submit-title = Dodaj stavke
+sc-submit-select-language =
+    .labelText = Izberi jezik
+sc-submit-add-sentences = Dodaj stavke <wikipediaLink>v javni domeni</wikipediaLink>
+sc-submit-ph-one-per-line =
+    .placeholder = En stavek na vrstico
+
+## ADD LANGUAGE
+
+sc-add-lang-sec-button = Dodaj jezik
+sc-add-err-unexpected = Strežnik je vrnil nepričakovan odgovor
+
+## ADD SENTENCES CONFIRMATION
+
+
+## LANGUAGE INFO
+
+
+## LOGIN
+
+sc-login-err-failed = Prijava ni uspela
+sc-login-err-try-again = Poskusite znova.
+
+## PROFILE
+
+# Variables:
+#   $username (String) - eMail address of the logged in user
+sc-profile-title = Profil: { $username }
+sc-personal-err-lang-not-found = Jezika ni bilo mogoče odstraniti: jezika ni bilo mogoče najti
+sc-personal-err-remove = Jezika ni bilo mogoče odstraniti
+sc-personal-your-languages = Vaši jeziki:
+sc-personal-remove-button = odstrani
+
+## REVIEW CRITERIA
+
+
+## REVIEW
+
+sc-review-loading = Nalaganje stavkov …
+# Variables:
+#   $sentenceSource (Number) - Associated source the user filled out when uploading the sentence
+sc-review-form-source = Vir: { $sentenceSource }
+sc-review-form-button-reject = Zavrni
+sc-review-form-button-skip = Preskoči
+sc-review-form-button-approve = Odobri
+
+## SETTINGS
+
+sc-settings-title = Nastavitve
+sc-settings-ui-language = Jezik vmesnika
+sc-settings-show-all-button = Ponovno prikaži vse preskočene stavke
+sc-settings-failed = Nastavitev ni bilo mogoče spremeniti. Poskusite znova.
+sc-validation-no-numbers = Stavek ne sme vsebovati številk
+sc-validation-no-symbols = Stavek ne sme vsebovati simbolov
+sc-validation-no-abbreviations = Stavek ne sme vsebovati krajšav
+
+# [/SentenceCollector]
+

@@ -2,9 +2,10 @@ import { Localized } from '@fluent/react';
 import * as React from 'react';
 import { HTMLProps, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as cx from 'classnames';
+import cx from 'classnames';
 import { LocaleLink } from '../locale-helpers';
 import { CheckIcon } from './icons';
+import VisuallyHidden from '../visually-hidden/visually-hidden';
 
 export const Avatar = ({
   className,
@@ -17,7 +18,7 @@ export const Avatar = ({
 }) => (
   <div className={`avatar-wrap ${className ? className : ''}`} style={style}>
     {url ? (
-      <img src={url} />
+      <img src={url} alt="" role="presentation" />
     ) : (
       <img
         className="mars-avatar"
@@ -28,23 +29,24 @@ export const Avatar = ({
   </div>
 );
 
-export const Button = ({
-  className = '',
-  outline = false,
-  rounded = false,
-  ...props
-}) => (
-  <button
-    type="button"
-    className={[
-      'button',
-      outline ? 'outline' : '',
-      rounded ? 'rounded' : '',
-      className,
-    ].join(' ')}
-    {...props}
-  />
-);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Button = (allProps: any) => {
+  const {
+    className = '',
+    outline = false,
+    rounded = false,
+    isBig = false,
+    ...props
+  } = allProps;
+
+  return (
+    <button
+      type="button"
+      className={cx('button', { outline, rounded, isBig }, className)}
+      {...props}
+    />
+  );
+};
 
 export const CardAction = ({ className, ...props }: any) =>
   props.to ? (
@@ -66,45 +68,79 @@ export const Checkbox = React.forwardRef(
     </span>
   )
 );
+Checkbox.displayName = 'Checkbox';
 
-export const LabeledCheckbox = React.forwardRef(
-  ({ label, style, ...props }: any, ref) => (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const LabeledCheckbox = React.forwardRef((allProps: any, ref) => {
+  const { label, required, style, ...props } = allProps;
+
+  return (
     <label className="labeled-checkbox" style={style}>
-      <Checkbox ref={ref} {...props} />
-      <span className="label">{label}</span>
+      <Checkbox
+        ref={ref}
+        aria-required={required}
+        required={required}
+        {...props}
+      />
+      <span className="label">
+        {required && <span aria-hidden="true">* </span>}
+        {label}
+      </span>
     </label>
-  )
-);
+  );
+});
+LabeledCheckbox.displayName = 'LabeledCheckbox';
 
-const LabeledFormControl = React.forwardRef(
-  (
-    { className = '', component: Component, label, required, ...props }: any,
-    ref
-  ) => {
-    const child = <Component {...{ ref, required, ...props }} />;
-    return (
-      <label
-        className={[
-          'labeled-form-control',
-          'for-' + Component,
-          className,
-          props.disabled ? 'disabled' : '',
-        ].join(' ')}
-        {...props}>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const LabeledFormControl = React.forwardRef((allProps: any, ref) => {
+  const {
+    className = '',
+    component: Component,
+    label,
+    required,
+    disabled,
+    isLabelVisuallyHidden,
+    ...props
+  } = allProps;
+
+  const child = (
+    <Component
+      ref={ref}
+      aria-required={required}
+      required={required}
+      disabled={disabled}
+      {...props}
+    />
+  );
+
+  const labelClassName = cx(
+    'labeled-form-control',
+    'for-' + Component,
+    className,
+    { disabled }
+  );
+
+  return (
+    <label className={labelClassName} {...props}>
+      {isLabelVisuallyHidden ? (
+        <VisuallyHidden>{label}</VisuallyHidden>
+      ) : (
         <span className="label">
-          {required && '*'}
+          {required && <span aria-hidden="true">* </span>}
           {label}
         </span>
-        {Component == 'select' ? (
-          <div className="wrapper with-down-arrow">{child}</div>
-        ) : (
-          child
-        )}
-      </label>
-    );
-  }
-);
+      )}
+      {Component == 'select' ? (
+        <div className="wrapper with-down-arrow">{child}</div>
+      ) : (
+        child
+      )}
+    </label>
+  );
+});
+LabeledFormControl.displayName = 'LabeledFormControl';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const LabeledInput = React.forwardRef(({ type, ...props }: any, ref) => (
   <LabeledFormControl
     component="input"
@@ -114,6 +150,7 @@ export const LabeledInput = React.forwardRef(({ type, ...props }: any, ref) => (
     {...props}
   />
 ));
+LabeledInput.displayName = 'LabeledInput';
 
 export const LabeledSelect = (props: any) => (
   <LabeledFormControl component="select" {...props} />
@@ -141,7 +178,16 @@ export const LinkButton = ({
   );
 };
 
-export const Spinner = ({ delayMs }: { delayMs?: number }) => {
+interface SpinnerProps {
+  delayMs?: number;
+  isLight?: boolean;
+  isFloating?: boolean;
+}
+export const Spinner = ({
+  delayMs,
+  isLight,
+  isFloating = true,
+}: SpinnerProps) => {
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
@@ -149,11 +195,24 @@ export const Spinner = ({ delayMs }: { delayMs?: number }) => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  return showSpinner ? (
-    <div className="spinner">
-      <span />
+  if (!showSpinner) {
+    return null;
+  }
+
+  const spinnerClassName = cx('spinner', {
+    'spinner--light': isLight,
+    'spinner--floating': isFloating,
+  });
+
+  return (
+    <div className={spinnerClassName}>
+      <VisuallyHidden>
+        {/* Issues with localizing here when used on app load, package changes throw error */}
+        <p> Loading... </p>
+      </VisuallyHidden>
+      <span className="spinner__shape" />
     </div>
-  ) : null;
+  );
 };
 Spinner.defaultProps = { delayMs: 300 };
 

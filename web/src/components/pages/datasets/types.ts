@@ -1,23 +1,48 @@
-import { UserClient } from 'common';
-import API from '../../../services/api';
-import { Notifications } from '../../../stores/notifications';
-import StateTree from '../../../stores/tree';
-import { WithLocalizationProps } from '@fluent/react';
-
-//Datasets-info interfaces
-export interface DatasetPropsFromState {
-  api: API;
+interface LocaleReleaseData {
+  checksum?: string;
+  clips: number;
+  splits: {
+    accent: {
+      [key: string]: number;
+    };
+    age: {
+      [key: string]: number;
+    };
+    gender: {
+      [key: string]: number;
+    };
+  };
+  users: number;
+  duration: number;
+  buckets: {
+    dev: number;
+    invalidated: number;
+    other: number;
+    test: number;
+    train: number;
+    validated: number;
+  };
+  size: number;
+  avgDurationSecs: number;
+  validDurationSecs: number;
+  totalHrs: number;
+  validHrs: number;
 }
 
-export interface CorpusProps extends DatasetPropsFromState {
-  getString: WithLocalizationProps['getString'];
-  releaseName: string;
-}
-
-export interface DownloadFormProps extends DatasetPropsFromState {
-  release: string;
-  urlPattern: string;
-  bundleState: BundleState;
+export interface ReleaseData {
+  bundleURLTemplate?: string;
+  bundleUrl?: string;
+  date: string;
+  name: string;
+  multilingual: boolean;
+  locales: {
+    [key: string]: LocaleReleaseData;
+  };
+  totalDuration: number;
+  totalValidDurationSecs: number;
+  totalHrs: number;
+  totalValidHrs: number;
+  totalClips: number;
 }
 
 export interface BundleState {
@@ -28,32 +53,5 @@ export interface BundleState {
   totalHours: number;
   validHours: number;
   rawSize: number;
-  datasetVersion?: string;
+  releaseId?: string;
 }
-
-//Subscribe form interfaces
-export interface SubscribePropsFromState {
-  account: UserClient;
-  api: API;
-}
-
-export interface SubscribePropsFromDispatch {
-  addNotification: typeof Notifications.actions.addPill;
-}
-
-export interface SubscribeProps
-  extends SubscribePropsFromState,
-    SubscribePropsFromDispatch {
-  demoMode?: boolean;
-}
-
-export function SubscribeMapStateToProps({ api, user }: StateTree) {
-  return {
-    account: user.account,
-    api,
-  };
-}
-
-export const SubscribeMapDispatchToProps = {
-  addNotification: Notifications.actions.addPill,
-};

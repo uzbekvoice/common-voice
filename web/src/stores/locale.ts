@@ -1,7 +1,5 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 import { Dispatch } from 'redux';
-const contributableLocales = require('../../../locales/contributable.json') as string[];
-import { Clips } from './clips';
-import { Sentences } from './sentences';
 import StateTree from './tree';
 
 export namespace Locale {
@@ -19,20 +17,16 @@ export namespace Locale {
   export type Action = SetAction;
 
   export const actions = {
-    set: (locale: string) => (
-      dispatch: Dispatch<SetAction | any>,
-      getState: () => StateTree
-    ) => {
-      if (getState().locale === locale) return;
-      dispatch({
-        type: ActionType.SET,
-        locale,
-      });
-      if (contributableLocales.includes(locale)) {
-        dispatch(Sentences.actions.refill());
-        dispatch(Clips.actions.refillCache());
-      }
-    },
+    set:
+      (locale: string) =>
+      (dispatch: Dispatch<SetAction>, getState: () => StateTree) => {
+        if (getState().locale === locale) return;
+
+        dispatch({
+          type: ActionType.SET,
+          locale,
+        });
+      },
   };
 
   export function reducer(state: State = null, action: Action): State {

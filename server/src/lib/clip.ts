@@ -10,7 +10,6 @@ import { earnBonus, hasEarnedBonus } from './model/achievements';
 import * as Basket from './basket';
 import * as Sentry from '@sentry/node';
 import Bucket from './bucket';
-import { ClientParameterError, ServerError } from './utility';
 import Awards from './model/awards';
 import { checkGoalsAfterContribution } from './model/goals';
 import { ChallengeToken, challengeTokens } from 'common';
@@ -64,7 +63,6 @@ export default class Clip {
     router.post('/:clipId/votes', this.saveClipVote);
     router.post('*', this.saveClip);
 
-    router.get('/validated_hours', this.serveValidatedHoursCount);
     router.get('/daily_count', this.serveDailyCount);
     router.get('/stats', this.serveClipsStats);
     router.get('/leaderboard', this.serveClipLeaderboard);
@@ -133,7 +131,7 @@ export default class Clip {
         headers,
         response,
         422,
-        `clip not found: ${id}`,
+        `clip not found`,
         ERRORS.CLIP_NOT_FOUND,
         'vote'
       );
@@ -202,7 +200,7 @@ export default class Clip {
         headers,
         response,
         422,
-        `sentence not found: ${sentenceId}`,
+        `sentence not found`,
         ERRORS.SENTENCE_NOT_FOUND,
         'clip'
       );
@@ -257,7 +255,7 @@ export default class Clip {
             headers,
             response,
             500,
-            `${error} for ${metadata}`,
+            `${error}`,
             `ffmpeg ${error}`,
             'clip'
           );
@@ -285,10 +283,10 @@ export default class Clip {
           const ret = challengeTokens.includes(challenge)
             ? {
                 filePrefix: filePrefix,
-                showFirstContributionToast: await earnBonus('first_contribution', [
-                  challenge,
-                  client_id,
-                ]),
+                showFirstContributionToast: await earnBonus(
+                  'first_contribution',
+                  [challenge, client_id]
+                ),
                 hasEarnedSessionToast: await hasEarnedBonus(
                   'invite_contribute_same_session',
                   client_id,
@@ -301,7 +299,9 @@ export default class Clip {
                   client_id,
                   challenge,
                 ]),
-                challengeEnded: await this.model.db.hasChallengeEnded(challenge),
+                challengeEnded: await this.model.db.hasChallengeEnded(
+                  challenge
+                ),
               }
             : { filePrefix };
           response.json(ret);
@@ -319,19 +319,17 @@ export default class Clip {
   };
 
   serveRandomClips = async (
-    { client_id, params, query }: Request,
+    request: Request,
     response: Response
   ): Promise<void> => {
+    const { client_id, params } = request;
+    const count = this.getCountFromQuery(request) || 1;
     const clips = await this.bucket.getRandomClips(
       client_id,
       params.locale,
-      parseInt(query.count, 10) || 1
+      count
     );
     response.json(clips);
-  };
-
-  serveValidatedHoursCount = async (request: Request, response: Response) => {
-    response.json(await this.model.getValidatedHours());
   };
 
   serveDailyCount = async (request: Request, response: Response) => {
@@ -354,33 +352,56 @@ export default class Clip {
     response.json(await this.model.getVoicesStats(params.locale));
   };
 
-  serveClipLeaderboard = async (
-    { client_id, params, query }: Request,
-    response: Response
-  ) => {
-    response.json(
-      await getLeaderboard({
-        dashboard: 'stats',
-        type: 'clip',
-        client_id,
-        cursor: query.cursor ? JSON.parse(query.cursor) : null,
-        locale: params.locale,
-      })
-    );
+  serveClipLeaderboard = async (request: Request, response: Response) => {
+    const { client_id, params } = request;
+    const cursor = this.getCursorFromQuery(request);
+    const leaderboard = await getLeaderboard({
+      dashboard: 'stats',
+      type: 'clip',
+      client_id,
+      cursor,
+      locale: params.locale,
+    });
+    response.json(leaderboard);
   };
 
-  serveVoteLeaderboard = async (
-    { client_id, params, query }: Request,
-    response: Response
-  ) => {
-    response.json(
-      await getLeaderboard({
-        dashboard: 'stats',
-        type: 'vote',
-        client_id,
-        cursor: query.cursor ? JSON.parse(query.cursor) : null,
-        locale: params.locale,
-      })
-    );
+  serveVoteLeaderboard = async (request: Request, response: Response) => {
+    const { client_id, params } = request;
+    const cursor = this.getCursorFromQuery(request);
+    const leaderboard = await getLeaderboard({
+      dashboard: 'stats',
+      type: 'vote',
+      client_id,
+      cursor,
+      locale: params.locale,
+    });
+    response.json(leaderboard);
   };
+
+  private getCursorFromQuery(request: Request) {
+    const { cursor } = request.query;
+
+    if (!cursor || typeof cursor !== 'string') {
+      return null;
+    }
+
+    return JSON.parse(cursor);
+  }
+
+  private getCountFromQuery(request: Request) {
+    const { count } = request.query;
+
+    if (!count || typeof count !== 'string') {
+      return null;
+    }
+
+    const number = parseInt(count, 10);
+
+    // if invalid number return nothing
+    if (Number.isNaN(number)) {
+      return null;
+    }
+
+    return number;
+  }
 }
