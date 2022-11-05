@@ -24,7 +24,7 @@ async function getClipLeaderboard(locale?: string): Promise<any[]> {
             username,
             clips_count,
             total
-     FROM new_scores
+     FROM voice_scores
      ORDER BY total DESC`,
     {}
   );
